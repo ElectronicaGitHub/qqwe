@@ -10,7 +10,7 @@ passport.deserializeUser(function(obj, done) { done(null, obj ); } );
 passport.use(new FacebookStrategy({
     clientID     : FACEBOOK_APP_ID,
     clientSecret : FACEBOOK_APP_SECRET,
-    callbackURL  : "http://localhost:3000/auth/facebook/callback"
+    callbackURL  : "http://castmag.ru/auth/facebook/callback"
 	},
   	function(accessToken, refreshToken, profile, done) {
     	process.nextTick(function () {

@@ -10,20 +10,16 @@ var schema = new Schema({
 	},
 	_id: {
 		type: String,
-		// required: true,
 		unique: true
 	},
 	content: {
 		type: String, 
-		// required: true
 	},
 	autor_name: {
 		type: String, 
-		// required: true
 	}, 
 	autor_surname: {
 		type: String, 
-		// required: true
 	},
 	post_date: {
 		type: Date,
