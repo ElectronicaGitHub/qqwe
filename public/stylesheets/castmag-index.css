@@ -116,6 +116,7 @@
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	color: #000;
+	text-shadow: 0 1px 0 rgba(255,255,255,.3);
 }
 .new-min-about-slider {
 	position: absolute;
@@ -209,14 +210,14 @@ img {
 	color: #fff;
 
 }
-.news       { background-color: #17D95A;  }
+.news       { background-color: #2ecc71;  }
 .events     { background-color: #FFF473;  }
 .art        { background-color: #FFA857;  }
-.art-cinema { background-color: #EA5EF6;  }
+.art-cinema { background-color: #f39c12;  }
 .art-music  { background-color: #2851FF;  }
 .art-design { background-color: #84D8FF;  }
-.fashion    { background-color: #E81E14;  }
-.features   { background-color: #A200F6;  }
-.howto      { background-color: #69D3FF;  }
+.fashion    { background-color: #c0392b;  }
+.features   { background-color: #9b59b6;  }
+.howto      { background-color: #3498db;  }
 .craft      { background-color: #F6475E;  }
-.other      { background-color: #10F05D;  }
+.other      { background-color: #16a085;  }

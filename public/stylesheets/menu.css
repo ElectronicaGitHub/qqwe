@@ -39,30 +39,18 @@ li a {
 	text-decoration: none;
 	-webkit-transition: all 0.2s ease;
 }
-/*li:nth-of-type(1):hover        { background-color: #7AE86F ; -webkit-transition: all 0.3s ease; }
-li:nth-of-type(2):hover          { background-color: #8F4DFA ; -webkit-transition: all 0.3s ease; }
-li:nth-of-type(3):hover          { background-color: #E8BC44 ; -webkit-transition: all 0.3s ease; }
-li:nth-of-type(4):hover          { background-color: #E8582E ; -webkit-transition: all 0.3s ease; }
-li:nth-of-type(5):hover          { background-color: #4188E3 ; -webkit-transition: all 0.3s ease; }
-li:nth-of-type(6):hover          { background-color: #E391D9 ; -webkit-transition: all 0.3s ease; }
-li:nth-of-type(7):hover          { background-color: #C46A37 ; -webkit-transition: all 0.3s ease; }
-
-ul li ul li:nth-of-type(1):hover { background-color: #FFA857 ; -webkit-transition: all 0.3s ease; }
-ul li ul li:nth-of-type(2):hover { background-color: #FFF1B2 ; -webkit-transition: all 0.3s ease; }
-ul li ul li:nth-of-type(3):hover { background-color: #B7E8A4 ; -webkit-transition: all 0.3s ease; }*/
-
-.q:hover { background-color: #17D95A; -webkit-transition: all 0.3s ease; }
+.q:hover { background-color: #2ecc71; -webkit-transition: all 0.3s ease; }
 .w:hover { background-color: #FFF473; -webkit-transition: all 0.3s ease; }
 .e:hover { background-color: #FFA857; -webkit-transition: all 0.3s ease; }
-.r:hover { background-color: #EA5EF6; -webkit-transition: all 0.3s ease; }
+.r:hover { background-color: #f39c12; -webkit-transition: all 0.3s ease; }
 .t:hover { background-color: #2851FF; -webkit-transition: all 0.3s ease; }
 .y:hover { background-color: #84D8FF; -webkit-transition: all 0.3s ease; }
-.u:hover { background-color: #E81E14; -webkit-transition: all 0.3s ease; }
-.i:hover { background-color: #A200F6; -webkit-transition: all 0.3s ease; }
-.o:hover { background-color: #69D3FF; -webkit-transition: all 0.3s ease; }
+.u:hover { background-color: #c0392b; -webkit-transition: all 0.3s ease; }
+.i:hover { background-color: #9b59b6; -webkit-transition: all 0.3s ease; }
+.o:hover { background-color: #3498db; -webkit-transition: all 0.3s ease; }
 .p:hover { background-color: #F6475E; -webkit-transition: all 0.3s ease; }
-.a:hover { background-color: #10F05D; -webkit-transition: all 0.3s ease; }
-
+.a:hover { background-color: #16a085; -webkit-transition: all 0.3s ease; }
+.m:hover { background-color: #bdc3c7; -webkit-transition: all 0.3s ease; }
 
 .li-outer {
 	background-color: transparent;
@@ -72,7 +60,6 @@ ul li ul li:nth-of-type(3):hover { background-color: #B7E8A4 ; -webkit-transitio
 }
 .li-inner {
 	display: none;
-	/*background-color: #E8DE71;*/
 	background-color: #000;
 	font-size: 30px;
 	width: 275px;
