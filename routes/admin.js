@@ -7,7 +7,7 @@ var uuidString = function() {
 };
 
 exports.get = function (req,res,err) {
-	if (passi == undefined && breedi == undefined) {
+	// if (passi == undefined && breedi == undefined) {
 		if (req.user == undefined) {
 			res.end('You got no permission');
 		} else {
@@ -18,7 +18,7 @@ exports.get = function (req,res,err) {
 				});
 			} else res.end('You got no permission');
 		}	
-	} 
+	// } 
 };
 
 exports.post = function (req, res, next) {
