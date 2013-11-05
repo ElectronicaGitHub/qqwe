@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+	<p><%- hello%></p>
+	<form class="f" name="reg">
+		Password:   <input class="password" name='password'>
+		Breed:  <input class="breedword" name='breedword'>
+		<hr>
+		<button class="button" name="go">Я хочу добавлять новости</button>
+	</form>
+
+
+	<script>
+		$(document.forms['reg']).on('submit', function (e) {
+			var form = $(this);
+			e.preventDefault();
+			console.log( $( this ).serialize() );
+			$.ajax({
+				url: '/logged', 
+				method: 'POST',
+				data: form.serialize(),
+				complete: function() {
+				},
+				statusCode: {
+					200 : function() {
+						form.html("Доступ получен").css('font-size','40px').css('font-family', 'Open Sans Condensed').css('font-weight', 'bold');
+						// window.location.href = '/admined';
+					},
+					201 : function() {
+						form.html("Введённые данные не верны").css('font-size','40px').css('font-family', 'Open Sans Condensed').css('font-weight', 'bold');
+						// window.location.href = '/admined';
+					},
+					403 : function() {
+						var error = JSON.parse(jqXHR.responseText);
+						$('.error',form).html(error.message);
+					}
+				}
+			});
+			return false;
+		});
+	</script>
+
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+* {
+	-webkit-transition: opacity 0.6s ease;
+}
+.reg-wrapper {
+	display: inline-block;
+	float: right;
+	width: 275px;
+	height: 100%;
+	font-size: 30px;
+	line-height: 100%;
+}
+.signin {
+	width: 100%;
+	height: 75px;
+	background-color: #3675FF;
+	text-align: center;
+	line-height: 75px;
+	position: relative;
+	cursor: pointer;
+}
+.signin:hover {
+	background-color: #3929FF;
+}
+.form {
+	position: absolute;
+	width: 100%;
+	height: 160px;
+	z-index: 0;
+	top: 75px;
+	background-color: rgba(0,0,0,.6);
+	opacity: 0;
+}
+.signin:hover .form {
+	top: 75px;
+	display: block;
+	opacity: 1;
+	z-index: 100;
+}
+.enterer {
+	width: 100%;
+	height: calc(160px/3);
+	font-size: 22px;
+	line-height: calc(160px/3);
+	text-shadow: 0 2px 0 rgba(0,0,0,.5);
+}
+.wrapperic {
+	width: 20%;
+	height: 100%;
+	display: inline-block;
+	float: left;
+}
+i {
+	font-size: 30px;
+	padding-left: 15px;
+}
+.enterer:hover {
+	background-color: #3675FF;
+}
+.input-text  {
+	width: 80%;
+	height: 100%;
+	display: inline-block;
+	float: left;
+	text-align: left;
+	padding-left: 5px;
+	box-sizing: border-box;
+	letter-spacing: 0;
+}

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CASTMAG || </title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/castmag-index.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/reg.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css">	
+	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome-4.0.2/css/font-awesome.min.css">
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
+	<script type="text/javascript" src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<script src="/javascripts/jeezus.js"></script>
+	<script type="text/javascript" src="//vk.com/js/api/openapi.js?101"></script>
+
+</head>
+<body>
+	
+	<div class='header'><p>CASTMAG.</p> 
+
+			<% if (!user) { %>
+				
+				<p style="font-size: 30px;">Вы не авторизованы </p>
+				<div class="reg-wrapper">
+					<div class="signin">Войти 
+						<div class="form">
+							<div class="enterer" action="registration_proceed"><div class="wrapperic"><i class="fa fa-vk"></i></div>
+							<div class="input-text">через Вконтакте</div></div>
+							<a href="/auth/facebook" style="color:#fff;"><div class="enterer" action="registration_proceed"><div class="wrapperic"><i class="fa fa-facebook"></i></div>
+							<div class="input-text">через facebook</div></div></a>
+							<div class="enterer" action="registration_proceed"><div class="wrapperic"><i class="fa fa-twitter"></i></div>
+							<div class="input-text">через twitter</div></div>
+						</div>
+					</div>
+				</div>
+
+			<% } else { %>
+
+				<p style="font-size: 30px;">Привет, <%= user.name.givenName %></p>
+				<div class="reg-wrapper">
+					<a href="/logout" style = "color: #fff; text-decoration: none"><div class="signin">Выйти</div></a>
+				</div>
+
+			<% } %>	
+		
+	</div>
+
+	<div class='slider-all'>
+			<% for (var i=0; i<newstop.length; i++) { %>
+					<a href="/news/<%-newstop[i]._id%>">
+						<div class="slider-element" style ="background-size:100%; background-image: url('<%-newstop[i].url_in_top%>')"><p> <%-newstop[i].text_in_top%></p>
+						</div>
+					</a>
+			<% } %>
+	</div>
+	
+
+	<div class="all">
+		<div class="content">
+
+			<% for (var i=0; i<news.length; i++) { %>
+
+				<a href="/news/<%-news[i]._id%>">
+					<div class="new-min">
+						<div class="new-min-content">
+							<p class="new-min-content-header <%-news[i].type%>"><%-news[i].title_in %></p>
+							<div class="img-wrapper">
+								<img src="<%-news[i].url_in_list%>" style="width:100%;">
+								<div class="inliner">
+									<p><%-news[i].text_in_list%></p>
+								</div>
+								<p class="views">Заинтересовавшихся: <%-news[i].quantity%></p>
+							</div>
+						</div>
+					</div>
+				</a>
+				
+			<% } %>
+
+		</div>	
+
+		<div class="sidebar">
+			<ul>
+				<% if (mark) { %>
+				<li class="m"><a href="/">ГЛАВНАЯ</a></li>
+				<%} %>
+				<li class="q"><a href="/news">МИР</a></li>
+				<li class="li-outer e" id="opener">ИСКУССТВО
+					<ul>
+						<a href="/art-cinema"><li class="li-inner r">КИНО</li></a>
+						<a href="/art-music"><li class="li-inner t">МУЗЫКА</li></a>
+						<a href="/art-design"><li class="li-inner u">МОДА</li></a>
+					</ul>
+				</li>
+				<li class="i" ><a href="/features">ФИЧЕРСЫ</a></li>
+				<li class="o" ><a href="/howto">ХАУ ТУ</a></li>
+				<li class="p" ><a href="/craft">РЕМЕСЛО</a></li>
+				<li class="a" ><a href="/other">ИНОЕ</a></li>
+
+			</ul>
+
+		</div>
+	</div>
+
+	<footer class="footer">
+		<div class="third">
+			<div class="text info">Контакты</div>
+			<div class="paddinger"></div>
+			<div class="text info">О проекте</div>
+			<div class="paddinger"></div>
+			<div class="text info">Реклама</div>
+		</div>
+
+		<div class="third">
+			<div class="text" onclick="fcbk()">facebook</div>
+			<div class="paddinger"></div>
+			<div class="text" onclick="twtr()">twitter</div>
+			<div class="paddinger"></div>
+			<div class="text" onclick="vk()">Вконтакте</div>
+			<div class="paddinger"></div>
+			<div class="text" onclick="nstgr()">instagram</div>
+			<div class="paddinger"></div>
+			<div class="text" onclick="youtb()">youtube</div>
+		</div>
+
+		<div class="third">
+			<div class="text long">CASTMAG.</div>
+			
+		</div>
+	</footer>
+
+</body>
+</html>

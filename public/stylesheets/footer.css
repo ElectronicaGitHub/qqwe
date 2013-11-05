@@ -1,0 +1,44 @@
+.footer {
+	width: 1100px;
+	height: 90px;
+	background-color: #050505;
+	margin: 0px auto;
+	font-family: 'Open Sans Condensed', sans-serif;
+	/*font-weight: bold;*/
+	
+}
+.third {
+	height: 30px;
+	text-align: center;
+	box-sizing: border-box;
+}
+.text {
+	display: inline-block;
+	color: #fff;
+	line-height: 30px;
+	text-align: center;
+	width: 70px;
+	font-size: 16px;
+	letter-spacing: 0ex;
+	cursor: pointer;
+}
+.paddinger {
+	margin: 0px 10px;
+	display: inline-block;
+}
+.info {
+	/*font-weight: bold;*/
+	font-size: 20px;
+}
+.long {
+	width: 120px;
+	letter-spacing: -0.05ex;
+}
+.text:hover {
+	background-color: #3675FF;
+	/*-webkit-transform: scale(1.1,1.1);*/
+	-webkit-transform: rotate(10deg);
+}
+.long:hover{
+
+}

@@ -1,0 +1,161 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/admin.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/reg.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+
+
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="/javascripts/admin-js.js"></script>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	// <script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+	<!-- // <script type="text/javascript" src="/javascripts/tinymce/js/tinymce/tinymce.js"></script> -->
+
+	<script type="text/javascript"> 
+		tinymce.init({
+	    selector: "textarea",
+	    theme: "modern",
+	    width: "742px",
+	    plugins: [
+	        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+	        "searchreplace wordcount visualblocks visualchars code fullscreen",
+	        "insertdatetime media nonbreaking save table contextmenu directionality",
+	        "emoticons template paste textcolor"
+	    ],
+	    toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+	    toolbar2: "print preview media | forecolor backcolor emoticons",
+	    image_advtab: true,
+	    templates: [
+	        {title: 'Test template 1', content: 'Test 1'},
+	        {title: 'Test template 2', content: 'Test 2'}
+	    ]
+	});</script>   
+	<title> admin / add new</title>
+</head>
+<body> 
+	<div class='header'><p>CASTMAG.</p>
+	</div>
+	<form ng-app name="new_change" method='post' action='admin'>
+		<p class='hello'>Привет #####. Создай пост</p>
+		<hr>
+		<p>Заголовок</p>
+		<input type='text' class="title_in" ng-model="new_title"  name='title_in' id='title_in'>
+		<div id='title_div' style="display: none"><%-news.title_in%></div>
+		<p>Раздел</p>
+			<select id="type_in" class="type_in {{type_in}}" name="type" ng-model="type_in">
+				<option value="news">МИР</option>
+				<!-- <option value="events">СОБЫТИЯ</option> -->
+				<option value="art-cinema">КИНО ( Искусство )</option>
+				<option value="art-music">МУЗЫКА ( Искусство )</option>
+				<!-- <option value="art-design">ДИЗАЙН ( Искусство )</option> -->
+				<option value="fashion">МОДА ( Искусство )</option>
+				<option value="features">ФИЧЕРСЫ</option>
+				<option value="howto">ХАУ ТУ</option>
+				<option value="craft">РЕМЕСЛО</option>
+				<option value="other">ИНОЕ</option>
+			</select>
+			<div id='type_div' style="display: none"><%-news.type%></div>
+			<div id='idk' style="display : none" ></div>
+		<p>Текст статьи</p>
+		<textarea class="text_in" name='content' id='text_in' style="width:742px"><%-news.content%></textarea>
+		<!-- <div class="ok"> <p>НЕ ЗАБУДЬ НАЖАТЬ!!!</p></div> -->
+		<hr>
+		
+		<div class="sider">
+			<p class='btwn'> ГЛАВНАЯ ЛЕНТА</p>
+			<p>URL картинки</p>
+			<input class="url_in_list" ng-model="url_in_list" name='url_in_list' id='url_in_list'>
+			<div id='url_in_list_div' style="display: none"><%-news.url_in_list%></div>
+			<p>Надпись на картинке (12 - 15 слов)</p>
+			<input class="url_text_in" ng-model="url_text_in_list" name='text_in_list' id='text_in_list'>
+			<div id='text_in_list_div' style="display: none"><%-news.text_in_list%></div>
+		</div>
+		<div class="sider">
+
+			<div class="new-min">
+				<div class="new-min-content">
+					<p class="new-min-content-header {{type_in}}">{{new_title}}</p>
+						<div class="img-wrapper"><img src="{{url_in_list}}" style="width:100%;">
+							<div class="inliner"><p>{{url_text_in_list}}</p>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+
+		<div class="sider">
+			<p class='btwn'> ВЕРХНЯЯ НОВОСТЬ</p>
+			<p>URL картинки ( формат 1.7 : 1)</p>
+			<input class="url_in" ng-model="url_in_top" name='url_in_top' id='url_in_top'>
+			<div id='url_in_top_div' style="display: none"><%-news.url_in_top%></div>
+			<p>Надпись на картинке (2 - 4 слова)</p>
+			<input class="url_text_in" type='text' ng-model="url_text_in_top" name='text_in_top' id='text_in_top'>
+			<div id='text_in_top_div' style="display: none"><%-news.text_in_top%></div>
+		</div>
+		<div class="sider">
+			<div class='slider-all'>
+				<div class="slider-element" style ="background-size:100%; background-image: url('{{url_in_top}}')"><p>{{url_text_in_top}}</p></div>
+			</div>
+		</div>
+		<hr>
+
+		<p class="top_random_text"><input type='checkbox' id="top_random" name='top_random' ng-model="top_random_text"> Новость будет участвовать в рандоме на Верхнюю новость.</p>
+		<div>{{top_random_text}}</div>
+		<hr>
+		<p class='btwn'> Имя и Фамилия автора</p>
+		<input name="name" class="name_in" placeholder="Имя"></input> <input name="surname" class="surname_in" placeholder="Фамилия"></input>
+		<hr>
+
+		<button  class="poster" id="poster" data-loading-text="Добавляю...">Изменить</button>
+	</form>
+
+	<script>
+		$(document).ready(function() {
+			var d = $('#title_div').text(); $('.title_in').val(d);
+			var a = $('#type_div').text(); $('.type_in').val(a);
+			var t = $('#url_in_list_div').text(); $('#url_in_list').val(t);
+			var s = $('#text_in_list_div').text(); $('#text_in_list').val(s);
+			var z = $('#url_in_top_div').text(); $('#url_in_top').val(z);
+			var r = $('#text_in_top_div').text(); $('#text_in_top').val(r);
+			var b = $('.text_in').text(); text_in_ifr.document.body.innerHTML(b);
+		});
+
+
+		$(document.forms['new_change']).on('submit', function () {
+			var form = $(this);
+
+			$('.error', form).html('');
+			$(':submit', form).html('Добавляю...');
+			$('#text_in').html( tinymce.get('text_in').getContent() );
+			console.log("ajax");
+			$.ajax({
+				url: '/changed/<%-news._id%>', // this.attr('href') для делете запроса...
+				method: 'POST',
+				data: form.serialize(),
+				complete: function() {
+					// $(':submit', form).html('reset');
+				},
+				statusCode: {
+					200 : function() {
+						form.html("Новость изменена").css('font-size','40px').css('font-family', 'Open Sans Condensed').css('font-weight', 'bold');
+						window.location.href = '/allnews';
+					},
+					201 : function() {
+						$(':submit', form).html('Не все поля заполнены').css('width','300px').css('background-color','#FF352B').css('border-radius','5px').css('outline','none').css('border','2px solid #000');
+					},
+					403 : function() {
+						var error = JSON.parse(jqXHR.responseText);
+						$('.error',form).html(error.message);
+					}
+				}
+			});
+			return false;
+		});
+	</script>
+
+</body>
+</html>
