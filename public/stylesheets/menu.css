@@ -15,12 +15,12 @@ h1 {
 	text-align: center;
 	margin-top: 20px;
 }
-ul {
+.sidebar ul {
 	list-style:none;
 	text-align: center;
 	background-color: #050505
 }
-li {
+.sidebar li {
 	cursor: pointer;
 	font-size: 50px;
 	-webkit-transition: all 0.2s ease;
@@ -30,11 +30,11 @@ li {
 	/*height: 60px;*/
 	line-height: 60px;
 }
-li:hover {
+.sidebar li:hover {
 	background-color: #fff;
 	-webkit-transition: all 0.2s ease;
 }
-li a {
+.sidebar li a {
 	color: #fff;
 	text-decoration: none;
 	-webkit-transition: all 0.2s ease;
