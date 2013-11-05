@@ -11,14 +11,13 @@ exports.get = function (req,res,err) {
 			res.end('You got no permission');
 		} else {
 			if (req.user.id == 1584815370 && req.user.username == 'philip.antonov') {
-				var hello = "Привет " + req.user.name.givenName + ", подтверди что это действительно ты";
 				res.render('admin', {
 					name: req.user._json.name
 				});
 			} else res.end('You got no permission');
 		}	
 };
-
+// ADD
 exports.post = function (req, res, next) {
 	if (req.user == undefined) {
 		res.end('You got no permission'); 
@@ -86,7 +85,7 @@ exports.post = function (req, res, next) {
 		}; 
 	} else res.end('You got no permission');
 };
-
+// CHANGE
 exports.change = function (req, res, next) {
 	if (req.user == undefined) {
 		res.end('You got no permission'); 
@@ -156,7 +155,9 @@ exports.change = function (req, res, next) {
 												'text_in_list' : news.text_in_list,
 												'url_in_top'   : news.url_in_top,
 												'text_in_top'  : news.text_in_top,
-												'post_date'    : newschange[0].post_date
+												'post_date'    : newschange[0].post_date,
+												'quantity'     : 0;
+
 				} , function (err) {
 					console.log(err);
 					console.log('Новость изменена');
