@@ -7,7 +7,6 @@ var uuidString = function() {
 };
 
 exports.get = function (req,res,err) {
-	// if (passi == undefined && breedi == undefined) {
 		if (req.user == undefined) {
 			res.end('You got no permission');
 		} else {
@@ -18,7 +17,6 @@ exports.get = function (req,res,err) {
 				});
 			} else res.end('You got no permission');
 		}	
-	// } 
 };
 
 exports.post = function (req, res, next) {
@@ -86,7 +84,7 @@ exports.post = function (req, res, next) {
 			console.log(res.statusCode);
 			res.end('');
 		}; 
-	} 
+	} else res.end('You got no permission');
 };
 
 exports.change = function (req, res, next) {
@@ -173,5 +171,5 @@ exports.change = function (req, res, next) {
 			console.log(res.statusCode);
 			res.end('');
 		};
-	}
+	} else res.end('You got no permission');
 }

@@ -86,7 +86,7 @@ module.exports = function (app) {
 				res.render("allnews", {
 					news : news
 				});
-			}
+			} else res.end('You got no permission'); 
 		})
 	});
 	/////////////////////////////////////////
@@ -110,7 +110,7 @@ module.exports = function (app) {
 					res.statusCode = 404;
 					res.end(':c');
 				}
-			}
+			} else res.end('You got no permission'); 
 		});
 	});
 	/////////////////////////////////////////
@@ -128,7 +128,7 @@ module.exports = function (app) {
 				res.render('changer', {
 					news: n[0]
 				});
-			}
+			} else res.end('You got no permission'); 
 		});
 	});
 	/////////////////////////////////////////
