@@ -1,31 +1,18 @@
 var mongoose = require('../libs/mongoose');
 var strftime = require('strftime');
 var escape   = require('escape-html');
-var pass     = 'qaz';
-var breed    = 'zaqxsw';
 
 var uuidString = function() {
   return Math.random().toString(36).substring(7)
 };
 
 exports.get = function (req,res,err) {
-	var passi  = req.body.password;
-	var breedi = req.body.breedword; 
-
-	console.log(req.body);
-	console.log('pass ', req.body.password);
-	console.log('breed ', req.body.breedword);
-
 	if (passi == undefined && breedi == undefined) {
 		if (req.user == undefined) {
 			res.end('You got no permission');
 		} else {
-			console.log(req.user._json);
 			if (req.user.id == 1584815370 && req.user.username == 'philip.antonov') {
 				var hello = "Привет " + req.user.name.givenName + ", подтверди что это действительно ты";
-				// res.render('logpassadm', {
-				// 	hello : hello
-				// });
 				res.render('admin', {
 					name: req.user._json.name
 				});
@@ -35,6 +22,11 @@ exports.get = function (req,res,err) {
 };
 
 exports.post = function (req, res, next) {
+	if (req.user == undefined) {
+		res.end('You got no permission'); 
+	}
+	else if (req.user.id == 1584815370 && req.user.username == 'philip.antonov') {
+
 	var _id          = uuidString();
 	var type         = req.body.type;
 	var name         = req.body.name;
@@ -79,8 +71,6 @@ exports.post = function (req, res, next) {
 		 (content      != '') &&
 		 (url_in_list  != '') &&
 		 (text_in_list != '') &&
-		 // (url_in_top   != '') &&
-		 // (text_in_top  != '') &&
 		 (post_date    != '') ) {
 
 			news.save(function (err) {
@@ -95,10 +85,16 @@ exports.post = function (req, res, next) {
 			res.statusCode = 201;
 			console.log(res.statusCode);
 			res.end('');
-		};  
+		}; 
+	} 
 };
 
 exports.change = function (req, res, next) {
+	if (req.user == undefined) {
+		res.end('You got no permission'); 
+	}
+	else if (req.user.id == 1584815370 && req.user.username == 'philip.antonov') {
+
 	var _id          = req.params.id;
 	var type         = req.body.type;
 	var name         = req.body.name;
@@ -127,8 +123,6 @@ exports.change = function (req, res, next) {
 		 (content      != '') &&
 		 (url_in_list  != '') &&
 		 (text_in_list != '') &&
-		 // (url_in_top   != '') &&
-		 // (text_in_top  != '') &&
 		 (post_date    != '') ) {
 
 			New.find({'_id' : req.params.id}, function (err,newschange) {
@@ -168,7 +162,9 @@ exports.change = function (req, res, next) {
 				} , function (err) {
 					console.log(err);
 					console.log('Новость изменена');
-					res.render('admin');
+					res.render('admin', {
+						name: req.user._json.name
+					});
 				})	
 			})	
 		} else { 
@@ -177,4 +173,5 @@ exports.change = function (req, res, next) {
 			console.log(res.statusCode);
 			res.end('');
 		};
+	}
 }

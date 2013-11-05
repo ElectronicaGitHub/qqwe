@@ -5,9 +5,6 @@ var mongoose = require('../libs/mongoose');
 var strftime = require('strftime');
 var passport = require('passport');
 var lodash   = require('lodash');
-var god;
-var pass     = 'qaz';
-var breed    = 'zaqxsw';
 
 var db = mongoose.connection.db;
 
@@ -72,25 +69,6 @@ module.exports = function (app) {
 
 
 	//АДМИНСКОЕ ПРЕДСТАВЛЕНИЕ
-	// app.post('/logged' , function (req, res, err) {
-	// 	console.log("log");
-	// 	if (err) throw err;
-	// 	var passi  = req.body.password;
-	// 	var breedi = req.body.breedword; 
-
-	// 	console.log(req.body);
-	// 	console.log('pass ', req.body.password);
-	// 	console.log('breed ', req.body.breedword);
-
-	// 	if (passi != pass && breedi != breed) {
-	// 		res.statusCode = 201;
-	// 		res.end('Wrong data');
-	// 	}
-	// 	if (passi == pass && breedi == breed) {
-	// 		res.render('admin');
-	// 	}
-	// });
-
 	app.get('/admin', require('./admin').get);
 	app.post('/admin', require('./admin').post);
 	app.post('/changed/:id', require('./admin').change);
@@ -101,9 +79,14 @@ module.exports = function (app) {
 	app.get('/allnews', function (req, res, next) {
 		New.find({}, function (err, news) {
 			if (err) return next(err);
-			res.render("allnews", {
-				news : news
-			});
+			if (req.user == undefined) {
+				res.end('You got no permission'); 
+			}
+			else if (req.user.id == 1584815370 && req.user.username == 'philip.antonov') {
+				res.render("allnews", {
+					news : news
+				});
+			}
 		})
 	});
 	/////////////////////////////////////////
@@ -113,15 +96,20 @@ module.exports = function (app) {
 	app.get('/allnews/:id/delete', function (req, res, next) {
 		New.find({'_id':req.params.id}, function (err, n) {
 			if (err) return next(err);
-			// res.json(n);
-			if (n.length > 0) {
-				New.remove(n[0], function() {
-				});
-				res.statusCode = 200;
-				res.end('');
-			} else {
-				res.statusCode = 404;
-				res.end(':c');
+			if (req.user == undefined) {
+				res.end('You got no permission'); 
+			}
+			else if (req.user.id == 1584815370 && req.user.username == 'philip.antonov') {
+
+				if (n.length > 0) {
+					New.remove(n[0], function() {
+					});
+					res.statusCode = 200;
+					res.end('');
+				} else {
+					res.statusCode = 404;
+					res.end(':c');
+				}
 			}
 		});
 	});
@@ -132,10 +120,15 @@ module.exports = function (app) {
 	app.get('/allnews/:id/change', function (req, res, next) {
 		New.find({'_id':req.params.id}, function (err, n) {
 			if (err) return next(err);
-			// res.json(n);
-			res.render('changer', {
-				news: n[0]
-			});
+			if (req.user == undefined) {
+				res.end('You got no permission'); 
+			}
+			else if (req.user.id == 1584815370 && req.user.username == 'philip.antonov') {
+
+				res.render('changer', {
+					news: n[0]
+				});
+			}
 		});
 	});
 	/////////////////////////////////////////
