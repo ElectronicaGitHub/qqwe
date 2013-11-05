@@ -39,26 +39,26 @@ h1 {
 	text-decoration: none;
 	-webkit-transition: all 0.2s ease;
 }
-.q:hover { background-color: #2ecc71; -webkit-transition: all 0.3s ease; }
-.w:hover { background-color: #FFF473; -webkit-transition: all 0.3s ease; }
-.e:hover { background-color: #FFA857; -webkit-transition: all 0.3s ease; }
-.r:hover { background-color: #f39c12; -webkit-transition: all 0.3s ease; }
-.t:hover { background-color: #2851FF; -webkit-transition: all 0.3s ease; }
-.y:hover { background-color: #84D8FF; -webkit-transition: all 0.3s ease; }
-.u:hover { background-color: #c0392b; -webkit-transition: all 0.3s ease; }
-.i:hover { background-color: #9b59b6; -webkit-transition: all 0.3s ease; }
-.o:hover { background-color: #3498db; -webkit-transition: all 0.3s ease; }
-.p:hover { background-color: #F6475E; -webkit-transition: all 0.3s ease; }
-.a:hover { background-color: #16a085; -webkit-transition: all 0.3s ease; }
-.m:hover { background-color: #bdc3c7; -webkit-transition: all 0.3s ease; }
+.sidebar .q:hover { background-color: #2ecc71; -webkit-transition: all 0.3s ease; }
+.sidebar .w:hover { background-color: #FFF473; -webkit-transition: all 0.3s ease; }
+.sidebar .e:hover { background-color: #FFA857; -webkit-transition: all 0.3s ease; }
+.sidebar .r:hover { background-color: #f39c12; -webkit-transition: all 0.3s ease; }
+.sidebar .t:hover { background-color: #2851FF; -webkit-transition: all 0.3s ease; }
+.sidebar .y:hover { background-color: #84D8FF; -webkit-transition: all 0.3s ease; }
+.sidebar .u:hover { background-color: #c0392b; -webkit-transition: all 0.3s ease; }
+.sidebar .i:hover { background-color: #9b59b6; -webkit-transition: all 0.3s ease; }
+.sidebar .o:hover { background-color: #3498db; -webkit-transition: all 0.3s ease; }
+.sidebar .p:hover { background-color: #F6475E; -webkit-transition: all 0.3s ease; }
+.sidebar .a:hover { background-color: #16a085; -webkit-transition: all 0.3s ease; }
+.sidebar .m:hover { background-color: #bdc3c7; -webkit-transition: all 0.3s ease; }
 
-.li-outer {
+.sidebar .li-outer {
 	background-color: transparent;
 }
-.li-outer-open {
+.sidebar .li-outer-open {
 	background-color: #E8BC44;
 }
-.li-inner {
+.sidebar .li-inner {
 	display: none;
 	background-color: #000;
 	font-size: 30px;
@@ -66,7 +66,7 @@ h1 {
 	height: 40px;
 	line-height: 40px;
 }
-.adv {
+.sidebar .adv {
 	width: 100%;
 	/*height: ;*/
 	/*background-image: url("http://content7.adfox.ru/130926/adfox/135322/857576.jpg");*/
@@ -77,9 +77,9 @@ h1 {
 	overflow: hidden;
 	display: inline-block;
 }
-.adv img {
+.sidebar .adv img {
 	width: 100%;
 }
-.adv:nth-of-type(1) {
+.sidebar .adv:nth-of-type(1) {
 	margin-top: 20px;
 }
