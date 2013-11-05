@@ -156,7 +156,7 @@ exports.change = function (req, res, next) {
 												'url_in_top'   : news.url_in_top,
 												'text_in_top'  : news.text_in_top,
 												'post_date'    : newschange[0].post_date,
-												'quantity'     : 0;
+												'quantity'     : 0
 
 				} , function (err) {
 					console.log(err);
