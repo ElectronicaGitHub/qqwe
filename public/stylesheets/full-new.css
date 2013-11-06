@@ -122,6 +122,9 @@ html {
 	width: 70%;
 	margin: 10px auto;
 }
+.new hr:last-child {
+	width: 100%;
+}
 .img-slider {
 	position: relative;
 	overflow: hidden;
