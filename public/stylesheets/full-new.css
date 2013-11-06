@@ -116,8 +116,11 @@ html {
 	padding: 5px 10px;
 }
 .new hr {
+	background-color: #c3c3c3;
+	border: 0px;
 	height: 1px;
 	width: 70%;
+	margin: 10px auto;
 }
 .img-slider {
 	position: relative;
