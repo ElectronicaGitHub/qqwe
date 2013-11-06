@@ -1,15 +1,6 @@
 $(document).ready(function() {
-
-	// $('.all').ready(function() {
-	// 	var ah = $('.all').height();
-	// 	console.log(ah);
-	// 	$('.sidebar').height(ah);
-	// });
-	// $('.content-full').ready(function() {
-	// 	var ah = $(this).height() + 7;
-	// 	console.log(ah);
-	// 	$('.sidebar').height(ah);
-	// });
+	var rand = Math.floor(Math.random() * 5);
+	$('html').css('background-image','url("/images/v"' + rand + '".jpg"');
 
 	var mic = true;	
 	$('#opener').click(function() {
