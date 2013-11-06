@@ -1,8 +1,12 @@
 $(document).ready(function() {
 
 	var rand = Math.floor(Math.random() * 5);
-	$('html').css('background-image', 'url("/images/v"' + rand + '".jpg")');
-
+	if (rand == 0) { $('html').css('background-image', 'url("/images/v1.jpg")'); }
+	if (rand == 1) { $('html').css('background-image', 'url("/images/v2.jpg")'); }
+	if (rand == 2) { $('html').css('background-image', 'url("/images/v3.jpg")'); }
+	if (rand == 3) { $('html').css('background-image', 'url("/images/v4.jpg")'); }
+	if (rand == 4) { $('html').css('background-image', 'url("/images/v5.jpg")'); }
+	
 	var mic = true;	
 	$('#opener').click(function() {
 		if (mic) {
