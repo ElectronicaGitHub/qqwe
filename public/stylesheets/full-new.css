@@ -7,8 +7,8 @@
 html {
 	/*background-color: #f4f4f4;*/
 	/*background-image: url('bg2.png');*/
-}
 
+}
 .header {
 	width: 1101px;
 	font-family: 'Open Sans Condensed', sans-serif;
@@ -108,6 +108,16 @@ html {
 }
 .new p {
 	margin: 10px 0px;
+}
+.new ul {
+	margin-left: 40px;
+}
+.new img {
+	padding: 5px 10px;
+}
+.new hr {
+	height: 1px;
+	width: 70%;
 }
 .img-slider {
 	position: relative;
