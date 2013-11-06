@@ -1,6 +1,7 @@
 $(document).ready(function() {
+
 	var rand = Math.floor(Math.random() * 5);
-	$('html').css('background-image','url("/images/v"' + rand + '".jpg"');
+	$('html').css('background-image', 'url("/images/v1.png")');
 
 	var mic = true;	
 	$('#opener').click(function() {
