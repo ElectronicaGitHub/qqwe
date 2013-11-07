@@ -1,11 +1,15 @@
 $(document).ready(function() {
 
-	var rand = Math.floor(Math.random() * 5);
-	if (rand == 0) { $('html').css('background-image', 'url("/images/v1.jpg")'); }
-	if (rand == 1) { $('html').css('background-image', 'url("/images/v2.jpg")'); }
-	if (rand == 2) { $('html').css('background-image', 'url("/images/v3.jpg")'); }
-	if (rand == 3) { $('html').css('background-image', 'url("/images/v4.jpg")'); }
-	if (rand == 4) { $('html').css('background-image', 'url("/images/v5.jpg")'); }
+	var rand = Math.floor(Math.random() * 7);
+	var ulred = "/images/v" + rand + ".jpg";
+	$('html').css('background-image' , 'url(' + urled + ')');
+
+	// if (rand == 1) { $('html').css('background-image' , 'url(' + urled + ')'); }
+	// if (rand == 2) { $('html').css('background-image' , 'url(' + urled + ')'); }
+	// if (rand == 3) { $('html').css('background-image' , 'url(' + urled + ')'); }
+	// if (rand == 4) { $('html').css('background-image' , 'url(' + urled + ')'); }
+	// if (rand == 5) { $('html').css('background-image' , 'url(' + urled + ')'); }
+
 	
 	var mic = true;	
 	$('#opener').click(function() {
@@ -39,8 +43,8 @@ $(document).ready(function() {
 });
 
 
-function fcbk() { window.location.assign("http://www.facebook.com") }
-function vk() { window.location.assign("http://www.vk.com") }
-function twtr() { window.location.assign("http://www.twitter.com") }
+function fcbk()  { window.location.assign("http://www.facebook.com")  }
+function vk()    { window.location.assign("http://www.vk.com")        }
+function twtr()  { window.location.assign("http://www.twitter.com")   }
 function nstgr() { window.location.assign("http://www.instagram.com") }
-function youtb() { window.location.assign("http://www.youtube.com") }
+function youtb() { window.location.assign("http://www.youtube.com")   }

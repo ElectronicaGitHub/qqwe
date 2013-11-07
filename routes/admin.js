@@ -36,7 +36,7 @@ exports.post = function (req, res, next) {
 	var text_in_top  = escape(req.body.text_in_top);
 	var top_random   = req.body.top_random;
 	var post_date    = new Date();
-	var quantity;
+	var quantity     = Math.floor(Math.random() * 60);
 	
     mongoose.connection.on('open', function (err) {
     	if (err) throw err;
@@ -104,7 +104,7 @@ exports.change = function (req, res, next) {
 	var text_in_top  = escape(req.body.text_in_top);
 	var top_random   = req.body.top_random;
 	var post_date    = req.body.post_date;
-	var quantity;
+	var quantity     = Math.floor(Math.random() * 60);
 	
     mongoose.connection.on('open', function (err) {
     	if (err) throw err;
@@ -156,7 +156,7 @@ exports.change = function (req, res, next) {
 												'url_in_top'   : news.url_in_top,
 												'text_in_top'  : news.text_in_top,
 												'post_date'    : newschange[0].post_date,
-												'quantity'     : 0
+												'quantity'     : Math.floor(Math.random() * 60);
 
 				} , function (err) {
 					console.log(err);
