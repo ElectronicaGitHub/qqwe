@@ -156,7 +156,7 @@ exports.change = function (req, res, next) {
 												'url_in_top'   : news.url_in_top,
 												'text_in_top'  : news.text_in_top,
 												'post_date'    : newschange[0].post_date,
-												'quantity'     : Math.floor(Math.random() * 60);
+												'quantity'     : Math.floor(Math.random() * 60)
 
 				} , function (err) {
 					console.log(err);
