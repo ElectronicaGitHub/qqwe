@@ -1,16 +1,9 @@
 $(document).ready(function() {
 
-	var rand = Math.floor(Math.random() * 7);
-	var ulred = "/images/v" + rand + ".jpg";
+	var rand = Math.floor(Math.random() * 11) + 1;
+	var urled = "/images/v" + rand + "low.jpg";
 	$('html').css('background-image' , 'url(' + urled + ')');
 
-	// if (rand == 1) { $('html').css('background-image' , 'url(' + urled + ')'); }
-	// if (rand == 2) { $('html').css('background-image' , 'url(' + urled + ')'); }
-	// if (rand == 3) { $('html').css('background-image' , 'url(' + urled + ')'); }
-	// if (rand == 4) { $('html').css('background-image' , 'url(' + urled + ')'); }
-	// if (rand == 5) { $('html').css('background-image' , 'url(' + urled + ')'); }
-
-	
 	var mic = true;	
 	$('#opener').click(function() {
 		if (mic) {
