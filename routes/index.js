@@ -84,7 +84,7 @@ module.exports = function (app) {
 			if (req.user == undefined) {
 				res.end('You got no permission'); 
 			}
-			else if (req.user.id == 1584815370 && req.user.username == 'philip.antonov') {
+			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 				res.render("allnews", {
 					news : news
 				});
@@ -101,7 +101,7 @@ module.exports = function (app) {
 			if (req.user == undefined) {
 				res.end('You got no permission'); 
 			}
-			else if (req.user.id == 1584815370 && req.user.username == 'philip.antonov') {
+			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 
 				if (n.length > 0) {
 					New.remove(n[0], function() {

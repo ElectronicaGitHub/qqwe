@@ -10,7 +10,7 @@ exports.get = function (req,res,err) {
 		if (req.user == undefined) {
 			res.end('You got no permission');
 		} else {
-			if (req.user.id == 1584815370 && req.user.username == 'philip.antonov') {
+			if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 				res.render('admin', {
 					name: req.user._json.name
 				});
@@ -22,7 +22,7 @@ exports.post = function (req, res, next) {
 	if (req.user == undefined) {
 		res.end('You got no permission'); 
 	}
-	else if (req.user.id == 1584815370 && req.user.username == 'philip.antonov') {
+	else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 
 	var _id          = uuidString();
 	var type         = req.body.type;
@@ -90,7 +90,7 @@ exports.change = function (req, res, next) {
 	if (req.user == undefined) {
 		res.end('You got no permission'); 
 	}
-	else if (req.user.id == 1584815370 && req.user.username == 'philip.antonov') {
+	else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 
 	var _id          = req.params.id;
 	var type         = req.body.type;
