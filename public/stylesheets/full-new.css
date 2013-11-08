@@ -100,7 +100,7 @@ html {
 }
 .new {
 	margin: 0px auto 20px auto;
-	color: #4d4d4d;
+	color: #222;
 	font-size: 18px;
 	font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -112,8 +112,7 @@ html {
 	margin-left: 40px;
 }
 .new img {
-	/*padding: 5px 10px;*/
-	/*padding: 5px 0px;*/
+	margin-bottom: 5px;
 }
 .new hr {
 	background-color: #c3c3c3;
