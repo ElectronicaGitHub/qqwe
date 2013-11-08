@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
-	var rand = Math.floor(Math.random() * 11) + 1;
+	$('img').parent().css('width', '100%').css('margin', '10px 0px');
+	// $('img').css('width', '100%');
+
+	var rand = Math.floor(Math.random() * 10) + 1;
 	var urled = "/images/v" + rand + "low.jpg";
 	$('html').css('background-image' , 'url(' + urled + ')');
 
