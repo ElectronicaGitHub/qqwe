@@ -14,6 +14,7 @@ module.exports = function (app) {
 	app.get('/', function (req, res, next) {
 		New.find({}, function (err, news) {
 			if (err) return next(err);
+			console.log(req.user);
 			news.reverse();
 			New.find({'top_random' : true}, function (err, newstop) {
 				var newsfinal = lodash.sample(newstop, 4);
@@ -34,6 +35,7 @@ module.exports = function (app) {
 	app.get('/news/:id', function (req, res, next) {
 		New.findById(req.params.id, function (err, onenew) {
 			// console.log(req.params);
+			console.log(req.user);
 			if (err) return next(err);
 			New.find({'top_random' : true}, function (err, newstop) {
 				if (err) return next(err);	
@@ -135,15 +137,27 @@ module.exports = function (app) {
 
 
 	//АДРЕСАЦИЯ НА РЕГИСТРАЦИЮ
-	app.get('/auth/facebook', passport.authenticate('facebook'), function (req, res){
+	app.get('/auth/facebook' , passport.authenticate('facebook') , function (req, res){
+	});
+	app.get('/auth/vkontakte', passport.authenticate('vkontakte'), function (req, res){
+	});
+	app.get('/auth/twitter'  , passport.authenticate('twitter')  , function (req, res){
 	});
 	///////////////////////////////////////// 
 
 
 	//КОЛЛБЭК, ПЕРЕАДРЕСАЦИЯ НА САЙТ 
-	app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), 
-		function(req, res) {
+	app.get('/auth/facebook/callback' , passport.authenticate('facebook' , { failureRedirect: '/login' }), 
+		function (req, res) {
 	    	res.redirect('/');
+	});
+	app.get('/auth/vkontakte/callback', passport.authenticate('vkontakte', { failureRedirect: '/login' }),
+		function (req, res) {
+    		res.redirect('/');
+  	});
+  	app.get('/auth/twitter/callback'  , passport.authenticate('twitter'  , { failureRedirect: '/login' }),
+		function(req, res) {
+    		res.redirect('/');
 	});
 	/////////////////////////////////////////
 

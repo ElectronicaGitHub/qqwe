@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-	$('img').parent().css('width', '100%').css('margin', '10px 0px');
+	$('img').parent().css('width', '100%').css('margin', '0px 0px');
 	// $('img').css('width', '100%');
 
 	var rand = Math.floor(Math.random() * 10) + 1;
-	var urled = "/images/v" + rand + "low.jpg";
+	var urled = "/images/" + rand + ".jpg";
 	$('html').css('background-image' , 'url(' + urled + ')');
 
 	var mic = true;	

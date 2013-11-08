@@ -20,7 +20,7 @@
 </head>
 <body>
 	
-	<div class='header'><p>CASTMAG.</p> 
+	<div class='header'><a href="/" style="color:#fff;"><p>CASTMAG.</p></a>
 
 			<% if (!user) { %>
 				
@@ -28,22 +28,37 @@
 				<div class="reg-wrapper">
 					<div class="signin">Войти 
 						<div class="form">
-							<div class="enterer" action="registration_proceed"><div class="wrapperic"><i class="fa fa-vk"></i></div>
-							<div class="input-text">через Вконтакте</div></div>
+
+							<a href="/auth/vkontakte" style="color:#fff;"><div class="enterer" action="registration_proceed"><div class="wrapperic"><i class="fa fa-vk"></i></div>
+							<div class="input-text">через Вконтакте</div></div></a>
+
 							<a href="/auth/facebook" style="color:#fff;"><div class="enterer" action="registration_proceed"><div class="wrapperic"><i class="fa fa-facebook"></i></div>
 							<div class="input-text">через facebook</div></div></a>
-							<div class="enterer" action="registration_proceed"><div class="wrapperic"><i class="fa fa-twitter"></i></div>
-							<div class="input-text">через twitter</div></div>
+
+							<a href="/auth/twitter" style="color:#fff;"><div class="enterer" action="registration_proceed"><div class="wrapperic"><i class="fa fa-twitter"></i></div>
+							<div class="input-text">через twitter</div></div></a>
+
 						</div>
 					</div>
 				</div>
 
 			<% } else { %>
 
-				<p style="font-size: 30px;">Привет, <%= user.name.givenName %></p>
-				<div class="reg-wrapper">
-					<a href="/logout" style = "color: #fff; text-decoration: none"><div class="signin">Выйти</div></a>
-				</div>
+				<% if (user.provider == 'vkontakte' ||  user.provider == 'facebook') { %>
+
+					<p style="font-size: 30px;">Привет, <%= user.name.givenName %></p>
+					<div class="reg-wrapper">
+						<a href="/logout" style = "color: #fff; text-decoration: none"><div class="signin">Выйти</div></a>
+					</div>
+
+				<% } else if (user.provider == 'twitter') { %>
+
+					<p style="font-size: 30px;">Привет, <%= user.displayName %></p>
+					<div class="reg-wrapper">
+						<a href="/logout" style = "color: #fff; text-decoration: none"><div class="signin">Выйти</div></a>
+					</div>
+
+				<% } %>
 
 			<% } %>	
 		

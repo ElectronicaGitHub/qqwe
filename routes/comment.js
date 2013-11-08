@@ -13,11 +13,27 @@ exports.post = function (req, res, next) {
 		if (err) return next(err);
 		console.log(req.user);
 
-		var user_photo    = 'https://graph.facebook.com/' + req.user.username + '/picture';
+		if        (req.user.provider == 'facebook' ) {
+			var user_photo = 'https://graph.facebook.com/' + req.user.username + '/picture';
+		} else if (req.user.provider == 'vkontakte') {
+			var user_photo = req.user._json.photo;
+		} else if (req.user.provider == 'twitter'  ) {
+			var user_photo = req.user._json.profile_image_url;
+		}
+
 		var _id_parent    = onenew._id;
 		var _id           = uuidString();
-		var autor_name    = req.user.name.givenName;
-		var autor_surname = req.user.name.familyName;	
+
+		if (req.user.provider == 'vkontakte' ||  req.user.provider == 'facebook') {
+
+			var autor_name    = req.user.name.givenName;
+			var autor_surname = req.user.name.familyName;
+
+		} else if ( req.user.provider == 'twitter' ) {
+
+			var autor_name    = req.user.displayName;
+
+		}
 		var content       = req.body.comment_text_add;
 		var post_date     = new Date();
 

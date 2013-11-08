@@ -10,12 +10,7 @@
 	letter-spacing: 0.1ex;
 }
 h1 {
-	/*margin-bottom: 20px;*/
-	font-size: 50px;
-	text-align: center;
-	/*margin-top: 20px;*/
 	margin: 20px 0px 20px 50px;
-
 }
 .sidebar ul {
 	list-style:none;

@@ -7,8 +7,8 @@ var log = require('./libs/log')(module);
 var passport = require('passport');
 
 require('./routes/passportfb');
-
-
+require('./routes/passportvk');
+require('./routes/passporttwitter');
 
 var app = express();
 app.set('port', config.get('port'));
