@@ -259,9 +259,9 @@ html {
 	max-width: 600px;
 	margin-right: 10px;
 	border-radius: 5px;
-	border: 1px solid #eee;
+	border: 1px solid #ddd;
 	padding: 4px 10px;
-	color: rgba(0,0,0,.5);
+	color: #000;
 	outline: none;
 	resize: none;
 }

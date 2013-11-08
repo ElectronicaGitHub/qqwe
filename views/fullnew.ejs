@@ -131,16 +131,14 @@
 							<form class="comment_">
 								<div class="comment_photo" style="background-image: url('<%= comments[q].user_photo %>'); background-size: 100%;"></div>
 
-								<% if (user.provider == 'vkontakte' ||  user.provider == 'facebook') { %>
-
+									
+								<% if (comments[q].autor_surname == undefined) { %>
+									<div class='name'><%-comments[q].autor_name%></div>
+								<% } else { %>
 									<div class='name'><%-comments[q].autor_name%></div>
 									<div class="surname"><%-comments[q].autor_surname%></div> 
-
-								<% } else if (user.provider == 'twitter') { %>
-
-									<div class='name'><%-comments[q].autor_name%></div>
-
 								<% } %>
+									
 								написал в <div class="date"><%-strftime('%H:%M:%S, %d %B %Y года ', comments[q].post_date) %></div> 
 								<div class="comment_text sizable each"><%-comments[q].content%></div>
 							</form>
