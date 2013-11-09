@@ -14,7 +14,7 @@ module.exports = function (app) {
 	app.get('/', function (req, res, next) {
 		New.find({}, function (err, news) {
 			if (err) return next(err);
-			console.log(req.user);
+			// console.log(req.user);
 			news.reverse();
 			New.find({'top_random' : true}, function (err, newstop) {
 				var newsfinal = lodash.sample(newstop, 4);
@@ -35,12 +35,11 @@ module.exports = function (app) {
 	app.get('/news/:id', function (req, res, next) {
 		New.findById(req.params.id, function (err, onenew) {
 			if (err) return next(err);
-			console.log(req.params);
-			// console.log(req.user);
-			// onenew.quantity++;
-			New.update({'_id' : req.params.id}, { 'quantity' : ++onenew.quantity
-					} , function (err) {
-						console.log('Новость просмотрена и кол-во просмотров равно ', onenew.quantity);
+			console.log(onenew.quantity);
+			var quantity = onenew.quantity;
+			console.log('q:', quantity);
+			New.update({'_id' : req.params.id}, { 'quantity' : ++quantity }, function (err) {
+						console.log('Новость просмотрена и кол-во просмотров равно ', quantity);
 					})
 			if (err) return next(err);
 			New.find({'top_random' : true}, function (err, newstop) {

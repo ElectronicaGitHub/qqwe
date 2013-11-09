@@ -87,7 +87,7 @@
 					</div>
 					<%-onenew.content%>
 					<hr>
-					<p style="display: inline-block; font-weight:bold" class="new-autor">Автор: <%-onenew.surname%> <%-onenew.name%></p><p style="display: inline-block; font-weight:bold" class="new-date">Новость добавлена: <%-strftime('%d %B, %Y года', onenew.post_date) %></p>				
+					<p style="display: inline-block; font-weight:bold" class="new-autor">Автор: <%-onenew.name%> <%-onenew.surname%></p><p style="display: inline-block; font-weight:bold" class="new-date">Новость добавлена: <%-strftime('%d %B, %Y года', onenew.post_date) %></p>				
 				</div>
 
 				<% if (!user) { %>
