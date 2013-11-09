@@ -35,7 +35,10 @@ module.exports = function (app) {
 	app.get('/news/:id', function (req, res, next) {
 		New.findById(req.params.id, function (err, onenew) {
 			if (err) return next(err);
+			console.log(onenew);
+			console.log(onenew[0]);
 			console.log(onenew.quantity);
+			console.log(onenew[0].quantity);
 			var quantity = onenew.quantity;
 			console.log('q:', quantity);
 			New.update({'_id' : req.params.id}, { 'quantity' : ++quantity }, function (err) {
