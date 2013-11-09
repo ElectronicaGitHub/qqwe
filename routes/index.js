@@ -39,9 +39,9 @@ module.exports = function (app) {
 			var quantity = onenew.quantity;
 			console.log('q:', quantity);
 			New.update({'_id' : req.params.id}, { 'quantity' : ++quantity }, function (err) {
-						console.log('Новость просмотрена и кол-во просмотров равно ', quantity);
-					})
-			if (err) return next(err);
+				if (err) return next(err);
+				console.log('Новость просмотрена и кол-во просмотров равно ', quantity);
+			});
 			New.find({'top_random' : true}, function (err, newstop) {
 				if (err) return next(err);	
 				var newsfinal = lodash.sample(newstop, 4);
