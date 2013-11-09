@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	$('img').parent().css('width', '100%').css('margin', '0px 0px');
 
-	var rand = Math.floor(Math.random() * 10) + 1;
+	var rand = Math.floor(Math.random() * 9) + 1;
 	var urled = "/images/" + rand + ".jpg";
 	$('html').css('background-image' , 'url(' + urled + ')');
 
