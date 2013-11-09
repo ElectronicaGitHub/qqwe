@@ -37,19 +37,17 @@ module.exports = function (app) {
 			// console.log(req.params);
 			console.log(req.user);
 			// onenew.quantity++;
+			New.update({'_id' : onenew._id}, { 'quantity' : ++onenew.quantity
+					} , function (err) {
+						console.log('Новость просмотрена и кол-во просмотров равно ', onenew.quantity);
+					})
 			if (err) return next(err);
 			New.find({'top_random' : true}, function (err, newstop) {
 				if (err) return next(err);	
 				var newsfinal = lodash.sample(newstop, 4);
 				Comment.find({'_id_parent': req.params.id}, function (err, comments) {
 					if (err) return next(err);	
-					comments.reverse();
-					
-					New.update({'_id' : onenew._id}, { 'quantity' : ++onenew.quantity
-					} , function (err) {
-						console.log('Новость просмотрена');
-						console.log(onenew.quantity);
-					})	
+					comments.reverse();				
 
 					res.render('fullnew', {
 						strftime : strftime,
