@@ -38,7 +38,7 @@ module.exports = function (app) {
 			// console.log(req.params);
 			console.log(req.user);
 			// onenew.quantity++;
-			New.update({'_id' : onenew._id}, { 'quantity' : ++onenew.quantity
+			New.update({'_id' : req.params.id}, { 'quantity' : ++onenew.quantity
 					} , function (err) {
 						console.log('Новость просмотрена и кол-во просмотров равно ', onenew.quantity);
 					})
