@@ -36,6 +36,7 @@ module.exports = function (app) {
 		New.findById(req.params.id, function (err, onenew) {
 			// console.log(req.params);
 			console.log(req.user);
+			// onenew.quantity++;
 			if (err) return next(err);
 			New.find({'top_random' : true}, function (err, newstop) {
 				if (err) return next(err);	
@@ -43,8 +44,8 @@ module.exports = function (app) {
 				Comment.find({'_id_parent': req.params.id}, function (err, comments) {
 					if (err) return next(err);	
 					comments.reverse();
-					onenew.quantity++;
-					New.update({'_id' : onenew._id}, { 'quantity'     : onenew.quantity
+					
+					New.update({'_id' : onenew._id}, { 'quantity' : ++onenew.quantity
 					} , function (err) {
 						console.log('Новость просмотрена');
 						console.log(onenew.quantity);
