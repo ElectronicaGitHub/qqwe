@@ -35,13 +35,20 @@ module.exports = function (app) {
 	app.get('/news/:id', function (req, res, next) {
 		New.findById(req.params.id, function (err, onenew) {
 			if (err) return next(err);
-			var quantity = parseInt(onenew.quantity);
-			New.update({'_id' : req.params.id}, { 'quantity' : ++quantity }, function (err) {
-				if (err) return next(err);
-				console.log('Новость просмотрена и кол-во просмотров равно ', quantity);
-			});
+
 			New.find({'top_random' : true}, function (err, newstop) {
-				if (err) return next(err);	
+				if (err) return next(err);
+				
+				try {
+					var quantity = parseInt(onenew.quantity);
+					New.update({'_id' : req.params.id}, { 'quantity' : ++quantity }, function (err) {
+						if (err) return next(err);
+						console.log('Новость просмотрена и кол-во просмотров равно ', quantity);
+					});	
+				} catch {
+					console.log('Не сработал quantity');
+				}
+				
 				var newsfinal = lodash.sample(newstop, 4);
 				Comment.find({'_id_parent': req.params.id}, function (err, comments) {
 					if (err) return next(err);	
