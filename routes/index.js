@@ -45,7 +45,7 @@ module.exports = function (app) {
 						if (err) return next(err);
 						console.log('Новость просмотрена и кол-во просмотров равно ', quantity);
 					});	
-				} catch {
+				} catch (e) {
 					console.log('Не сработал quantity');
 				}
 				
