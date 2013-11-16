@@ -79,7 +79,6 @@
 				<% } %>
 
 			<% } %>	
-
 	</div>
 	
 	<div class='slider-all'>
@@ -228,6 +227,7 @@
 	</div>
 
 	<script>
+	//ДОБАВЛЕНИЕ КОММЕНТАРИЯ
 		$(document.forms['add_comm']).on('submit', function () {
 			var form = $(this);
 			console.log("ajax");
@@ -257,6 +257,10 @@
 			});
 			return false;
 		});
+		////////////////////////////////////////
+
+
+		// ИЗМЕНЕНИЕ НОВОСТИ АДМИНКА 
 		$('.change').click(function(event) {
 			var URL = $(this).attr('href');
 			// event.preventDefault();
@@ -279,6 +283,10 @@
 				}
 			});
 		});
+		///////////////////////////////////////
+
+
+		//УДАЛЕНИЕ КОММЕНТАРИЯ 
 		$('.delete').click(function(event) {
 			var URL = $(this).attr('href');
 			event.preventDefault();
@@ -303,6 +311,7 @@
 				}
 			});
 		});
+		//////////////////////////////////////
 
 	</script>
 
