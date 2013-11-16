@@ -20,21 +20,7 @@ $(document).ready(function() {
 		}
 	});
 
-	var $container = $('.content');
-	var msnry = $container.data('masonry');
-	// initialize
-	$container.imagesLoaded(function(){
-		$container.masonry({
-			columnWidth: 274,
-			itemSelector: '.new-min',
-			isResizable: true,
-			isAnimated: true,
-	        	animationOptions: { 
-	        	queue: false, 
-	        	duration: 500 
-	        	}
-		});
-	});
+	
 
 	if ( (navigator.userAgent.match(/iPhone/i)) 
    	  || (navigator.userAgent.match(/iPod/i)) 
@@ -60,6 +46,23 @@ $(document).ready(function() {
 		        	queue: false, 
 		        	duration: 500 
 	        		}
+				});
+			});
+   		} else {
+
+   			var $container = $('.content');
+			var msnry = $container.data('masonry');
+			// initialize
+			$container.imagesLoaded(function(){
+				$container.masonry({
+					columnWidth: 274,
+					itemSelector: '.new-min',
+					isResizable: true,
+					isAnimated: true,
+			        	animationOptions: { 
+			        	queue: false, 
+			        	duration: 500 
+			        	}
 				});
 			});
    		}
