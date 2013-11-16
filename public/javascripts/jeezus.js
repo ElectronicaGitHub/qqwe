@@ -49,15 +49,15 @@ $(document).ready(function() {
     			};
       			$(".form").css( styles );
       		});
-      		$(".signin").on('touchend', function(){
-      			var styles = {
-      				'top': '0px',
-					'display': 'none',
-					'opacity': 0,
-					'z-index': 0
-    			};
-      			$(".form").css( styles );
-      		});
+     //  		$(".signin").on('touchend', function(){
+     //  			var styles = {
+     //  				'top': '0px',
+					// 'display': 'none',
+					// 'opacity': 0,
+					// 'z-index': 0
+    	// 		};
+     //  			$(".form").css( styles );
+     //  		});
 		}
 
 });
