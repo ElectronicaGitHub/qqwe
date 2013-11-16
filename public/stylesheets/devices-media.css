@@ -1,0 +1,297 @@
+@media screen and (device-aspect-ratio: 2/3) {
+	.header {
+		height: 120px;
+		line-height: 120px;
+		width: 980px;
+		font-size: 90px;
+	}
+	.auth {
+		font-size: 50px;
+	}
+	.header p {
+		width: 340px;
+	}
+	.signin {
+		height: 120px;
+		line-height: 120px;
+		width: 330px;
+	}
+	.reg-wrapper {
+		width: 330px;
+		font-size: 50px;
+	}
+	.enterer {
+		height: calc(290px/3);
+		line-height: calc(290px/3);
+		font-size: 50px;
+	}
+	.enterer i {
+		font-size: 60px;
+	}
+	.header p:nth-child(2) {
+		font-size: 23px !important;
+		text-align: center;
+		width: 250px;
+		margin-left: 0px;
+		letter-spacing: 0ex;
+	}
+	.form {
+		width: 490px;
+		height: 290px;
+		top: 120px;
+		left: -160px;
+	}
+	.signin:hover .form {
+		top: 120px;
+		left: -160px;
+	}
+	.slider-all {
+		width: 980px;
+		height: 290px;
+	}
+	.slider-all a:nth-of-type(4), .slider-all a:nth-of-type(3) {
+		display: none !important;
+		visibility: hidden;
+	} 
+	.slider-element {
+		width: 50%;
+		overflow: hidden;
+	}
+	.slider-element p {
+		padding-top: 130px;
+		top: -420px;
+	}
+	.all {
+		width: 980px;
+	}
+	.content {
+		width: 100%;
+	}
+	.sidebar {
+		display: none;
+	}
+	.footer {
+		width: 980px;
+	}
+	.signin:focus .form {
+		top: 75px;
+		display: block;
+		opacity: 1;
+		z-index: 100;
+	}
+	.new-min {
+		width: 486px;
+	}
+	.new-min-content-header {
+		font-size: 25px;
+	}
+	.inliner {
+		left: -485px;
+	}
+	.inliner p{
+		height: 24%;
+		font-size: 22px;
+	}
+	.views {
+		height: 30px;
+		font-size: 22px;
+	}
+}
+@media screen and (device-aspect-ratio: 40/71) {
+	.header {
+		height: 120px;
+		line-height: 120px;
+		width: 980px;
+		font-size: 90px;
+	}
+	.auth {
+		font-size: 50px;
+	}
+	.header p {
+		width: 340px;
+	}
+	.signin {
+		height: 120px;
+		line-height: 120px;
+		width: 330px;
+	}
+	.reg-wrapper {
+		width: 330px;
+		font-size: 50px;
+	}
+	.enterer {
+		height: calc(290px/3);
+		line-height: calc(290px/3);
+		font-size: 50px;
+	}
+	.enterer i {
+		font-size: 60px;
+	}
+	.header p:nth-child(2) {
+		font-size: 23px !important;
+		text-align: center;
+		width: 250px;
+		margin-left: 0px;
+		letter-spacing: 0ex;
+	}
+	.form {
+		width: 490px;
+		height: 290px;
+		top: 120px;
+		left: -160px;
+	}
+	.signin:hover .form {
+		top: 120px;
+		left: -160px;
+	}
+	.slider-all {
+		width: 980px;
+		height: 290px;
+	}
+	.slider-all a:nth-of-type(4), .slider-all a:nth-of-type(3) {
+		display: none !important;
+		visibility: hidden;
+	} 
+	.slider-element {
+		width: 50%;
+		overflow: hidden;
+	}
+	.slider-element p {
+		padding-top: 130px;
+		top: -420px;
+	}
+	.all {
+		width: 980px;
+	}
+	.content {
+		width: 100%;
+	}
+	.sidebar {
+		display: none;
+	}
+	.footer {
+		width: 980px;
+	}
+	.signin:focus .form {
+		top: 75px;
+		display: block;
+		opacity: 1;
+		z-index: 100;
+	}
+	.new-min {
+		width: 486px;
+	}
+	.new-min-content-header {
+		font-size: 25px;
+	}
+	.inliner {
+		left: -485px;
+	}
+	.inliner p{
+		height: 24%;
+		font-size: 22px;
+	}
+	.views {
+		height: 30px;
+		font-size: 22px;
+	}
+}
+@media screen and (device-aspect-ratio: 3/4) {
+	.header {
+		height: 120px;
+		line-height: 120px;
+		width: 980px;
+		font-size: 90px;
+	}
+	.auth {
+		font-size: 50px;
+	}
+	.header p {
+		width: 340px;
+	}
+	.signin {
+		height: 120px;
+		line-height: 120px;
+		width: 330px;
+	}
+	.reg-wrapper {
+		width: 330px;
+		font-size: 50px;
+	}
+	.enterer {
+		height: calc(290px/3);
+		line-height: calc(290px/3);
+		font-size: 50px;
+	}
+	.enterer i {
+		font-size: 60px;
+	}
+	.header p:nth-child(2) {
+		font-size: 23px !important;
+		text-align: center;
+		width: 250px;
+		margin-left: 0px;
+		letter-spacing: 0ex;
+	}
+	.form {
+		width: 490px;
+		height: 290px;
+		top: 120px;
+		left: -160px;
+	}
+	.signin:hover .form {
+		top: 120px;
+		left: -160px;
+	}
+	.slider-all {
+		width: 980px;
+		height: 290px;
+	}
+	.slider-all a:nth-of-type(4), .slider-all a:nth-of-type(3) {
+		display: none !important;
+		visibility: hidden;
+	} 
+	.slider-element {
+		width: 50%;
+		overflow: hidden;
+	}
+	.slider-element p {
+		padding-top: 130px;
+		top: -420px;
+	}
+	.all {
+		width: 980px;
+	}
+	.content {
+		width: 100%;
+	}
+	.sidebar {
+		display: none;
+	}
+	.footer {
+		width: 980px;
+	}
+	.signin:focus .form {
+		top: 75px;
+		display: block;
+		opacity: 1;
+		z-index: 100;
+	}
+	.new-min {
+		width: 486px;
+	}
+	.new-min-content-header {
+		font-size: 25px;
+	}
+	.inliner {
+		left: -485px;
+	}
+	.inliner p{
+		height: 24%;
+		font-size: 22px;
+	}
+	.views {
+		height: 30px;
+		font-size: 22px;
+	}
+}
