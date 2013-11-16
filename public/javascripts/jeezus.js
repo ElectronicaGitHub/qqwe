@@ -35,7 +35,9 @@ $(document).ready(function() {
     			};
       			$(".form").css( styles );
       		});
-
+      		var $container = $('.content');
+			var msnry = $container.data('masonry');
+			
       		$container.imagesLoaded(function(){
 				$container.masonry({
 					columnWidth: 486,
@@ -52,7 +54,7 @@ $(document).ready(function() {
 
    			var $container = $('.content');
 			var msnry = $container.data('masonry');
-			// initialize
+
 			$container.imagesLoaded(function(){
 				$container.masonry({
 					columnWidth: 274,
