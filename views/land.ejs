@@ -16,9 +16,11 @@
 	
 	<!-- <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'> -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	
 	<link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=cyrillic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
 
 </head>
 <body>
@@ -178,19 +180,25 @@
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function() {
+
+			var $container = $('body');
+			// initialize
+			$container.imagesLoaded(function(){
+				if (screen.width >= 1000) {
+					console.log('bigger 1000');
+					var rand = Math.floor(Math.random() * 8) + 1;
+					var urled ="/images/land/landone" + rand + ".jpg";
+					$('body').css('background-image' , 'url(' + urled + ')');
+				} else {
+					console.log('lower 1000');
+					var rand = Math.floor(Math.random() * 3) + 1;
+					var urled ="/images/land/iphone" + rand + ".jpg";
+					$('body').css('background-image' , 'url(' + urled + ')');
+				}
+			});
 			
 
-			if (screen.width >= 1000) {
-				console.log('bigger 1000');
-				var rand = Math.floor(Math.random() * 8) + 1;
-				var urled ="/images/land/landone" + rand + ".jpg";
-				$('body').css('background-image' , 'url(' + urled + ')');
-			} else {
-				console.log('lower 1000');
-				var rand = Math.floor(Math.random() * 3) + 1;
-				var urled ="/images/land/iphone" + rand + ".jpg";
-				$('body').css('background-image' , 'url(' + urled + ')');
-			}
+		
 
 			$('a').on('mouseover',function() {
 					$('.fader').addClass('faded');
