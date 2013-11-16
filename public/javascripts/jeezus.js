@@ -47,7 +47,7 @@ $(document).ready(function() {
 					'opacity': 1,
 					'z-index': 100
     			};
-      			($".form").css( styles );
+      			$(".form").css( styles );
       		});
       		$(".signin").on('touchend', function(){
       			var styles = {
@@ -56,7 +56,7 @@ $(document).ready(function() {
 					'opacity': 0,
 					'z-index': 0
     			};
-      			($".form").css( styles );
+      			$(".form").css( styles );
       		});
 		}
 
