@@ -42,19 +42,19 @@ $(document).ready(function() {
 		{
       		$(".signin").on('touchstart', function(){
       			var styles = {
-      				top: '75px',
-					display: 'block',
-					opacity: 1,
-					z-index: 100
+      				'top': '75px',
+					'display': 'block',
+					'opacity': 1,
+					'z-index': 100
     			};
       			($".form").css( styles );
       		});
       		$(".signin").on('touchend', function(){
       			var styles = {
-      				top: '0px',
-					display: 'none',
-					opacity: 0,
-					z-index: 0
+      				'top': '0px',
+					'display': 'none',
+					'opacity': 0,
+					'z-index': 0
     			};
       			($".form").css( styles );
       		});
