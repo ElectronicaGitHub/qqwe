@@ -26,7 +26,7 @@
 		<a href="/">
 			<div class="wrapper">
 				<p class="head">CASTMAG</p>
-				<p class="title">Интернет журнал о тех, кто делает</p>
+				<p class="title">Интернет журнал о тех, кто творит</p>
 				<!-- <div class="button-over"> -->
 				<!--<div class="button-wrapper">
 						<div class="button"></div>
@@ -178,26 +178,26 @@
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var rand = Math.floor(Math.random() * 6) + 1;
-			var urled ="/images/land/landone" + rand + ".jpg";
-			$('body').css('background-image' , 'url(' + urled + ')');
+			
 
-			// var mic = true;	
+			if (screen.width >= 800) {
+				console.log('bigger 800');
+				var rand = Math.floor(Math.random() * 8) + 1;
+				var urled ="/images/land/landone" + rand + ".jpg";
+				$('body').css('background-image' , 'url(' + urled + ')');
+			} else {
+				console.log('lower 800');
+				var rand = Math.floor(Math.random() * 3) + 1;
+				var urled ="/images/land/landone/iphone" + rand + ".jpg";
+				$('body').css('background-image' , 'url(' + urled + ')');
+			}
+
 			$('a').on('mouseover',function() {
-				// if (mic) {
 					$('.fader').addClass('faded');
-			})
+			});
 			$('a').on('mouseout',function() {
 					$('.fader').removeClass('faded');
-			})
-					// $('.li-inner').css('display', 'block');
-					// mic = false;
-				// } else {
-					// $('.fader').addClass('faded');
-					// $('.fader').css('display','none');
-					// mic = true;
-				// }
-			// });
+			});
 		})
 
 		
