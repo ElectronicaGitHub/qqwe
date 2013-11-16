@@ -28,7 +28,7 @@ $(document).ready(function() {
 		{
       		$(".signin").on('touchstart', function(){
       			var styles = {
-      				'top': '75px',
+      				'top': '120px',
 					'display': 'block',
 					'opacity': 1,
 					'z-index': 100
@@ -37,7 +37,7 @@ $(document).ready(function() {
       		});
       		var $container = $('.content');
 			var msnry = $container.data('masonry');
-			
+
       		$container.imagesLoaded(function(){
 				$container.masonry({
 					columnWidth: 486,
