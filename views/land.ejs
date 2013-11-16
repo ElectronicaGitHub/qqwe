@@ -18,32 +18,36 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=cyrillic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-	// <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
 </head>
 <body>
-	<a href="/">
-		<div class="wrapper">
-			<p class="head">CASTMAG</p>
-			<p class="title">Интернет журнал о тех, кто делает</p>
-			<!-- <div class="button-over"> -->
-			<!--<div class="button-wrapper">
-					<div class="button"></div>
-				</div>
-				<div class="button-wrapper">
-					<div class="button"></div>
-				</div>	 -->	
-				<!-- <div class="web">Web-версия</div> -->
-			<!-- </div>	 -->
+	<div class="fader">
+		<a href="/">
+			<div class="wrapper">
+				<p class="head">CASTMAG</p>
+				<p class="title">Интернет журнал о тех, кто делает</p>
+				<!-- <div class="button-over"> -->
+				<!--<div class="button-wrapper">
+						<div class="button"></div>
+					</div>
+					<div class="button-wrapper">
+						<div class="button"></div>
+					</div>	 -->	
+					<!-- <div class="web">Web-версия</div> -->
+				<!-- </div>	 -->
+			</div>
 		</div>
 	</a>
 
 	<style>
 		* {
+			margin: 0px;
+			padding: 0px;
 			-webkit-margin-before: 0;
 			-webkit-margin-after: 0;
 		}
-		body {
+		body, html {
 			width: 100%;
 			height: 100%;
 			margin: 0px;
@@ -53,6 +57,18 @@
 			background-position: top;
 			background-repeat: no-repeat;
 			background-color: #000;
+		}
+		.fader {
+			width: 100%;
+			height: 100%;
+			z-index: 12;
+			background-color: rgba(0,0,0,.0);
+			overflow: hidden;
+			-webkit-transition: all 3s;	
+		}
+		.faded {
+			background-color: rgba(0,0,0,.6);
+			-webkit-transition: all 3s;	
 		}
 		.wrapper {
 		    width: 800px;
@@ -78,10 +94,11 @@
 			z-index: 100;
 			-webkit-transition: all .5s ease;	
 		}
-		.wrapper:hover > .head {
+		/*.wrapper:hover > .head {
 			color: rgba(241, 196, 15,1.0);
 			-webkit-transition: all .5s ease;
-		}
+		}*/
+
 		.wrapper:hover > .title {
 			color: rgba(46, 204, 113,1);
 			-webkit-transition: all .5s ease;
@@ -155,7 +172,27 @@
 			var rand = Math.floor(Math.random() * 6) + 1;
 			var urled ="/images/land/landone" + rand + ".jpg";
 			$('body').css('background-image' , 'url(' + urled + ')');
+
+			// var mic = true;	
+			$('a').on('mouseover',function() {
+				// if (mic) {
+					$('.fader').addClass('faded');
+			})
+			$('a').on('mouseout',function() {
+					$('.fader').removeClass('faded');
+			})
+					// $('.li-inner').css('display', 'block');
+					// mic = false;
+				// } else {
+					// $('.fader').addClass('faded');
+					// $('.fader').css('display','none');
+					// mic = true;
+				// }
+			// });
 		})
+
+		
+
 	</script>
 		
 </body>
