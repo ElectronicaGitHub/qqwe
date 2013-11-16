@@ -10,6 +10,11 @@ var db = mongoose.connection.db;
 
 module.exports = function (app) {
 
+	app.get('/landing', function (req, res, err) {
+		console.log('entered landing');
+		res.render("land");
+	});
+
 	//ГЛАВНАЯ
 	app.get('/', function (req, res, next) {
 		New.find({}, function (err, news) {
@@ -29,6 +34,8 @@ module.exports = function (app) {
 		});
 	});
 	/////////////////////////////////////////
+
+	
 
 
 	// НОВОСТЬ НА СТРАНИЦЕ
