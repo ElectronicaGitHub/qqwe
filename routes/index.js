@@ -10,13 +10,13 @@ var db = mongoose.connection.db;
 
 module.exports = function (app) {
 
-	app.get('/landing', function (req, res, err) {
+	app.get('/', function (req, res, err) {
 		console.log('entered landing');
 		res.render("land");
 	});
 
 	//ГЛАВНАЯ
-	app.get('/', function (req, res, next) {
+	app.get('/news', function (req, res, next) {
 		New.find({}, function (err, news) {
 			if (err) return next(err);
 			// console.log(req.user);
@@ -42,6 +42,9 @@ module.exports = function (app) {
 	app.get('/news/:id', function (req, res, next) {
 		New.findById(req.params.id, function (err, onenew) {
 			if (err) return next(err);
+			if (onenew == (null || undefined)) {
+				res.render('error');
+			}
 
 			New.find({'top_random' : true}, function (err, newstop) {
 				if (err) return next(err);
