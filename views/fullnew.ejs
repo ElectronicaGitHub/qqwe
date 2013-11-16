@@ -115,28 +115,34 @@
 
 			<div class="comment_wrapper">
 
-				<form name="add_comm" class='add_form'>
-					<% if (!user) { %>
+				<% if (!user) { %>
+					<div style="width: 100%; height: 50px; text-align:center; line-height: 50px"><a style="overflow:hidden; font-size: 30px; text-decoration: none; border-bottom: 1px dashed #000; box-sizing:border-box" href="#">Зарегистрируйтесь для добавления комментариев</a></div>
+				<% } else {%>
 
-						<div class="comment_photo_add" name="comment_photo_add"></div>
+					<form name="add_comm" class='add_form'>
+						<% if (!user) { %>
 
-					<% } else if (user.provider == 'facebook') { %>
+							<div class="comment_photo_add" name="comment_photo_add"></div>
 
-						<div class="comment_photo_add" style="background-image: url('https://graph.facebook.com/<%= user.username %>/picture'); background-size: 100%;" name="comment_photo_add"></div>
+						<% } else if (user.provider == 'facebook') { %>
 
-					<% } else if (user.provider == 'vkontakte') { %>
+							<div class="comment_photo_add" style="background-image: url('https://graph.facebook.com/<%= user.username %>/picture'); background-size: 100%;" name="comment_photo_add"></div>
 
-						<div class="comment_photo_add" style="background-image: url('<%= user._json.photo %>'); background-size: 100%;" name="comment_photo_add"></div>
+						<% } else if (user.provider == 'vkontakte') { %>
 
-					<% } else if (user.provider == 'twitter') { %>
+							<div class="comment_photo_add" style="background-image: url('<%= user._json.photo %>'); background-size: 100%;" name="comment_photo_add"></div>
 
-						<div class="comment_photo_add" style="background-image: url('<%= user._json.profile_image_url %>'); background-size: 100%;" name="comment_photo_add"></div>
+						<% } else if (user.provider == 'twitter') { %>
 
-					<% } %>
+							<div class="comment_photo_add" style="background-image: url('<%= user._json.profile_image_url %>'); background-size: 100%;" name="comment_photo_add"></div>
 
-					<textarea class="comment_text_add" name="comment_text_add"></textarea>
-					<button class="comment_press" name="comment">Коммент</button>
-				</form name="add_comm">
+						<% } %>
+
+						<textarea class="comment_text_add" name="comment_text_add"></textarea>
+						<button class="comment_press" name="comment">Коммент</button>
+
+					</form name="add_comm">
+				<% } %>
 
 
 				<div class="comments_all">
@@ -156,6 +162,13 @@
 									
 								написал в <div class="date"><%-strftime('%H:%M:%S, %d %B %Y года ', comments[q].post_date) %></div> 
 								<div class="comment_text sizable each"><%-comments[q].content%></div>
+
+								<% if (!user) { %>
+								<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
+									<a href="/comment/<%-comments[q]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a>
+								<% } %>
+								
+
 							</form>
 						</div>
 
@@ -245,27 +258,52 @@
 			return false;
 		});
 		$('.change').click(function(event) {
-		var URL = $(this).attr('href');
-		// event.preventDefault();
-		$.ajax({
-			url: URL, 
-			method: 'GET',
-			complete: function() {
-			},
-			statusCode: {
-				200 : function() {
-					window.location.href ="/";
+			var URL = $(this).attr('href');
+			// event.preventDefault();
+			$.ajax({
+				url: URL, 
+				method: 'GET',
+				complete: function() {
 				},
-				404 : function() {
-					(this).text('huevo');
-				},
-				403 : function() {
-					var error = JSON.parse(jqXHR.responseText);
-					$('.error',form).html(error.message);
+				statusCode: {
+					200 : function() {
+						window.location.href ="/";
+					},
+					404 : function() {
+						(this).text('huevo');
+					},
+					403 : function() {
+						var error = JSON.parse(jqXHR.responseText);
+						$('.error',form).html(error.message);
+					}
 				}
-			}
+			});
 		});
-	});
+		$('.delete').click(function(event) {
+			var URL = $(this).attr('href');
+			event.preventDefault();
+			$.ajax({
+				url: URL, 
+				method: 'GET',
+				complete: function() {
+				},
+				statusCode: {
+					200 : function() {
+						$(this).parent().parent().html("Коммент удален").css('font-size','20px').css('font-family', 'Open Sans Condensed').css('font-weight', 'bold').hide('slow');
+						window.location.reload();
+
+					},
+					404 : function() {
+						(this).text('huevo');
+					},
+					403 : function() {
+						var error = JSON.parse(jqXHR.responseText);
+						$('.error',form).html(error.message);
+					}
+				}
+			});
+		});
+
 	</script>
 
 	<style type="text/css">

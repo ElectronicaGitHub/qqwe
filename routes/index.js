@@ -132,6 +132,34 @@ module.exports = function (app) {
 	/////////////////////////////////////////
 
 
+	//УДАЛЕНИЕ КОММЕНТАРИЯ
+	app.get('/comment/:id/delete', function (req, res, next) {
+		console.log('del started');
+		Comment.find({'_id':req.params.id}, function (err, n) {
+			console.log(n[0]);
+			if (err) return next(err);
+			if (req.user == undefined) {
+				res.end('You got no permission'); 
+
+			}
+			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
+				console.log('permission got');
+
+				if (n.length > 0) {
+					Comment.remove(n[0], function() {
+					});
+					res.statusCode = 200;
+					res.end('');
+				} else {
+					res.statusCode = 404;
+					res.end(':c');
+				}
+			} else res.end('You got no permission'); 
+		});
+	});
+	/////////////////////////////////////////
+
+
 	//ИЗМЕНЕНИЕ НОВОСТИ
 	app.get('/allnews/:id/change', function (req, res, next) {
 		New.find({'_id':req.params.id}, function (err, n) {
@@ -163,15 +191,15 @@ module.exports = function (app) {
 	//КОЛЛБЭК, ПЕРЕАДРЕСАЦИЯ НА САЙТ 
 	app.get('/auth/facebook/callback' , passport.authenticate('facebook' , { failureRedirect: '/login' }), 
 		function (req, res) {
-	    	res.redirect('/');
+	    	res.redirect('/news');
 	});
 	app.get('/auth/vkontakte/callback', passport.authenticate('vkontakte', { failureRedirect: '/login' }),
 		function (req, res) {
-    		res.redirect('/');
+    		res.redirect('/news');
   	});
   	app.get('/auth/twitter/callback'  , passport.authenticate('twitter'  , { failureRedirect: '/login' }),
 		function(req, res) {
-    		res.redirect('/');
+    		res.redirect('/news');
 	});
 	/////////////////////////////////////////
 
