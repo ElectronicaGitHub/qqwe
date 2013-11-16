@@ -227,7 +227,7 @@ html {
 
 .comment_wrapper {
 	width: 100%;
-	min-height: 200px;
+	min-height: 90px;
 	background-color: #fff;
 	border-top: 1px solid #e1e1e1;
 	font-family: 'Open Sans Condensed', sans-serif;
@@ -276,6 +276,7 @@ html {
 }
 .add_form {
 	overflow: hidden;
+	margin-bottom: 10px;
 }
 .comments_all {
 	overflow: hidden;
