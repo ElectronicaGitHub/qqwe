@@ -316,15 +316,14 @@
 
 		if ((navigator.userAgent.match(/iPhone/i)) 
    	  	||  (navigator.userAgent.match(/iPod/i)) 
-      	||  (navigator.userAgent.match(/iPad/i))) 
+      	||  (navigator.userAgent.match(/iPad/i))
+      	||  (navigator.userAgent.match(/Android/i))) 
 			{
 				var height = Math.floor($('img').attr('height') * 1.1864406) + 1;
 				var width = Math.floor($('img').attr('width') * 1.1864406) + 1;
 				$('img').attr('width', width).attr('height', height).css('margin', '0px 0px');
-
 				$('iframe').parent().css('width', width).css('margin', '0px 0px');
 				$('iframe').attr('width', width).attr('height', height).css('margin', '0px 0px');
-
 			}
 
 	</script>
