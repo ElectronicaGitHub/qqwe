@@ -172,6 +172,12 @@
 	.content {
 		width: 100%;
 	}
+	.news-block {
+		width: 100%;
+	}
+	.content-full {
+		width: 100%;
+	}
 	.sidebar {
 		display: none;
 	}
@@ -269,6 +275,12 @@
 		width: 980px;
 	}
 	.content {
+		width: 100%;
+	}
+	.news-block {
+		width: 100%;
+	}
+	.content-full {
 		width: 100%;
 	}
 	.sidebar {
