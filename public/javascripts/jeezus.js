@@ -71,8 +71,8 @@ $(document).ready(function() {
 });
 
 
-function fcbk()  { window.location.assign("http://www.facebook.com")  }
-function vk()    { window.location.assign("http://www.vk.com")        }
-function twtr()  { window.location.assign("http://www.twitter.com")   }
-function nstgr() { window.location.assign("http://www.instagram.com") }
-function youtb() { window.location.assign("http://www.youtube.com")   }
+function fcbk()  { window.location.assign("http://www.facebook.com")       }
+function vk()    { window.location.assign("http://vk.com/castmag1")        }
+function twtr()  { window.location.assign("https://twitter.com/CASTMAGRU") }
+function nstgr() { window.location.assign("http://www.instagram.com")      }
+function youtb() { window.location.assign("https://vimeo.com/castmag")     }

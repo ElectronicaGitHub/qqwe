@@ -67,6 +67,9 @@
 	.content {
 		width: 100%;
 	}
+	.content-full {
+		width: 100%;
+	}
 	.sidebar {
 		display: none;
 	}
