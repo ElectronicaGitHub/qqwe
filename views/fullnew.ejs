@@ -318,11 +318,11 @@
 		//////////////////////////////////////
 
 
-		// if ((navigator.userAgent.match(/iPhone/i)) 
-  //  	  	||  (navigator.userAgent.match(/iPod/i)) 
-  //     	||  (navigator.userAgent.match(/iPad/i))
-  //     	||  (navigator.userAgent.match(/Android/i))) 
-		// 	{
+		if ((navigator.userAgent.match(/iPhone/i)) 
+   	  	||  (navigator.userAgent.match(/iPod/i)) 
+      	||  (navigator.userAgent.match(/iPad/i))
+      	||  (navigator.userAgent.match(/Android/i))) 
+			{
 				$('img').each(function() {
 					var height = Math.floor($(this).attr('height') * 1.1864406) + 1;
 					var width = Math.floor($(this).attr('width') * 1.1864406) + 1;
@@ -336,7 +336,7 @@
 					$(this).attr('width', width).attr('height', height).css('margin', '0px 0px');
 				})
 				
-			// }
+			}
 
 	</script>
 
