@@ -58,7 +58,7 @@ $(document).ready(function() {
 
 			$container.imagesLoaded(function(){
 				$container.masonry({
-					columnWidth: 274,
+					columnWidth: 486,
 					itemSelector: '.new-min',
 					isResizable: true,
 					isAnimated: true,

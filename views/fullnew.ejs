@@ -12,6 +12,7 @@
 	<meta property="og:image:secure_url" content="<%onenew.url_in_top%>" />
 
 	<meta property="og:description" content="<%-onenew.title_in%>">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 
 	<meta name="robots" content="all">
 	<meta name="keywords" content="Handmade, Своими руками, Ремесло, Хэнд мейд, Музыка, Кино, Мода, Как сделать, Как создать, Производство, Бизнес, Творчество, Автор, Создатель, Творец, Features, Рассказы, Статьи, Новости">
@@ -317,17 +318,25 @@
 		//////////////////////////////////////
 
 
-		if ((navigator.userAgent.match(/iPhone/i)) 
-   	  	||  (navigator.userAgent.match(/iPod/i)) 
-      	||  (navigator.userAgent.match(/iPad/i))
-      	||  (navigator.userAgent.match(/Android/i))) 
-			{
-				var height = Math.floor($('img').attr('height') * 1.1864406) + 1;
-				var width = Math.floor($('img').attr('width') * 1.1864406) + 1;
-				$('img').attr('width', width).attr('height', height).css('margin', '0px 0px');
-				$('iframe').parent().css('width', width).css('margin', '0px 0px');
-				$('iframe').attr('width', width).attr('height', height).css('margin', '0px 0px');
-			}
+		// if ((navigator.userAgent.match(/iPhone/i)) 
+  //  	  	||  (navigator.userAgent.match(/iPod/i)) 
+  //     	||  (navigator.userAgent.match(/iPad/i))
+  //     	||  (navigator.userAgent.match(/Android/i))) 
+		// 	{
+				$('img').each(function() {
+					var height = Math.floor($(this).attr('height') * 1.1864406) + 1;
+					var width = Math.floor($(this).attr('width') * 1.1864406) + 1;
+					$(this).attr('width', width).attr('height', height).css('margin', '0px 0px');
+				})
+
+				$('iframe').each(function() {
+					var height = Math.floor($(this).attr('height') * 1.1864406) + 1;
+					var width = Math.floor($(this).attr('width') * 1.1864406) + 1;
+					$(this).parent().css('width', width).css('margin', '0px 0px');
+					$(this).attr('width', width).attr('height', height).css('margin', '0px 0px');
+				})
+				
+			// }
 
 	</script>
 

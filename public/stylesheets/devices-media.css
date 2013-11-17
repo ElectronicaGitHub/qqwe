@@ -58,8 +58,9 @@
 		overflow: hidden;
 	}
 	.slider-element p {
-		padding-top: 130px;
+		padding-top: 110px;
 		top: -420px;
+		font-size: 40px;
 	}
 	.all {
 		width: 980px;
@@ -92,18 +93,34 @@
 		width: 486px;
 	}
 	.new-min-content-header {
-		font-size: 25px;
+		font-size: 40px;
+	}
+	.new p {
+		font-size: 35px;
 	}
 	.inliner {
 		left: -485px;
 	}
 	.inliner p{
-		height: 24%;
-		font-size: 22px;
+		height: 40%;
+		font-size: 30px;
 	}
 	.views {
-		height: 30px;
-		font-size: 22px;
+		height: 40px;
+		font-size: 30px;
+	}
+	.comment_ {
+		font-size: 30px;
+	}
+	.comment_text {
+		font-size: 25px;
+	}
+	.comment_photo {
+		width: 120px;
+		height: 120px;
+	}
+	.comment_each {
+		height: 140px;
 	}
 }
 @media screen and (device-aspect-ratio: 40/71) {
@@ -166,8 +183,9 @@
 		overflow: hidden;
 	}
 	.slider-element p {
-		padding-top: 130px;
+		padding-top: 110px;
 		top: -420px;
+		font-size: 40px;
 	}
 	.all {
 		width: 980px;
@@ -200,18 +218,34 @@
 		width: 486px;
 	}
 	.new-min-content-header {
-		font-size: 25px;
+		font-size: 40px;
+	}
+	.new p {
+		font-size: 35px;
 	}
 	.inliner {
 		left: -485px;
 	}
 	.inliner p{
-		height: 24%;
-		font-size: 22px;
+		height: 40%;
+		font-size: 30px;
 	}
 	.views {
-		height: 30px;
-		font-size: 22px;
+		height: 40px;
+		font-size: 30px;
+	}
+	.comment_ {
+		font-size: 30px;
+	}
+	.comment_text {
+		font-size: 25px;
+	}
+	.comment_photo {
+		width: 120px;
+		height: 120px;
+	}
+	.comment_each {
+		height: 140px;
 	}
 }
 @media screen and (device-aspect-ratio: 3/4) {
@@ -274,8 +308,9 @@
 		overflow: hidden;
 	}
 	.slider-element p {
-		padding-top: 130px;
+		padding-top: 110px;
 		top: -420px;
+		font-size: 40px;
 	}
 	.all {
 		width: 980px;
@@ -308,17 +343,33 @@
 		width: 486px;
 	}
 	.new-min-content-header {
-		font-size: 25px;
+		font-size: 40px;
+	}
+	.new p {
+		font-size: 35px;
 	}
 	.inliner {
 		left: -485px;
 	}
 	.inliner p{
-		height: 24%;
-		font-size: 22px;
+		height: 40%;
+		font-size: 30px;
 	}
 	.views {
-		height: 30px;
-		font-size: 22px;
+		height: 40px;
+		font-size: 30px;
+	}
+	.comment_ {
+		font-size: 30px;
+	}
+	.comment_text {
+		font-size: 25px;
+	}
+	.comment_photo {
+		width: 120px;
+		height: 120px;
+	}
+	.comment_each {
+		height: 140px;
 	}
 }
