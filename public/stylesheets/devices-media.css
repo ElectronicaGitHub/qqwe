@@ -69,9 +69,11 @@
 	}
 	.news-block {
 		width: 100%;
+		border-left: 0px;
 	}
 	.content-full {
 		width: 100%;
+		border-left: 0px;
 	}
 	.sidebar {
 		display: none;
@@ -174,9 +176,11 @@
 	}
 	.news-block {
 		width: 100%;
+		border-left: 0px;
 	}
 	.content-full {
 		width: 100%;
+		border-left: 0px;
 	}
 	.sidebar {
 		display: none;
@@ -279,9 +283,11 @@
 	}
 	.news-block {
 		width: 100%;
+		border-left: 0px;
 	}
 	.content-full {
 		width: 100%;
+		border-left: 0px;
 	}
 	.sidebar {
 		display: none;
