@@ -313,6 +313,17 @@
 		});
 		//////////////////////////////////////
 
+
+		if ((navigator.userAgent.match(/iPhone/i)) 
+   	  	||  (navigator.userAgent.match(/iPod/i)) 
+      	||  (navigator.userAgent.match(/iPad/i))) 
+			{
+				var height = Math.floor($('img').attr('height') * 1.16227) + 1;
+				var width = Math.floor($('img').attr('width') * 1.16227) + 1;
+
+				$('img').attr('width', width).attr('height', height).css('margin', '0px 0px');
+			}
+
 	</script>
 
 	<link rel="stylesheet" type="text/css" href="/stylesheets/devices-media.css">

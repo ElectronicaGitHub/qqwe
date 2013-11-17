@@ -26,6 +26,7 @@ $(document).ready(function() {
    	  || (navigator.userAgent.match(/iPod/i)) 
       || (navigator.userAgent.match(/iPad/i)) ) 
 		{
+
       		$(".signin").on('touchstart', function(){
       			var styles = {
       				'top': '120px',
