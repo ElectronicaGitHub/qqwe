@@ -330,11 +330,3 @@ html {
 	font-family: Helvetica;
 	font-size: 14px;
 }
-/*//// responsive grid/////////*/
-
-@media (max-width: 767px) {
-	.header {
-		color:  red;
-	}
-}
-
