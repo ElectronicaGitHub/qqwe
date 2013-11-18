@@ -22,15 +22,16 @@ module.exports = function (app) {
 			var userAgent = req.headers['user-agent'];
 			console.log(userAgent);
 			if  ((userAgent.match(/iPhone/i)) ||
-				 (userAgent.match(/iPod/i))   ||
-				 (userAgent.match(/iPad/i))   ||
-				 (userAgent.match(/Android/i)))
+				 (userAgent.match(/iPod/i)))
 				{
-				var mobile = true;
-				console.log('this is a mobile client');
+				var device = 'iPhone';
+				console.log('iPhone/iPod client');
+			} else if (userAgent.match(/Android/i)) {
+				device = 'Android';
+				console.log('Android client');
 			} else {
-				mobile = false;
-				console.log('this is not a mobile client');
+				device = 'PC';
+				console.log('PC client');
 			}
 			news.reverse();
 			New.find({'top_random' : true}, function (err, newstop) {
@@ -40,7 +41,7 @@ module.exports = function (app) {
 					news    : news,
 					newstop : newsfinal,
 					user    : req.user,
-					mobile  : mobile
+					device  : device
 				});
 
 			});
@@ -61,15 +62,16 @@ module.exports = function (app) {
 			var userAgent = req.headers['user-agent'];
 			console.log(userAgent);
 			if  ((userAgent.match(/iPhone/i)) ||
-				 (userAgent.match(/iPod/i))   ||
-				 (userAgent.match(/iPad/i))   ||
-				 (userAgent.match(/Android/i)))
+				 (userAgent.match(/iPod/i)))
 				{
-				var mobile = true;
-				console.log('this is a mobile client');
+				var device = 'iPhone';
+				console.log('iPhone/iPod/client');
+			} else if (userAgent.match(/Android/i)) {
+				device = 'Android';
+				console.log('Android client');
 			} else {
-				mobile = false;
-				console.log('this is not a mobile client');
+				device = 'PC';
+				console.log('PC client');
 			}
 
 			New.find({'top_random' : true}, function (err, newstop) {
@@ -96,7 +98,7 @@ module.exports = function (app) {
 						onenew   : onenew,
 						comments : comments,
 						user     : req.user,
-						mobile   : mobile
+						device   : device
 					});
 				});
 				// res.json(news);
