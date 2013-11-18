@@ -10,15 +10,12 @@
 	<!-- <meta property="og:image" content="http://s3-us-west-2.amazonaws.com/castmag-msk/castmaglogo.jpg" /> -->
 	<meta property="og:image:secure_url" content="<%onenew.url_in_top%>" />
 	<meta property="og:description" content="<%-onenew.title_in%>">
-
 	<% if (device == 'iPhone') { %>
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 	<% } else if (device == 'Android')  {%>
 	<% } %>
-
 	<meta name="robots" content="all">
 	<meta name="keywords" content="Handmade, Своими руками, Ремесло, Хэнд мейд, Музыка, Кино, Мода, Как сделать, Как создать, Производство, Бизнес, Творчество, Автор, Создатель, Творец, Features, Рассказы, Статьи, Новости">
-
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.0.1/normalize.css">
 	<link rel="stylesheet" href="/stylesheets/full-new.css">
@@ -27,26 +24,19 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css">
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="/javascripts/jeezus.js"></script>
-
 	<link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome-4.0.2/css/font-awesome.min.css">
-
 	<script type="text/javascript" src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Yeseva+One&subset=cyrillic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Oranienbaum&subset=cyrillic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=cyrillic' rel='stylesheet' type='text/css'>
-
-	
-
 </head>
 <body>
 	<div class='header'><a href="/news" style="color:#fff;"><p>CASTMAG</p></a>
-
-		<% if (!user) { %>
-				
+		<% if (!user) { %>		
 				<p style="font-size: 30px;">Вы не вошли</p>
 				<div class="reg-wrapper">
 					<div class="signin">Войти 
@@ -60,32 +50,23 @@
 
 							<a href="/auth/twitter" style="color:#fff;"><div class="enterer" action="registration_proceed"><div class="wrapperic"><i class="fa fa-twitter"></i></div>
 							<div class="input-text">через twitter</div></div></a>
-
 						</div>
 					</div>
 				</div>
-
 			<% } else { %>
-
 				<% if (user.provider == 'vkontakte' ||  user.provider == 'facebook') { %>
-
 					<p style="font-size: 30px;">Привет, <%= user.name.givenName %></p>
 					<div class="reg-wrapper">
 						<a href="/logout" style = "color: #fff; text-decoration: none"><div class="signin">Выйти</div></a>
 					</div>
-
 				<% } else if (user.provider == 'twitter') { %>
-
 					<p style="font-size: 30px;">Привет, <%= user.displayName %></p>
 					<div class="reg-wrapper">
 						<a href="/logout" style = "color: #fff; text-decoration: none"><div class="signin">Выйти</div></a>
 					</div>
-
 				<% } %>
-
 			<% } %>	
-	</div>
-	
+	</div>	
 	<div class='slider-all'>
 			<% for (var i=0; i<news.length; i++) { %>
 					<a href="/news/<%-news[i]._id%>">
@@ -94,7 +75,6 @@
 					</a>
 			<% } %>
 	</div>
-
 	<div class="all">
 		<div class="content-full">
 			<div class="news-block">
@@ -107,7 +87,6 @@
 					<p style="display: inline-block; font-weight:bold; font-size: 12px; height: 20px; line-height:20px; margin: 0px 10px;" class="new-autor">Автор: <%-onenew.name%> <%-onenew.surname%></p>
 					<p style="display: inline-block; font-weight:bold; font-size: 12px; height: 20px; line-height:20px; margin: 0px 10px;" class="new-date">Новость добавлена: <%-strftime('%d %B, %Y года', onenew.post_date) %></p>				
 				</div>
-
 				<% if (!user) { %>
 				<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
 					<div style="width:100%; height: 50px; background-color: transparent; border: 0px; overflow: hidden; text-align: center">
@@ -115,72 +94,47 @@
 						<a href="/allnews/<%-onenew._id%>/change" class="change" data-loading-text="Изменяю...">Редактировать</a>
 					</div>
 				<% } %>
-
 			</div>
-
 			<div class="comment_wrapper">
-
 				<% if (!user) { %>
-					<div style="width: 100%; height: 50px; text-align:center; line-height: 50px"><a style="overflow:hidden; font-size: 30px; text-decoration: none; border-bottom: 1px dashed #000; box-sizing:border-box" href="#">Зарегистрируйтесь для добавления комментариев</a></div>
+					<div style="width: 100%; height: 80px; text-align:center; line-height: 80px"><a class="nouser" style="overflow:hidden; font-size: 30px; text-decoration: none; border-bottom: 1px dashed #000; box-sizing:border-box" href="#">Зарегистрируйтесь для добавления комментариев</a></div>
 				<% } else {%>
-
 					<form name="add_comm" class='add_form'>
 						<% if (!user) { %>
-
 							<div class="comment_photo_add" name="comment_photo_add"></div>
-
 						<% } else if (user.provider == 'facebook') { %>
-
 							<div class="comment_photo_add" style="background-image: url('https://graph.facebook.com/<%= user.username %>/picture'); background-size: 100%;" name="comment_photo_add"></div>
-
 						<% } else if (user.provider == 'vkontakte') { %>
-
 							<div class="comment_photo_add" style="background-image: url('<%= user._json.photo %>'); background-size: 100%;" name="comment_photo_add"></div>
-
 						<% } else if (user.provider == 'twitter') { %>
-
 							<div class="comment_photo_add" style="background-image: url('<%= user._json.profile_image_url %>'); background-size: 100%;" name="comment_photo_add"></div>
-
 						<% } %>
-
 						<textarea class="comment_text_add" name="comment_text_add"></textarea>
 						<button class="comment_press" name="comment">Коммент</button>
-
 					</form name="add_comm">
 				<% } %>
-
-
 				<div class="comments_all">
 					<%for ( var q = 0; q < comments.length; q++) { %>
-
 						<div class="comment_each">
 							<form class="comment_">
-								<div class="comment_photo" style="background-image: url('<%= comments[q].user_photo %>'); background-size: 100%;"></div>
-
-									
+								<div class="comment_photo" style="background-image: url('<%= comments[q].user_photo %>'); background-size: 100%;"></div>								
 								<% if (comments[q].autor_surname == undefined) { %>
 									<div class='name'><%-comments[q].autor_name%></div>
 								<% } else { %>
 									<div class='name'><%-comments[q].autor_name%></div>
 									<div class="surname"><%-comments[q].autor_surname%></div> 
 								<% } %>
-									
 								написал в <div class="date"><%-strftime('%H:%M:%S, %d %B %Y года ', comments[q].post_date) %></div> 
 								<div class="comment_text sizable each"><%-comments[q].content%></div>
-
 								<% if (!user) { %>
 								<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
 									<a href="/comment/<%-comments[q]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a>
 								<% } %>
-								
-
 							</form>
 						</div>
-
 					<% } %>
 				</div>
 			</div>
-
 			</div>
 			<div class="sidebar">
 				<ul>
@@ -196,14 +150,10 @@
 					<li class="p" ><a href="/craft">РЕМЕСЛО</a></li>
 					<li class="o" ><a href="/howto">ХАУ ТУ</a></li>
 					<li class="i" ><a href="/features">ФИЧЕРСЫ</a></li>
-					<li class="a" ><a href="/other">ИНОЕ</a></li>
-
-					
-
+					<li class="a" ><a href="/other">ИНОЕ</a></li>				
 				</ul>
 			</div>
 		</div>
-
 		<footer class="footer">
 			<div class="third">
 				<div class="text info">Контакты</div>
@@ -212,7 +162,6 @@
 				<div class="paddinger"></div>
 				<div class="text info">Реклама</div>
 			</div>
-
 			<div class="third">
 				<div class="text" onclick="fcbk()">facebook</div>
 				<div class="paddinger"></div>
@@ -224,16 +173,13 @@
 				<div class="paddinger"></div>
 				<div class="text" onclick="youtb()">vimeo</div>
 			</div>
-
 			<div class="third">
-				<div class="text long">CASTMAG.</div>
-				
+				<div class="text long">CASTMAG.</div>		
 			</div>
 		</footer>
 	</div>
-
-	<script>
-	//ДОБАВЛЕНИЕ КОММЕНТАРИЯ
+	<script type="text/javascript">
+		//ДОБАВЛЕНИЕ КОММЕНТАРИЯ
 		$(document.forms['add_comm']).on('submit', function () {
 			var form = $(this);
 			console.log("ajax");
@@ -246,9 +192,7 @@
 				statusCode: {
 					200 : function (res) {
 						form.find('.comment_text_add').val('');
-
 						var new_comment = $('<div class="comment_each"><form class="comment_"><div class="comment_photo" style="background-image: url(' + res.user_photo + '); background-size: 100%;"></div> <div class="comment_text sizable each">' + res.content + '</div></form></div>').hide();
-
 						$('.comments_all').prepend(new_comment.show('slow'));
 						console.log(res);
 					},
@@ -264,7 +208,6 @@
 			return false;
 		});
 		////////////////////////////////////////
-
 
 		// ИЗМЕНЕНИЕ НОВОСТИ АДМИНКА 
 		$('.change').click(function(event) {
@@ -291,7 +234,6 @@
 		});
 		///////////////////////////////////////
 
-
 		//УДАЛЕНИЕ КОММЕНТАРИЯ 
 		$('.delete').click(function(event) {
 			var URL = $(this).attr('href');
@@ -305,7 +247,6 @@
 					200 : function() {
 						$(this).parent().parent().html("Коммент удален").css('font-size','20px').css('font-family', 'Open Sans Condensed').css('font-weight', 'bold').hide('slow');
 						window.location.reload();
-
 					},
 					404 : function() {
 						(this).text('huevo');
@@ -319,30 +260,25 @@
 		});
 		//////////////////////////////////////
 
-
 		if ((navigator.userAgent.match(/iPhone/i)) 
-   	  	||  (navigator.userAgent.match(/iPod/i)) 
-      	||  (navigator.userAgent.match(/Android/i))) 
+		  	||  (navigator.userAgent.match(/iPod/i)) 
+			||  (navigator.userAgent.match(/Android/i))) 
 			{
 				$('img').each(function() {
 					var height = Math.floor($(this).attr('height') * 1.1864406) + 1;
 					var width = Math.floor($(this).attr('width') * 1.1864406) + 1;
 					$(this).attr('width', width).attr('height', height).css('margin', '0px 0px');
 				})
-
 				$('iframe').each(function() {
 					var height = Math.floor($(this).attr('height') * 1.1864406) + 1;
 					var width = Math.floor($(this).attr('width') * 1.1864406) + 1;
 					$(this).parent().css('width', width).css('margin', '0px 0px');
 					$(this).attr('width', width).attr('height', height).css('margin', '0px 0px');
 				})
-				
 			}
-
 	</script>
 	<% if (device!='PC') { %>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/devices-media.css">
 	<%}%>
-
 </body>
 </html>

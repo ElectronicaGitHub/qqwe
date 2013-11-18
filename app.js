@@ -22,7 +22,6 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.cookieParser());
 
-
 var MongoStore = require('connect-mongo')(express);
 
 app.use(express.session( {
@@ -33,17 +32,9 @@ app.use(express.session( {
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-// app.use(function (req, res, next) {
-// 	req.session.numberOfVisits = req.session.numberOfVisits + 1 || 1;
-// 	res.send("Visits: " + req.session.numberOfVisits);
-// });
-
 app.use(app.router);
-
 require('./routes')(app);
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 app.use(function (err, req, res, next) {
 	if (app.get('env') == 'development') {

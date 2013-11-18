@@ -7,12 +7,10 @@
 	<meta property="og:title" content="Интернет журнал CASTMAG" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="http://castmag.ru" />
-
 	<% if (device == 'iPhone') { %>
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 	<% } else if (device == 'Android')  {%>
 	<% } %>
-
 	<meta property="og:image" content="http://s3-us-west-2.amazonaws.com/castmag-msk/castmaglogo.jpg" />
 	<meta property="og:image:secure_url" content="https://s3-us-west-2.amazonaws.com/castmag-msk/castmaglogo.jpg" />
 	<meta property="og:description" content="Если вам интересно сегодняшнее искусство, ремесло, и вы бы хотели черпать вдохновение, вдохновлять - присоединяйтесь к нам! Мы не только рассказываем, но и показываем!">
@@ -33,54 +31,37 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<script src="/javascripts/jeezus.js"></script>
 	<script type="text/javascript" src="//vk.com/js/api/openapi.js?101"></script>
-
 </head>
 <body>
-	
 	<div class='header'><a href="/news" style="color:#fff;"><p>CASTMAG</p></a>
-
 			<% if (!user) { %>
-				
 				<p class='auth' style="font-size: 30px;">Вы не авторизованы </p>
 				<div class="reg-wrapper">
 					<div class="signin">Войти 
 						<div class="form">
-
 							<a href="/auth/vkontakte" style="color:#fff;"><div class="enterer" action="registration_proceed"><div class="wrapperic"><i class="fa fa-vk"></i></div>
 							<div class="input-text">через Вконтакте</div></div></a>
-
 							<a href="/auth/facebook" style="color:#fff;"><div class="enterer" action="registration_proceed"><div class="wrapperic"><i class="fa fa-facebook"></i></div>
 							<div class="input-text">через facebook</div></div></a>
-
 							<a href="/auth/twitter" style="color:#fff;"><div class="enterer" action="registration_proceed"><div class="wrapperic"><i class="fa fa-twitter"></i></div>
 							<div class="input-text">через twitter</div></div></a>
-
 						</div>
 					</div>
 				</div>
-
 			<% } else { %>
-
 				<% if (user.provider == 'vkontakte' ||  user.provider == 'facebook') { %>
-
 					<p style="font-size: 30px;">Привет, <%= user.name.givenName %></p>
 					<div class="reg-wrapper">
 						<a href="/logout" style = "color: #fff; text-decoration: none"><div class="signin">Выйти</div></a>
 					</div>
-
 				<% } else if (user.provider == 'twitter') { %>
-
 					<p style="font-size: 30px;">Привет, <%= user.displayName %></p>
 					<div class="reg-wrapper">
 						<a href="/logout" style = "color: #fff; text-decoration: none"><div class="signin">Выйти</div></a>
 					</div>
-
 				<% } %>
-
 			<% } %>	
-		
 	</div>
-
 	<div class='slider-all'>
 			<% for (var i=0; i<newstop.length; i++) { %>
 					<a href="/news/<%-newstop[i]._id%>">
@@ -89,12 +70,9 @@
 					</a>
 			<% } %>
 	</div>
-	
 	<div class="all">
 		<div class="content">
-
 			<% for (var i=0; i<news.length; i++) { %>
-
 				<a href="/news/<%-news[i]._id%>">
 					<div class="new-min">
 						<div class="new-min-content">
@@ -113,11 +91,8 @@
 						</div>
 					</div>
 				</a>
-				
 			<% } %>
-
 		</div>	
-
 		<div class="sidebar">
 			<ul>
 				<% if (mark) { %>
@@ -135,12 +110,9 @@
 				<li class="o" ><a href="/howto">ХАУ ТУ</a></li>
 				<li class="i" ><a href="/features">ФИЧЕРСЫ</a></li>
 				<li class="a" ><a href="/other">ИНОЕ</a></li>
-
 			</ul>
-
 		</div>
 	</div>
-
 	<footer class="footer">
 		<div class="third">
 			<div class="text info">Контакты</div>
@@ -149,7 +121,6 @@
 			<div class="paddinger"></div>
 			<div class="text info">Реклама</div>
 		</div>
-
 		<div class="third">
 			<div class="text" onclick="fcbk()">facebook</div>
 			<div class="paddinger"></div>
@@ -161,10 +132,8 @@
 			<div class="paddinger"></div>
 			<div class="text" onclick="youtb()">vimeo</div>
 		</div>
-
 		<div class="third">
 			<div class="text long">CASTMAG.</div>
-			
 		</div>
 	</footer>
 	<% if (device!='PC') { %>

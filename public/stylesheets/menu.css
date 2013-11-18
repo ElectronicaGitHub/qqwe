@@ -4,15 +4,10 @@
 	float: left;
 	display: inline-block;
 	background-color: #050505;
-	/*background-color: transparent;*/
 	background-position: 30px -25px;
 	color: #fff;
 	letter-spacing: 0.1ex;
 }
-/*h1 {
-	margin: 20px 0px 20px 0px;
-}*/
-
 .sidebar ul {
 	list-style:none;
 	text-align: center;
@@ -22,33 +17,44 @@
 	cursor: pointer;
 	font-size: 50px;
 	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+
 	text-shadow: 0 2px 2px rgba(0,0,0,.3);
 	font-weight: bold;
 	font-family: 'Open Sans Condensed', sans-serif;
-	/*height: 60px;*/
 	line-height: 60px;
 }
 .sidebar li:hover {
 	background-color: #fff;
 	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
 }
 .sidebar li a {
 	color: #fff;
 	text-decoration: none;
 	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
 }
-.sidebar .q:hover { background-color: #2ecc71; -webkit-transition: all 0.3s ease; }
-.sidebar .w:hover { background-color: #FFF473; -webkit-transition: all 0.3s ease; }
-.sidebar .e:hover { background-color: #FFA857; -webkit-transition: all 0.3s ease; }
-.sidebar .r:hover { background-color: #f39c12; -webkit-transition: all 0.3s ease; }
-.sidebar .t:hover { background-color: #2851FF; -webkit-transition: all 0.3s ease; }
-.sidebar .y:hover { background-color: #84D8FF; -webkit-transition: all 0.3s ease; }
-.sidebar .u:hover { background-color: #c0392b; -webkit-transition: all 0.3s ease; }
-.sidebar .i:hover { background-color: #9b59b6; -webkit-transition: all 0.3s ease; }
-.sidebar .o:hover { background-color: #3498db; -webkit-transition: all 0.3s ease; }
-.sidebar .p:hover { background-color: #F6475E; -webkit-transition: all 0.3s ease; }
-.sidebar .a:hover { background-color: #16a085; -webkit-transition: all 0.3s ease; }
-.sidebar .m:hover { background-color: #bdc3c7; -webkit-transition: all 0.3s ease; }
+.sidebar .q:hover, .sidebar .w:hover, .sidebar .e:hover, .sidebar .r:hover, .sidebar .t:hover, .sidebar .y:hover, .sidebar .u:hover, .sidebar .i:hover, .sidebar .o:hover, .sidebar .p:hover, .sidebar .a:hover, .sidebar .m:hover {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+}
+.sidebar .q:hover { background-color: #2ecc71; }
+.sidebar .w:hover { background-color: #FFF473; }
+.sidebar .e:hover { background-color: #FFA857; }
+.sidebar .r:hover { background-color: #f39c12; }
+.sidebar .t:hover { background-color: #2851FF; }
+.sidebar .y:hover { background-color: #84D8FF; }
+.sidebar .u:hover { background-color: #c0392b; }
+.sidebar .i:hover { background-color: #9b59b6; }
+.sidebar .o:hover { background-color: #3498db; }
+.sidebar .p:hover { background-color: #F6475E; }
+.sidebar .a:hover { background-color: #16a085; }
+.sidebar .m:hover { background-color: #bdc3c7; }
 
 .sidebar .li-outer {
 	background-color: transparent;
@@ -66,8 +72,6 @@
 }
 .sidebar .adv {
 	width: 100%;
-	/*height: ;*/
-	/*background-image: url("http://content7.adfox.ru/130926/adfox/135322/857576.jpg");*/
 	background-size: 100%;
 	background-repeat: no-repeat;
 	margin-top: 10px;

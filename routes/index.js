@@ -245,6 +245,20 @@ module.exports = function (app) {
 	app.get('/:type', function (req, res, next) {
 		New.find({'type': req.params.type}, function (err, news) {
 			if (err) return next(err);
+			var userAgent = req.headers['user-agent'];
+			console.log(userAgent);
+			if  ((userAgent.match(/iPhone/i)) ||
+				 (userAgent.match(/iPod/i)))
+				{
+				var device = 'iPhone';
+				console.log('iPhone/iPod client');
+			} else if (userAgent.match(/Android/i)) {
+				device = 'Android';
+				console.log('Android client');
+			} else {
+				device = 'PC';
+				console.log('PC client');
+			}
 			news.reverse();
 			New.find({'top_random' : true}, function (err, newstop) {
 				if (err) return next(err);
@@ -253,7 +267,8 @@ module.exports = function (app) {
 					mark    : true,
 					news    : news,
 					newstop : newsfinal,
-					user    : req.user
+					user    : req.user,
+					device  : device
 				});
 			});
 		});

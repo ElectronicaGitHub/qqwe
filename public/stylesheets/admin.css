@@ -3,7 +3,6 @@
 	padding: 0px;
 }
 html {
-	/*background-color: #f4f4f4;*/
 	background-image: url('bg2.png');
 }
 .header {
@@ -30,6 +29,7 @@ form {
 	min-height: 400px;
 	background-color: #f9f9f9;
 	box-sizing:border-box;
+	-moz-box-sizing:border-box;
 	border: 1px solid #999;
 	border-top: 0px;
 	display: block;
@@ -37,8 +37,8 @@ form {
 	padding: 10px 20px 50px;
 }
 hr {
-  height: 1px;
-  background-color: #444;
+    height: 1px;
+    background-color: #444;
 }
 p {
 	font-size: 15px;
@@ -53,7 +53,6 @@ p {
 	font-size: 40px;
 	display: inline-block;
 }
-
 [class*="_in"] {
 	margin: 10px 30px 10px 0px;
 	width: 400px;
@@ -62,6 +61,7 @@ p {
 	border: 2px solid green;
 	font-size: 20px;
 	box-sizing: border-box;
+	-moz-box-sizing:border-box;
 	padding-left: 5px;
 	font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -129,9 +129,7 @@ p {
 	margin-top: 12px;
 	margin-bottom: 8px;
 }
-
 /*//// EXAMPLES*/
-
 .slider-all {
 	width: 275px;
 	height: 160px;
@@ -141,7 +139,6 @@ p {
 .slider-element {
 	width: 275px;
 	height: 160px;
-	/*float: left;*/
 	margin: 0px auto;
 	display: inline-block;
 	cursor: pointer;
@@ -168,9 +165,7 @@ p {
 	top: 0px;
 	-webkit-transition: all 0.3s ease;
 }
-
 /*///////////*/
-
 .new-min {
 
 	width: 274px;
@@ -263,7 +258,6 @@ img {
 	color: #000;
 	-webkit-transition: all 0.3s ease;
 }
-
 .news       { background-color: #2ecc71;  }
 .events     { background-color: #FFF473;  }
 .art        { background-color: #FFA857;  }

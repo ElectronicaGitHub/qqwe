@@ -9,11 +9,9 @@ form {
 .info div {
 	min-height: 30px;
 	line-height: 30px;
-	/*margin: 2px 0px;*/
 	text-align: center;
 }
 .info {
-	/*margin-top: 30px;*/
 	width: 742px;
 	display: inline-block;
 	float: left;
@@ -36,7 +34,7 @@ form {
 	text-align: center;
 }
 .id {
-	box-sizing: border-box;
+	box-sizing: border-box;	
 	background-color: #ddd;
 	width: 100%;
 	font-size: 20px;
@@ -51,8 +49,6 @@ form {
 	display: inline-block;
 	width: calc(100%/2);
 	float: left;
-	/*border-radius: 5px;*/
-	/*border: 2px solid blue;*/
 	background-color: #bbb;
 	font-size: 20px;
 }
@@ -79,8 +75,6 @@ form {
 	line-height: 25px;
 	font-weight: bold;
 	background-color: #aaa;
-	/*border-top-left-radius: 10px;*/
-	/*border-top-right-radius: 10px;*/
 }
 .photo {
 	background-color: #ddd;
@@ -88,8 +82,6 @@ form {
 	margin-bottom: 0px;
 }
 .photo_text {
-	/*border-bottom-left-radius: 10px;*/
-	/*border-bottom-right-radius: 10px;*/
 	margin-top: 0px;
 	width: 320px;
 	background-color: #d5d5d5;
