@@ -1,4 +1,4 @@
-@media screen and (device-aspect-ratio: 2/3) {
+/*@media screen and (device-aspect-ratio: 2/3) {*/
 	.header {
 		height: 120px;
 		line-height: 120px;
@@ -119,8 +119,8 @@
 	.comment_each {
 		height: 140px;
 	}
-}
-@media screen and (device-aspect-ratio: 40/71) {
+/*}*/
+/*@media screen and (device-aspect-ratio: 40/71) {
 	.header {
 		height: 120px;
 		line-height: 120px;
@@ -363,4 +363,4 @@
 	.comment_each {
 		height: 140px;
 	}
-}
+}*/

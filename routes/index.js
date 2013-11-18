@@ -19,7 +19,19 @@ module.exports = function (app) {
 	app.get('/news', function (req, res, next) {
 		New.find({}, function (err, news) {
 			if (err) return next(err);
-			// console.log(req.user);
+			var userAgent = req.headers['user-agent'];
+			console.log(userAgent);
+			if  ((userAgent.match(/iPhone/i)) ||
+				 (userAgent.match(/iPod/i))   ||
+				 (userAgent.match(/iPad/i))   ||
+				 (userAgent.match(/Android/i)))
+				{
+				var mobile = true;
+				console.log('this is a mobile client');
+			} else {
+				mobile = false;
+				console.log('this is not a mobile client');
+			}
 			news.reverse();
 			New.find({'top_random' : true}, function (err, newstop) {
 				var newsfinal = lodash.sample(newstop, 4);
@@ -27,7 +39,8 @@ module.exports = function (app) {
 					mark    : false,
 					news    : news,
 					newstop : newsfinal,
-					user    : req.user
+					user    : req.user,
+					mobile  : mobile
 				});
 
 			});
