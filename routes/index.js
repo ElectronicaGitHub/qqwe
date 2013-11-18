@@ -58,6 +58,19 @@ module.exports = function (app) {
 			if (onenew == (null || undefined)) {
 				res.render('error');
 			}
+			var userAgent = req.headers['user-agent'];
+			console.log(userAgent);
+			if  ((userAgent.match(/iPhone/i)) ||
+				 (userAgent.match(/iPod/i))   ||
+				 (userAgent.match(/iPad/i))   ||
+				 (userAgent.match(/Android/i)))
+				{
+				var mobile = true;
+				console.log('this is a mobile client');
+			} else {
+				mobile = false;
+				console.log('this is not a mobile client');
+			}
 
 			New.find({'top_random' : true}, function (err, newstop) {
 				if (err) return next(err);
@@ -82,7 +95,8 @@ module.exports = function (app) {
 						news     : newsfinal,
 						onenew   : onenew,
 						comments : comments,
-						user     : req.user
+						user     : req.user,
+						mobile   : mobile
 					});
 				});
 				// res.json(news);
