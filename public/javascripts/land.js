@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 				if (screen.width >= 1000) {
 					console.log('bigger 1000');
-					var rand = Math.floor(Math.random() * 7) + 1;
+					var rand = Math.floor(Math.random() * 6) + 1;
 					var urled ="/images/land/landone" + rand + ".jpg";
 					$('body').css('background-image' , 'url(' + urled + ')');
 				} else {
