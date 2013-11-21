@@ -67,17 +67,18 @@ $(document).ready(function() {
 				});
 			});
    		};
-   		$(".menu-starter").swipe( {
-	        swipeRight:function(event, direction, distance, duration, fingerCount) {
-	          	$('.sidebar-top').addClass('visible');
-	          	$('.header').css('display','none');
-	          	$('.slider-all').css('display','none');
-	          	$('.content').css('display','none');
-	          	$('.footer').css('display','none');
-	        },
-	        threshold:0
-	    });
-    
+      	$(".menu-starter").on('click', function(){
+
+      		$('html, body').animate({
+       			scrollTop: $(".menu-starter").offset().top
+   			}, 100);
+   			setTimeout(function() {
+   				$('.sidebar-top').animate({ 'min-height': "700px"}, 100);
+   			}, 200);
+   			setTimeout(function() {
+	   			$('.sidebar-top').addClass('visible');
+	      	}, 500);
+       	});    
 });
 
 
