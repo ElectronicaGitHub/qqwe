@@ -3,8 +3,8 @@ $(document).ready(function() {
 	$('img').parent().css('width', '100%').css('margin', '0px 0px');
 	$('iframe').parent().css('width', '100%').css('margin', '0px 0px');
 
-	var rand = Math.floor(Math.random() * 8) + 1;
-	var urled = "/images/" + rand + ".jpg";
+	// var rand = Math.floor(Math.random() * 8) + 1;
+	var urled = "/images/1.jpg";
 	$('html').css('background-image' , 'url(' + urled + ')');
 
 	var mic = true;	
