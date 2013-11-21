@@ -247,3 +247,11 @@ img {
 .howto      { background-color: #3498db;  }
 .craft      { background-color: #BA6F30;  }
 .other      { background-color: #16a085;  }
+
+/*/*//*/ SLIDER MENU*/
+.menu-starter {
+	display: none;
+}
+.sidebar-top {
+	display: none;
+}

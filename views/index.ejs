@@ -25,12 +25,9 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome-4.0.2/css/font-awesome.min.css">
 
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
-	<script type="text/javascript" src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
+	
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-	<script src="/javascripts/jeezus.js"></script>
-	<script type="text/javascript" src="//vk.com/js/api/openapi.js?101"></script>
+	
 </head>
 <body>
 	<div class='header'><a href="/news" style="color:#fff;"><p>CASTMAG</p></a>
@@ -70,6 +67,31 @@
 					</a>
 			<% } %>
 	</div>
+
+	<!-- /// SLIDER MENU -->
+
+	<div class="menu-starter"> <p>МЕНЮ</p><p>Проведите направо</p>
+	</div>
+		<div class="sidebar-top">
+			<ul>
+				<% if (mark) { %>
+				<li class="m"><a href="/news">ГЛАВНАЯ</a></li>
+				<%} %>
+				<!-- <li class="q"><a href="/news">МИР</a></li> -->
+				<li class="r"><a href="/art-cinema">КИНО</a></li>
+				<li class="t"><a href="/art-music">МУЗЫКА</a></li>
+				<li class="u"><a href="/fashion">МОДА</a></li>
+				<li class="p"><a href="/craft">РЕМЕСЛО</a></li>
+				<li class="o"><a href="/howto">ХАУ ТУ</a></li>
+				<li class="i"><a href="/features">ФИЧЕРСЫ</a></li>
+				<li class="a"><a href="/other">ИНОЕ</a></li>
+			</ul>
+		</div>
+
+	<!-- /// SLIDER MENU ENDS -->
+
+
+
 	<div class="all">
 		<div class="content">
 			<% for (var i=0; i<news.length; i++) { %>
@@ -139,5 +161,12 @@
 	<% if (device!='PC') { %>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/devices-media.css">
 	<%}%>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
+
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.1/masonry.pkgd.js"></script>
+	<script src="/javascripts/jeezus.js"></script>
+	<script type="text/javascript" src="//vk.com/js/api/openapi.js?101"></script>
 </body>
 </html>

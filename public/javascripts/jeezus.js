@@ -20,8 +20,6 @@ $(document).ready(function() {
 		}
 	});
 
-	
-
 	if ( (navigator.userAgent.match(/iPhone/i)) 
    	  || (navigator.userAgent.match(/iPod/i)) 
       || (navigator.userAgent.match(/Android/i)) ) 
@@ -68,7 +66,18 @@ $(document).ready(function() {
 			        	}
 				});
 			});
-   		}
+   		};
+   		$(".menu-starter").swipe( {
+	        swipeRight:function(event, direction, distance, duration, fingerCount) {
+	          	$('.sidebar-top').addClass('visible');
+	          	$('.header').css('display','none');
+	          	$('.slider-all').css('display','none');
+	          	$('.content').css('display','none');
+	          	$('.footer').css('display','none');
+	        },
+	        threshold:0
+	    });
+    
 });
 
 

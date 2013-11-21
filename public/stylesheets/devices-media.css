@@ -168,3 +168,119 @@ p.new-date {
 .footer .long {
 	width: 240px;
 }
+
+/*// MENU SLIDER*/
+
+.menu-starter {
+	display: block;
+	width: 980px;
+	height: 200px;
+	background-color: #2ecc71;
+	text-align: center;
+	position: relative;
+}
+.menu-starter p {
+	font-family: 'Open Sans Condensed', sans-serif;
+	height: 100px;
+	line-height: 100px;
+	color: #fff; 
+	text-shadow: 0 2px 0 rgba(0,0,0,.5);
+}
+.menu-starter p:nth-of-type(1) {
+	padding-top: 20px;
+	font-size: 100px;
+}
+.menu-starter p:nth-of-type(2) {
+	font-size: 60px;
+	height: 60px;
+	line-height: 60px;
+}
+.sidebar-top {
+	margin: 0px auto;
+	width: 980px;
+	background-color: #000;
+	overflow: hidden;
+	z-index: 9999;
+	height: auto;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 1.5s ease;
+	-moz-transition: all 1.5s ease;
+	-ms-transition: all 1.5s ease;
+}
+.visible {
+	visibility: visible;
+	display: block;
+	-webkit-transition: all 1.5s ease;
+	-moz-transition: all 1.5s ease;
+	-ms-transition: all 1.5s ease;
+	opacity: 1;
+}
+.sidebar-top ul {
+	list-style: none;
+	text-align: center;
+	background-color: #050505;
+}
+.sidebar-top li {
+	/*display: inline-block;*/
+	width: 100%;
+	/*float: left;*/
+	cursor: pointer;
+	margin-bottom: 0;
+	font-size: 90px;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	height: 150px;
+	text-shadow: 0 2px 2px rgba(0,0,0,.3);
+	font-weight: bold;
+	font-family: 'Open Sans Condensed', sans-serif;
+	line-height: 150px;
+	background-color: #050505;
+}
+.sidebar-top li:hover {
+	background-color: #fff;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+}
+.sidebar-top li a {
+	color: #fff;
+	text-decoration: none;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+}
+.sidebar-top .q:hover, .sidebar-top .w:hover, .sidebar-top .e:hover, .sidebar-top .r:hover, .sidebar-top .t:hover, .sidebar-top .y:hover, .sidebar-top .u:hover, .sidebar-top .i:hover, .sidebar-top .o:hover, .sidebar-top .p:hover, .sidebar-top .a:hover, .sidebar-top .m:hover {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+}
+.sidebar-top .q:hover { background-color: #2ecc71; }
+.sidebar-top .w:hover { background-color: #FFF473; }
+.sidebar-top .e:hover { background-color: #FFA857; }
+.sidebar-top .r:hover { background-color: #f39c12; }
+.sidebar-top .t:hover { background-color: #F6475E; }
+.sidebar-top .y:hover { background-color: #84D8FF; }
+.sidebar-top .u:hover { background-color: #c0392b; }
+.sidebar-top .i:hover { background-color: #9b59b6; }
+.sidebar-top .o:hover { background-color: #3498db; }
+.sidebar-top .p:hover { background-color: #BA6F30; }
+.sidebar-top .a:hover { background-color: #16a085; }
+.sidebar-top .m:hover { background-color: #bdc3c7; }
+
+.sidebar-top .adv {
+	width: 100%;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	display: inline-block;
+}
+.sidebar-top .adv img {
+	width: 100%;
+}
+.sidebar-top .adv:nth-of-type(1) {
+	margin-top: 20px;
+}
