@@ -107,7 +107,10 @@
 		<div>{{top_random_text}}</div>
 		<hr>
 		<p class='btwn'> Имя и Фамилия автора</p>
-		<input name="name" class="name_in" placeholder="Имя"></input> <input name="surname" class="surname_in" placeholder="Фамилия"></input>
+		<input name="name" id="name_in" class="name_in" placeholder="Имя"></input>
+		<div id='name_div' style="display: none"><%-news.name%></div>
+		<input name="surname" id="surname_in" class="surname_in" placeholder="Фамилия"></input>
+		<div id='surname_div' style="display: none"><%-news.surname%></div>
 		<hr>
 
 		<button  class="poster" id="poster" data-loading-text="Добавляю...">Изменить</button>
@@ -121,6 +124,8 @@
 			var s = $('#text_in_list_div').text(); $('#text_in_list').val(s);
 			var z = $('#url_in_top_div').text(); $('#url_in_top').val(z);
 			var r = $('#text_in_top_div').text(); $('#text_in_top').val(r);
+			var u = $('#name_div').text(); $('#name_in').val(u);
+			var w = $('#surname_div').text(); $('#surname_in').val(w);
 			var b = $('.text_in').text(); text_in_ifr.document.body.innerHTML(b);
 		});
 
