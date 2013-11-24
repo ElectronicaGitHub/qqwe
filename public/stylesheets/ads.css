@@ -15,15 +15,14 @@ body{
 	margin: 0px;
 	padding: 0px;
 	z-index: 10;
-	background : url('http://stripedbgs.com/createdfd7869.png?c1=CCCCCC&c2=A6CFF4&c3=FFFFCD&c4=DFF8D0&c5=FFE5C2&res=1280x1024');
-	background-size: 100%;
-	background-position: top;
-	background-repeat: repeat;
+	background : url('/images/advertise1.jpg');
+	background-size: cover;
+	/*background-position: top;*/
+	background-repeat: no-repeat;
 }
 .wrapper {
     width: 800px;
-    /*height: 300px;*/
-    height: auto;
+    height: 600px;
     position: absolute;
     top:0;
     bottom: 0;
@@ -40,26 +39,19 @@ body{
 	font-weight: bold;
 	text-align: center;
 	font-family:  "Open Sans Condensed";
-	text-shadow: 0 3px 0 rgba(255,255,255,1);
-	color: #000;
+	text-shadow: 0 3px 0 rgba(0,0,0,1);
+	color: #fff;
 	z-index: 100;
 	-webkit-transition: opacity 3s ease;
 	-moz-transition: opacity 3s ease;
 	-ms-transition: opacity 3s ease;	
 }
-.description {
+.description, .li {
 	font-size: 20px !important;
 	line-height: 30px !important;
 	height: auto !important;
-	color: #000 !important;
-	text-shadow: 0 1px 0 rgba(255,255,255,1) !important;
-}
-.li {
-	font-size: 20px !important;
-	line-height: 30px !important;
-	height: auto !important;
-	color: #000 !important;
-	text-shadow: 0 1px 0 rgba(255,255,255,1) !important;
+	color: #fff !important;
+	text-shadow: 0 1px 0 rgba(0,0,0,1) !important;
 }
 .wrap-blocks {
 	width: 800px;
@@ -75,8 +67,8 @@ body{
 	background-position: cover;
 	margin: 0px auto;
 	/*box-sizing:border-box;*/
-	border: 2px solid #000;
-	box-shadow: 2px 3px 1px rgba(0,0,0,.5);
+	border: 2px solid #fff;
+	/*box-shadow: 2px 3px 1px rgba(255,255,255,0.8);*/
 	background-color: #aaa;
 	display: table;
 }
@@ -105,7 +97,11 @@ body{
 	font-weight: 700;
 }
 .cont {
-	height: 30px !important;
+	height: 55px !important;
+	color:#fff !important;
+	font-size: 50px !important;
+	text-shadow: 0 1px 0 rgba(0,0,0,.7);
+	text-decoration: none !important;
 }
 .wrap-blocks:nth-of-type(2) {
 	width: 800px;
