@@ -8,19 +8,19 @@ var uuidString = function() {
 
 exports.get = function (req,res,err) {
 		if (req.user == undefined) {
-			res.end('You got no permission');
+			res.render('error');
 		} else {
 			if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 				res.render('admin', {
 					name: req.user._json.name
 				});
-			} else res.end('You got no permission');
+			} else res.render('error');
 		}	
 };
 // ADD
 exports.post = function (req, res, next) {
 	if (req.user == undefined) {
-		res.end('You got no permission'); 
+		res.render('error'); 
 	}
 	else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 
@@ -83,12 +83,12 @@ exports.post = function (req, res, next) {
 			console.log(res.statusCode);
 			res.end('');
 		}; 
-	} else res.end('You got no permission');
+	} else res.render('error');
 };
 // CHANGE
 exports.change = function (req, res, next) {
 	if (req.user == undefined) {
-		res.end('You got no permission'); 
+		res.render('error');
 	}
 	else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 
@@ -172,5 +172,5 @@ exports.change = function (req, res, next) {
 			console.log(res.statusCode);
 			res.end('');
 		};
-	} else res.end('You got no permission');
+	} else res.render('error');
 }

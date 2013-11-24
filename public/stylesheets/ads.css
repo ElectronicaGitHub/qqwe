@@ -1,0 +1,113 @@
+html {
+	/*background: url('http://stripedbgs.com/create3a44967.png?c1=9CC1D9&c2=F2E6D8&c3=A67041&c4=D99962&c5=A66A5D&res=1024x768');*/
+	/*background : url('http://stripedbgs.com/create6b5d083.png?c1=AB2E16&c2=A5C596&c3=E8DF96&c4=91875C&c5=3D5743&res=1280x1024');*/
+}
+* {
+	margin: 0px;
+	padding: 0px;
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	text-decoration: none;
+}
+body{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	z-index: 10;
+	background : url('http://stripedbgs.com/createdfd7869.png?c1=CCCCCC&c2=A6CFF4&c3=FFFFCD&c4=DFF8D0&c5=FFE5C2&res=1280x1024');
+	background-size: 100%;
+	background-position: top;
+	background-repeat: repeat;
+}
+.wrapper {
+    width: 800px;
+    /*height: 300px;*/
+    height: auto;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+.wrapper .head {
+	line-height: 80px;
+	width: 100%;
+	height: 80px;
+	font-size: 60px;
+	font-weight: bold;
+	text-align: center;
+	font-family:  "Open Sans Condensed";
+	text-shadow: 0 3px 0 rgba(255,255,255,1);
+	color: #000;
+	z-index: 100;
+	-webkit-transition: opacity 3s ease;
+	-moz-transition: opacity 3s ease;
+	-ms-transition: opacity 3s ease;	
+}
+.description {
+	font-size: 20px !important;
+	line-height: 30px !important;
+	height: auto !important;
+	color: #000 !important;
+	text-shadow: 0 1px 0 rgba(255,255,255,1) !important;
+}
+.li {
+	font-size: 20px !important;
+	line-height: 30px !important;
+	height: auto !important;
+	color: #000 !important;
+	text-shadow: 0 1px 0 rgba(255,255,255,1) !important;
+}
+.wrap-blocks {
+	width: 800px;
+	height: 400px;
+}
+.block {
+	width: 50%;
+	height: 100%;
+	float: left;
+	display: inline-block;
+}
+.inner-pic {
+	background-position: cover;
+	margin: 0px auto;
+	/*box-sizing:border-box;*/
+	border: 2px solid #000;
+	box-shadow: 2px 3px 1px rgba(0,0,0,.5);
+	background-color: #aaa;
+	display: table;
+}
+.block:nth-of-type(1) .inner-pic { 
+	width: 275px;
+	height: 350px;
+	margin-top: calc((400px - 350px)/2)
+}
+.block:nth-of-type(2) .inner-pic { 
+	width: 135px;
+	height: 175px;
+	margin-top: calc((400px - 175px)/2)
+}
+.block:nth-of-type(1) .inner-pic:hover{
+	background-color: #ccc;
+}
+.block:nth-of-type(2) .inner-pic:hover{
+	background-color: #eee;
+}
+.size {
+	display: table-cell;
+	font-family:  "Open Sans Condensed";
+	text-shadow: 0 1px 0 rgba(0,0,0,.7);
+	vertical-align: middle;
+	font-size: 30px;
+	font-weight: 700;
+}
+.cont {
+	height: 30px !important;
+}
+.wrap-blocks:nth-of-type(2) {
+	width: 800px;
+	height: 60px;
+}

@@ -82,8 +82,9 @@ $(document).ready(function() {
 });
 
 
-function fcbk()  { window.location.assign("https://www.facebook.com/castmag") }
-function vk()    { window.location.assign("http://vk.com/castmag1")           }
-function twtr()  { window.location.assign("https://twitter.com/CASTMAGRU")    }
-function nstgr() { window.location.assign("http://www.instagram.com")         }
-function youtb() { window.location.assign("https://vimeo.com/castmag")        }
+function fcbk()      { window.location.assign("https://www.facebook.com/castmag") }
+function vk()        { window.location.assign("http://vk.com/castmag")            }
+function twtr()      { window.location.assign("https://twitter.com/CASTMAGRU")    }
+function nstgr()     { window.location.assign("http://instagram.com/castmag_ru")  }
+function youtb()     { window.location.assign("https://vimeo.com/castmag")        }
+function advertise() { window.location.assign('/advertise')                       }

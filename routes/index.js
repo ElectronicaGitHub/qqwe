@@ -5,34 +5,31 @@ var mongoose = require('../libs/mongoose');
 var strftime = require('strftime');
 var passport = require('passport');
 var lodash   = require('lodash');
+var device;  // для функции определение устройства
 
 var db = mongoose.connection.db;
 
 module.exports = function (app) {
 
+	// ЛЭНДИНГ 
 	app.get('/', function (req, res, err) {
 		console.log('entered landing');
 		res.render("land");
 	});
+	//////////////////////////////////
+
+	// СТРАНИЦА РЕКЛАМЫ
+	app.get('/advertise', function (req, res, err) {
+		console.log('entered advertise');
+		res.render("ads");
+	});
+	//////////////////////////////////
 
 	//ГЛАВНАЯ
 	app.get('/news', function (req, res, next) {
 		New.find({}, function (err, news) {
 			if (err) return next(err);
-			var userAgent = req.headers['user-agent'];
-			console.log(userAgent);
-			if  ((userAgent.match(/iPhone/i)) ||
-				 (userAgent.match(/iPod/i)))
-				{
-				var device = 'iPhone';
-				console.log('iPhone/iPod client');
-			} else if (userAgent.match(/Android/i)) {
-				device = 'Android';
-				console.log('Android client');
-			} else {
-				device = 'PC';
-				console.log('PC client');
-			}
+			deviceFinder(req);
 			news.reverse();
 			New.find({'top_random' : true}, function (err, newstop) {
 				var newsfinal = lodash.sample(newstop, 4);
@@ -45,12 +42,9 @@ module.exports = function (app) {
 				});
 
 			});
-		});
+		});	
 	});
 	/////////////////////////////////////////
-
-	
-
 
 	// НОВОСТЬ НА СТРАНИЦЕ
 	app.get('/news/:id', function (req, res, next) {
@@ -59,21 +53,7 @@ module.exports = function (app) {
 			if (onenew == (null || undefined)) {
 				res.render('error');
 			}
-			var userAgent = req.headers['user-agent'];
-			console.log(userAgent);
-			if  ((userAgent.match(/iPhone/i)) ||
-				 (userAgent.match(/iPod/i)))
-				{
-				var device = 'iPhone';
-				console.log('iPhone/iPod/client');
-			} else if (userAgent.match(/Android/i)) {
-				device = 'Android';
-				console.log('Android client');
-			} else {
-				device = 'PC';
-				console.log('PC client');
-			}
-
+			deviceFinder(req);
 			New.find({'top_random' : true}, function (err, newstop) {
 				if (err) return next(err);
 				
@@ -107,11 +87,9 @@ module.exports = function (app) {
 	});
 	/////////////////////////////////////////
 
-
 	//ДОБАВЛЕНИЕ КОММЕНТАРИЯ
 	app.post('/added/:id', require('./comment').post);
 	/////////////////////////////////////////
-
 
 	//АДМИНСКОЕ ПРЕДСТАВЛЕНИЕ
 	app.get('/admin', require('./admin').get);
@@ -119,30 +97,28 @@ module.exports = function (app) {
 	app.post('/changed/:id', require('./admin').change);
 	/////////////////////////////////////////
 
-
 	//АДМИНСКОЕ ПРЕДСТАВЛЕНИЕ - ВСЕ НОВОСТИ
 	app.get('/allnews', function (req, res, next) {
 		New.find({}, function (err, news) {
 			if (err) return next(err);
 			if (req.user == undefined) {
-				res.end('You got no permission'); 
+				res.render('error');
 			}
 			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 				res.render("allnews", {
 					news : news
 				});
-			} else res.end('You got no permission'); 
+			} else res.render('error'); 
 		})
 	});
 	/////////////////////////////////////////
-
 
 	//УДАЛЕНИЕ НОВОСТИ
 	app.get('/allnews/:id/delete', function (req, res, next) {
 		New.find({'_id':req.params.id}, function (err, n) {
 			if (err) return next(err);
 			if (req.user == undefined) {
-				res.end('You got no permission'); 
+				res.render('error');
 			}
 			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 
@@ -155,11 +131,10 @@ module.exports = function (app) {
 					res.statusCode = 404;
 					res.end(':c');
 				}
-			} else res.end('You got no permission'); 
+			} else res.render('error'); 
 		});
 	});
 	/////////////////////////////////////////
-
 
 	//УДАЛЕНИЕ КОММЕНТАРИЯ
 	app.get('/comment/:id/delete', function (req, res, next) {
@@ -168,7 +143,7 @@ module.exports = function (app) {
 			console.log(n[0]);
 			if (err) return next(err);
 			if (req.user == undefined) {
-				res.end('You got no permission'); 
+				res.render('error');
 
 			}
 			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
@@ -183,29 +158,27 @@ module.exports = function (app) {
 					res.statusCode = 404;
 					res.end(':c');
 				}
-			} else res.end('You got no permission'); 
+			} else res.render('error'); 
 		});
 	});
 	/////////////////////////////////////////
-
 
 	//ИЗМЕНЕНИЕ НОВОСТИ
 	app.get('/allnews/:id/change', function (req, res, next) {
 		New.find({'_id':req.params.id}, function (err, n) {
 			if (err) return next(err);
 			if (req.user == undefined) {
-				res.end('You got no permission'); 
+				res.render('error'); 
 			}
 			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 
 				res.render('changer', {
 					news: n[0]
 				});
-			} else res.end('You got no permission'); 
+			} else res.render('error');
 		});
 	});
 	/////////////////////////////////////////
-
 
 	//АДРЕСАЦИЯ НА РЕГИСТРАЦИЮ
 	app.get('/auth/facebook' , passport.authenticate('facebook') , function (req, res){
@@ -215,7 +188,6 @@ module.exports = function (app) {
 	app.get('/auth/twitter'  , passport.authenticate('twitter')  , function (req, res){
 	});
 	///////////////////////////////////////// 
-
 
 	//КОЛЛБЭК, ПЕРЕАДРЕСАЦИЯ НА САЙТ 
 	app.get('/auth/facebook/callback' , passport.authenticate('facebook' , { failureRedirect: '/login' }), 
@@ -232,33 +204,21 @@ module.exports = function (app) {
 	});
 	/////////////////////////////////////////
 
-
 	// ВЫХОД ИЗ АККАУНТА
 	app.get('/logout', function (req, res){
 	    req.logout();
 	    res.redirect('/'); 
 	});
 	/////////////////////////////////////////
-
 	
 	//СОРТИРОВАННЫЕ НОВОСТИ
 	app.get('/:type', function (req, res, next) {
 		New.find({'type': req.params.type}, function (err, news) {
 			if (err) return next(err);
-			var userAgent = req.headers['user-agent'];
-			console.log(userAgent);
-			if  ((userAgent.match(/iPhone/i)) ||
-				 (userAgent.match(/iPod/i)))
-				{
-				var device = 'iPhone';
-				console.log('iPhone/iPod client');
-			} else if (userAgent.match(/Android/i)) {
-				device = 'Android';
-				console.log('Android client');
-			} else {
-				device = 'PC';
-				console.log('PC client');
+			if (news == (null || undefined)) {
+				res.render('error');
 			}
+			deviceFinder(req);
 			news.reverse();
 			New.find({'top_random' : true}, function (err, newstop) {
 				if (err) return next(err);
@@ -275,15 +235,30 @@ module.exports = function (app) {
 	});
 	/////////////////////////////////////////
 
-
 	//ФУНКЦИЯ ПРОВЕРКИ ДЛЯ ПОЛУЧЕНИЯ ДАННЫХ
 	function ensureAuthenticated(req, res, next) {
-	  if (req.isAuthenticated()) { return next(); }
-	  res.redirect('/login')
+	    if (req.isAuthenticated()) { return next(); }
+	    res.redirect('/login')
 	};
 	/////////////////////////////////////////
+
+	// ПРОВЕРКА НА ДЕВАЙС //
+	function deviceFinder(req) {
+		var userAgent = req.headers['user-agent'];
+		console.log(userAgent);
+		if  ((userAgent.match(/iPhone/i)) ||
+			 (userAgent.match(/iPod/i)))
+			{
+			device = 'iPhone';
+			console.log('iPhone/iPod client');
+		} else if (userAgent.match(/Android/i)) {
+			device = 'Android';
+			console.log('Android client');
+		} else {
+			device = 'PC';
+			console.log('PC client');
+		}
+		return device;
+	}
+	///////////////////////////////////////////
 };
-
-
-
-
