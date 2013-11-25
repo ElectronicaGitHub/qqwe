@@ -262,7 +262,7 @@ img {
 	font-family: 'Open Sans Condensed';
 	font-size: 33px;
 	color: #222;
-	text-shadow: 0 2px 0 rgba(0,0,0,.5);
+	text-shadow: 1px 2px 0 rgba(0,0,0,.2);
 	text-align: center;
 	height: 70px;
 	line-height: 70px;
