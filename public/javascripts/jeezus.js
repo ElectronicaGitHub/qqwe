@@ -78,7 +78,18 @@ $(document).ready(function() {
    			setTimeout(function() {
 	   			$('.sidebar-top').addClass('visible');
 	      	}, 500);
-       	});    
+       	}); 
+
+    $('.img-wrapper').each(function() {
+    	var a = $( this ).children('img').height();
+    	var imgHeight = a;
+    	a = imgHeight;
+    	console.log(imgHeight);
+    	$( this ).height(imgHeight);
+    })
+
+
+
 });
 
 

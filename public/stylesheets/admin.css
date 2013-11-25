@@ -147,12 +147,12 @@ p {
 	font-family: 'Open Sans Condensed', sans-serif;
 	overflow: hidden;
 }
-.slider-element p {
+.slider-element .wrap-p {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0,0,0,.5);
 	text-align: center;
-	padding-top: 60px;
+	display: table;
 	position: absolute;
 	top: -220px;
 	font-weight: bold;
@@ -160,14 +160,22 @@ p {
 	color: #fff;
 	font-family: 'Open Sans Condensed', sans-serif;
 	-webkit-transition: all 0.3s 0.1s ease;
+	-moz-transition: all 0.3s 0.1s ease;
+	-ms-transition: all 0.3s 0.1s ease;
 }
-.slider-element:hover p{
+.slider-element .wrap-p p {
+	display: table-cell;
+	vertical-align: middle;
+	box-sizing: border-box;
+	padding: 0 5px;
+	font-size: 22px;
+}
+.slider-element:hover .wrap-p{
 	top: 0px;
 	-webkit-transition: all 0.3s ease;
 }
 /*///////////*/
 .new-min {
-
 	width: 274px;
 	margin-top: 10px;
 	min-height: 200px;
@@ -214,28 +222,35 @@ p {
 }
 .inliner {
 	width: 100%;
-	height: 100%;
+	height: 98%;
 	background-color: rgba(0,0,0,.5);
 	text-align: center;
 	position: absolute;
 	left: -260px;
 	top: 0px;
 	vertical-align: middle;
-	display: table-cell;
+	/*display: table-cell;*/
+	display: table;
 }
 .inliner p{
 	width: 100%;
-	height: 40%;
-	position: absolute;
-	top: 0; left: 0; bottom: 0; right: 0;
+	/*height: 42%;*/
+	/*position: absolute;*/
+	/*top: 0; left: 0; bottom: 0; right: 0;*/
+	display: table-cell;
+	vertical-align: middle;
 	overflow: auto;
   	margin: auto;
-	display: inline-block;
+	/*display: inline-block;*/
 	font-weight: bold;
 	font-size: 18px;
 	color: #fff;
+	padding: 0 5px;
+	box-sizing: border-box;
 	font-family: 'Open Sans Condensed', sans-serif;
 	-webkit-transition: all 0.3s 0.1s ease;
+	-moz-transition: all 0.3s 0.1s ease;
+	-ms-transition: all 0.3s 0.1s ease;
 }
 .img-wrapper:hover .inliner{
 	left: 0px;
@@ -260,7 +275,8 @@ img {
 }
 .news       { background-color: #2ecc71;  }
 .events     { background-color: #FFF473;  }
-.art        { background-color: #FFA857;  }
+/*.art        { background-color: #FFA857;  }*/
+.art        { background-color: #2ecc71;  }
 .art-cinema { background-color: #f39c12;  }
 .art-music  { background-color: #F6475E;  }
 .art-design { background-color: #84D8FF;  }
@@ -269,4 +285,3 @@ img {
 .howto      { background-color: #3498db;  }
 .craft      { background-color: #BA6F30;  }
 .other      { background-color: #16a085;  }
-

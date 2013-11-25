@@ -160,7 +160,9 @@ hr {
 }
 .news       { background-color: #2ecc71;  }
 .events     { background-color: #FFF473;  }
-.art        { background-color: #FFA857;  }
+/*.art        { background-color: #FFA857;  }*/
+.art        { background-color: #2ecc71;  }
+
 .art-cinema { background-color: #f39c12;  }
 .art-music  { background-color: #F6475E;  }
 .art-design { background-color: #84D8FF;  }

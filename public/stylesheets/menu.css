@@ -45,7 +45,9 @@
 }
 .sidebar .q:hover { background-color: #2ecc71; }
 .sidebar .w:hover { background-color: #FFF473; }
-.sidebar .e:hover { background-color: #FFA857; }
+/*.sidebar-top .e:hover { background-color: #FFA857; }*/
+.sidebar .e:hover { background-color: #2ecc71; }
+
 .sidebar .r:hover { background-color: #f39c12; }
 .sidebar .t:hover { background-color: #F6475E; }
 .sidebar .y:hover { background-color: #84D8FF; }
@@ -60,7 +62,8 @@
 	background-color: transparent;
 }
 .sidebar .li-outer-open {
-	background-color: #E8BC44;
+	/*background-color: #E8BC44;*/
+	background-color: #2ecc71;
 }
 .sidebar .li-inner {
 	display: none;

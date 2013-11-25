@@ -12,6 +12,8 @@ if (cluster.isMaster) {
 	console.log('Hello from Worker ' + cluster.worker.id);
 
 	var express = require('express');
+	var csrf = require('csrf');
+    var ips = ['127.0.0.1'];
 	var http = require('http');
 	var path = require('path');
 	var config = require('./config');
@@ -34,7 +36,7 @@ if (cluster.isMaster) {
 	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
-
+	
 	var MongoStore = require('connect-mongo')(express);
 
 	app.use(express.session( {
@@ -45,6 +47,7 @@ if (cluster.isMaster) {
 	}));
 	app.use(passport.initialize());
 	app.use(passport.session());
+	app.use(csrf(ips));
 	app.use(app.router);
 	require('./routes')(app);
 	app.use(express.static(path.join(__dirname, 'public')));
