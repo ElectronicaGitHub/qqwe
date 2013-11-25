@@ -209,6 +209,22 @@ p.new-date {
 	-ms-transition: all 1.5s ease;
 	opacity: 1;
 }
+.new-news-loader {
+	background-color: #f4f4f4;
+	float: left;
+	width: 100%;
+	border-top: 2px dashed #ddd;
+	box-sizing: border-box;
+	font-family: 'Open Sans Condensed';
+	font-size: 40px;
+	color: #222;
+	text-shadow: 0 2px 0 rgba(0,0,0,.5);
+	text-align: center;
+	height: 100px;
+	line-height: 100px;
+	font-weight: 700;
+	letter-spacing: -0.1ex;
+}
 .sidebar-top ul {
 	list-style: none;
 	text-align: center;
