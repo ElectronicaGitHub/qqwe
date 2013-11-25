@@ -48,7 +48,7 @@ if (cluster.isMaster) {
 	}));
 	app.use(passport.initialize());
 	app.use(passport.session());
-	app.use(csrf(ips));
+	// app.use(csrf(ips));
 	app.use(app.router);
 	require('./routes')(app);
 	app.use(express.static(path.join(__dirname, 'public')));
