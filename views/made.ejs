@@ -18,7 +18,7 @@
 	<meta name="robots" content="all">
 	<meta name="keywords" content="Handmade, Своими руками, Ремесло, Хэнд мейд, Музыка, Кино, Мода, Как сделать, Как создать, Производство, Бизнес, Творчество, Автор, Создатель, Творец, Features, Рассказы, Статьи, Новости">
 	
-	<link rel="stylesheet" type="text/css" href="/stylesheets/castmag-index.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/made.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/reg.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css">	
@@ -28,7 +28,6 @@
 	
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=cyrillic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/advertise-styles.css">
 
 </head>
 <body>
@@ -74,48 +73,75 @@
 
 	<div class="menu-starter"> <p>Список топиков</p>
 	</div>
-		<div class="sidebar-top">
-			<ul>
-				<% if (mark) { %>
-				<li class="m"><a href="/news">ГЛАВНАЯ</a></li>
-				<%} %>
-				<!-- <li class="q"><a href="/news">МИР</a></li> -->
-				<li class="i"><a href="/made">СОЗДАВАЙ</a></li>
-				<li class="r"><a href="/art-cinema">КИНО</a></li>
-				<li class="t"><a href="/art-music">МУЗЫКА</a></li>
-				<li class="u"><a href="/fashion">МОДА</a></li>
-				<li class="p"><a href="/craft">РЕМЕСЛО</a></li>
-				<li class="o"><a href="/howto">ХАУ ТУ</a></li>
-				<li class="a"><a href="/other">ИНОЕ</a></li>
-			</ul>
-		</div>
+	<div class="sidebar-top">
+		<ul>
+			<% if (mark) { %>
+			<li class="m"><a href="/news">ГЛАВНАЯ</a></li>
+			<%} %>
+			<!-- <li class="q"><a href="/news">МИР</a></li> -->
+			<li class="i"><a href="/made">УЧАСТВУЙ</a></li>
+			<li class="r"><a href="/art-cinema">КИНО</a></li>
+			<li class="t"><a href="/art-music">МУЗЫКА</a></li>
+			<li class="u"><a href="/fashion">МОДА</a></li>
+			<li class="p"><a href="/craft">РЕМЕСЛО</a></li>
+			<li class="o"><a href="/howto">ХАУ ТУ</a></li>
+			<li class="a"><a href="/other">ИНОЕ</a></li>
+		</ul>
+	</div>
 
 	<!-- /// SLIDER MENU ENDS -->
 
-
-
 	<div class="all">
 		<div class="content">
-			<% for (var i=0; i<news.length; i++) { %>
-				<a href="/news/<%-news[i]._id%>">
-					<div class="new-min">
-						<div class="new-min-content">
-							<% if (news[i].type == "other" || news[i].type == "fashion" || news[i].type == "features"  || news[i].type == "craft") { %> 
-								<p class="new-min-content-header <%-news[i].type%>" style="color:#fff; text-shadow: 0 1px 0 rgba(0,0,0,.5);"><%-news[i].title_in %></p>
-							<% } else { %>
-								<p class="new-min-content-header <%-news[i].type%>" ><%-news[i].title_in %></p>
-							<% } %>				
-							<div class="img-wrapper">
-								<img src="<%-news[i].url_in_list%>" style="width:100%;">
-								<div class="inliner">
-									<p><%-news[i].text_in_list%></p>
-								</div>
-								<p class="views">Заинтересовавшихся: <%-news[i].quantity%></p>
+				<a href="">
+					<div class="made-block">
+						<p class="made-block-header made" >Это заголовок</p>
+							<div class="pic" style="background-image: url('https://s3-eu-west-1.amazonaws.com/castmagqwe/EugeneOnegin/%D0%A4%D0%9E%D0%A2%D0%9E2.jpg')"></div>
+							<div class="side-text">
+								<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+								proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+								proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 							</div>
-						</div>
 					</div>
 				</a>
-			<% } %>
+
+				<a href="">
+					<div class="made-block">
+						<p class="made-block-header made" >Это заголовок</p>
+							<div class="pic" style="background-image: url('https://s3-eu-west-1.amazonaws.com/castmagqwe/EugeneOnegin/%D0%A4%D0%9E%D0%A2%D0%9E2.jpg')"></div>
+							<div class="side-text">
+								<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+								proident, sunt in culpa qui officia deserunt mollit anim id est laborum. cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+								proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+								proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. Duis aute irure dolor in reprehenderi</p>
+							</div>
+					</div>
+				</a>
+
 		</div>	
 		<div class="sidebar">
 			<ul>
@@ -135,10 +161,6 @@
 				<li class="o" ><a href="/howto">ХАУ ТУ</a></li>
 				<li class="a" ><a href="/other">ИНОЕ</a></li>
 			</ul>
-			<div class="block"><div class="inner-pic"><p class='size'>Рекламный блок <br> 275 x 450</p></div></div>
-			<!-- <div class="block"><div class="inner-pic"><div class="circle"><p class="size">Разработка<br> сайтов</p></div><p class="bottomer">8-915-222-27-22</p></div></div> -->
-
-
 		</div>
 		<div class="new-news-loader">НАШИ РОБОТЫ УСЕРДНО ТРУДЯТСЯ НАД НОВЫМ МАТЕРИАЛОМ</div>
 	</div>
@@ -174,7 +196,7 @@
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
 
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.1/masonry.pkgd.js"></script>
-	<script src="/javascripts/jeezus.js"></script>
+	<script src="/javascripts/made.js"></script>
 	<script type="text/javascript" src="//vk.com/js/api/openapi.js?101"></script>
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -185,6 +207,5 @@
 		ga('create', 'UA-46010192-1', 'castmag.ru');
 		ga('send', 'pageview');
 	</script>
-	
 </body>
 </html>

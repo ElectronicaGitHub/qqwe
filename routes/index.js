@@ -210,7 +210,24 @@ module.exports = function (app) {
 	    res.redirect('/'); 
 	});
 	/////////////////////////////////////////
-	
+
+	// ТОПИК "СОЗДАВАЙ"
+	// app.get('/made', function (req, res, next) {
+	// 	deviceFinder(req);
+	// 	New.find({'top_random' : true}, function (err, newstop) {
+	// 		if (err) return next(err);
+	// 		var newsfinal = lodash.sample(newstop, 4);
+	// 		res.render("made", {
+	// 			mark    : true,
+	// 			// news    : news,
+	// 			newstop : newsfinal,
+	// 			user    : req.user,
+	// 			device  : device
+	// 		});
+	// 	});
+	// });
+	////////////////////////////////////////
+
 	//СОРТИРОВАННЫЕ НОВОСТИ
 	app.get('/:type', function (req, res, next) {
 		New.find({'type': req.params.type}, function (err, news) {

@@ -14,7 +14,7 @@ if (cluster.isMaster) {
 
 	var express = require('express');
 	var csrf = require('csrf');
-    var ips = ['127.0.0.1'];
+    var ips = ['127.0.0.1', '127.0.0.1/admin', '127.0.0.1/change'];
 	var http = require('http');
 	var path = require('path');
 	var config = require('./config');

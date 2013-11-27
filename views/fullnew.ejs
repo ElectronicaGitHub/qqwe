@@ -84,8 +84,8 @@
 					</div>
 					<%-onenew.content%>
 					<hr style="-webkit-margin-after: 0;">
-					<p style="display: inline-block; font-weight:bold; font-size: 12px; height: 20px; line-height:20px; margin: 0px 10px;" class="new-autor">Автор: <%-onenew.name%> <%-onenew.surname%></p>
-					<p style="display: inline-block; font-weight:bold; font-size: 12px; height: 20px; line-height:20px; margin: 0px 10px;" class="new-date">Новость добавлена: <%-strftime('%d %B, %Y года', onenew.post_date) %></p>				
+					<p style="display: inline-block; font-weight:bold; font-size: 16px; height: 25px; line-height:25px; margin: 0px 10px;" class="new-autor">Автор: <%-onenew.name%> <%-onenew.surname%></p>
+					<p style="display: inline-block; font-weight:bold; font-size: 16px; height: 25px; line-height:25px; margin: 0px 10px;" class="new-date">Новость добавлена: <%-strftime('%d %B, %Y года', onenew.post_date) %></p>				
 				</div>
 				<% if (!user) { %>
 				<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
@@ -265,13 +265,13 @@
 			||  (navigator.userAgent.match(/Android/i))) 
 			{
 				$('img').each(function() {
-					var height = Math.floor($(this).attr('height') * 1.1864406) + 1;
-					var width = Math.floor($(this).attr('width') * 1.1864406) + 1;
+					var height = Math.floor($(this).attr('height') * 1.18787) + 1;
+					var width = Math.floor($(this).attr('width') * 1.18787) + 1;
 					$(this).attr('width', width).attr('height', height).css('margin', '0px 0px');
 				})
 				$('iframe').each(function() {
-					var height = Math.floor($(this).attr('height') * 1.1864406) + 1;
-					var width = Math.floor($(this).attr('width') * 1.1864406) + 1;
+					var height = Math.floor($(this).attr('height') * 1.18787) + 1;
+					var width = Math.floor($(this).attr('width') * 1.18787) + 1;
 					$(this).parent().css('width', width).css('margin', '0px 0px');
 					$(this).attr('width', width).attr('height', height).css('margin', '0px 0px');
 				})

@@ -61,9 +61,15 @@
 	width: 50%;
 	overflow: hidden;
 }
-.slider-element p {
+/*.slider-element p {
 	padding-top: 110px;
-	top: -420px;
+	top: -200px;
+	font-size: 40px;
+}*/
+.slider-element .wrap-p {
+	top: -300px;
+}
+.slider-element .wrap-p p {
 	font-size: 40px;
 }
 .all {
@@ -77,9 +83,13 @@
 	margin: 0px;
 	max-width: 980px;		
 }
+.new {
+	border-right: 0px;
+}
 .content-full {
 	width: 100%;
 	border-left: 0px;
+
 }
 .sidebar {
 	display: none;
@@ -134,7 +144,14 @@ h1.header-new {
 	height: 120px;
 }
 .comment_each {
-	height: 140px;
+	min-height: 150px;
+}
+.comment_wrapper form {
+	font-size: 40px;
+	line-height: 50px;
+}
+.name, .surname, .date {
+	height: 50px;
 }
 p.new-autor {
 	font-size: 30px !important;

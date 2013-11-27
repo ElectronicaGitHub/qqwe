@@ -16,8 +16,8 @@ body{
 	padding: 0px;
 	z-index: 10;
 	background : url('/images/advertise1.jpg');
-	background-size: cover;
-	/*background-position: top;*/
+	background-size: 100%;
+	background-position: top;
 	background-repeat: no-repeat;
 }
 .wrapper {
@@ -76,6 +76,9 @@ body{
 	width: 275px;
 	height: 350px;
 	margin-top: calc((400px - 350px)/2)
+	-webkit-transition: all 1s;
+	   -moz-transition: all 1s;
+	    -ms-transition: all 1s;
 }
 .block:nth-of-type(2) .inner-pic { 
 	width: 135px;
@@ -84,9 +87,13 @@ body{
 }
 .block:nth-of-type(1) .inner-pic:hover{
 	background-color: #ccc;
+	height: 500px;
+	-webkit-transition: all 1s;
+	   -moz-transition: all 1s;
+	    -ms-transition: all 1s;
 }
 .block:nth-of-type(2) .inner-pic:hover{
-	background-color: #eee;
+	background-color: #ccc;
 }
 .size {
 	display: table-cell;
