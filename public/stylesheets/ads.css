@@ -14,9 +14,10 @@ body{
 	height: 100%;
 	margin: 0px;
 	padding: 0px;
+	background-color: #000;
 	z-index: 10;
-	background : url('/images/advertise1.jpg');
-	background-size: 100%;
+	/*background : url('/images/advertise1.jpg');*/
+	background-size: cover;
 	background-position: top;
 	background-repeat: no-repeat;
 }
@@ -64,18 +65,18 @@ body{
 	display: inline-block;
 }
 .inner-pic {
-	background-position: cover;
 	margin: 0px auto;
 	/*box-sizing:border-box;*/
 	border: 2px solid #fff;
 	/*box-shadow: 2px 3px 1px rgba(255,255,255,0.8);*/
 	background-color: #aaa;
 	display: table;
+	z-index: 9999;
 }
 .block:nth-of-type(1) .inner-pic { 
 	width: 275px;
 	height: 350px;
-	margin-top: calc((400px - 350px)/2)
+	margin-top: calc((400px - 350px)/2);
 	-webkit-transition: all 1s;
 	   -moz-transition: all 1s;
 	    -ms-transition: all 1s;
@@ -112,5 +113,6 @@ body{
 }
 .wrap-blocks:nth-of-type(2) {
 	width: 800px;
-	height: 60px;
+	height: 100px;
+	z-index: 0;
 }
