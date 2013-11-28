@@ -87,6 +87,18 @@
 					<p style="display: inline-block; font-weight:bold; font-size: 16px; height: 25px; line-height:25px; margin: 0px 10px;" class="new-autor">Автор: <%-onenew.name%> <%-onenew.surname%></p>
 					<p style="display: inline-block; font-weight:bold; font-size: 16px; height: 25px; line-height:25px; margin: 0px 10px;" class="new-date">Новость добавлена: <%-strftime('%d %B, %Y года', onenew.post_date) %></p>				
 				</div>
+
+				<script type="text/javascript">(function() {
+					  if (window.pluso)if (typeof window.pluso.start == "function") return;
+					  if (window.ifpluso==undefined) { window.ifpluso = 1;
+					    var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+					    s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+					    s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+					    var h=d[g]('body')[0];
+					    h.appendChild(s);
+					  }})();</script>
+				<div class="pluso" data-background="transparent" data-options="big,square,line,horizontal,nocounter,theme=06" data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email,print" data-user="794962481"></div>
+
 				<% if (!user) { %>
 				<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
 					<div style="width:100%; height: 50px; background-color: transparent; border: 0px; overflow: hidden; text-align: center">
