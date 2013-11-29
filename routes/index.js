@@ -85,7 +85,7 @@ module.exports = function (app) {
 	})
 	//////////////////////////////////
 
-	app.get('/comments', function (req,res, next) {
+	app.get('/allcomments', function (req,res, next) {
 		Comment.find({}, function (err, comments) {
 			if (err) return next(err);
 			if (req.user == undefined) {
@@ -218,7 +218,6 @@ module.exports = function (app) {
 			if (err) return next(err);
 			if (req.user == undefined) {
 				res.render('error');
-
 			}
 			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 				console.log('permission got');
