@@ -92,7 +92,9 @@ module.exports = function (app) {
 				res.render('error');
 			}
 			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
-				res.json(comments)
+				res.render('allcomments', {
+					comments : comments
+				})
 			} else res.render('error');
 		})
 	})

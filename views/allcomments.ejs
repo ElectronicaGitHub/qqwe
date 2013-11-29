@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+<head>
+	<title></title>
+</head>
+<body>
+	<% for (var k=0; k< comments.length; k++) { %>
+	<form name="neen">
+		<div class='info'> 
+			<div class='number'><%- comments[k]._id_parent %></div>
+			<div class='title'><%- comments[k]._id %></div>
+			<div class='id'><%- comments[k].content %></div>
+			<div class="flag"><%- comments[k].autor_name %> <%- comments[k].autor_surname %></div>
+			<div class="date"><%- comments[k].post_date %></div>
+		<a href="/comment/<%-comments[k]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a>
+	</form>
+		<hr>
+	
+	<% }%>
+
+</body>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$( ".delete" )
+		    .on( "mouseenter", function() {
+		    	$( this ).parent().css({ "background-color": "#FFA9A8"});
+			})
+		    .on( "mouseleave", function() {
+		        var styles = {
+		        backgroundColor : "#fff",
+		    };
+		    $( this ).parent().css( styles );
+		});
+	});	
+
+	$('.delete').click(function(event) {
+		var URL = $(this).attr('href');
+		event.preventDefault();
+		$.ajax({
+			url: URL, 
+			method: 'GET',
+			complete: function() {
+			},
+			statusCode: {
+				200 : function() {
+					window.location.href = '/allcomments';
+				},
+				404 : function() {
+					(this).text('huevo');
+				},
+				403 : function() {
+					var error = JSON.parse(jqXHR.responseText);
+					$('.error',form).html(error.message);
+				}
+			}
+		});
+	});
+</script>
+
+</html>
