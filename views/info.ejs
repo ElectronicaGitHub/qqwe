@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CASTMAG \ Главная</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="news"><p><span>Количество новостей: </span><%- newsQuantity %></p></div>
+		<div class="views"><p><span>Общее число просмотров: </span><%-currentQuantity %></p> <p style="color:green">+ <%- delta %></p></div> 
+		<div class="news_average"><p><span>Среднее на новость: </span><%- averageNews %></p></div>
+		<div class="comments"><p><span>Общее число комментов: </span><%- commentsQuantity %></p></div>
+		<div>
+			<a href="/comments"><div class="commentsb">Все комментарии</div></a>
+			<a href="/allnews"><div class="allnewsb">Все новости</div></a>
+		</div>
+	</div>
+
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		body, html {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+		}
+		.wrapper {
+			position: absolute;
+			top: 0; left: 0; right: 0; bottom: 0;
+			margin: auto;
+			height: 300px;
+			width: 600px;
+			background-color: #f4f4f4;
+		}
+		.wrapper div {
+			height: 20%;
+			width: 100%;
+			display: table;
+			text-align: center;
+		}
+		.wrapper div p {
+			display: table-cell;
+			vertical-align: middle;
+			font-family: 'Open Sans Condensed';
+			font-weight: 700;
+			font-size: 40px;
+		}
+		.wrapper div p span{
+			font-size: 30px;
+		}
+		.wrapper div.commentsb, .wrapper div.allnewsb {
+			display: inline-block;
+			width: 50%;
+			float: left;
+			font-size: 30px;
+			line-height: 60px;
+			text-align: center;
+			font-family: 'Open Sans Condensed';
+			color: #000;
+		}
+		.commentsb:hover, .allnewsb:hover {
+			background-color: #ccc;
+		}
+
+	</style>	
+</body>
+</html>

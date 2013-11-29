@@ -1,11 +1,14 @@
 var User     = require('../models/user').User;
 var New      = require('../models/news').New;
 var Comment  = require('../models/comments').Comment;
+var Information   = require('../models/information').Information;
 var mongoose = require('../libs/mongoose');
 var strftime = require('strftime');
 var passport = require('passport');
 var lodash   = require('lodash');
 var device;  // для функции определение устройства
+var currentQuantity = 0; // для представления администрации
+var lastQuantity = 0;
 
 var db = mongoose.connection.db;
 
@@ -24,6 +27,75 @@ module.exports = function (app) {
 		res.render("ads");
 	});
 	//////////////////////////////////
+
+	// СТРАНИЦА ИНФОРМАЦИИ
+	app.get('/info', function (req,res,next) {
+		if (req.user == undefined) {
+			res.render('error');
+		} else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
+			currentQuantity = 0;
+			Comment.find({}, function (err, commentsAll) {
+				if (err) return next(err);
+				var commentsQuantity = commentsAll.length;
+				New.find({}, function (err, newsAll) {
+					if (err) return next(err);
+					for (i in newsAll) {
+						 currentQuantity += newsAll[i].quantity; 
+					}
+					var info = new Information ({
+						Ident              : 'main',
+						Number_of_Views    : currentQuantity,
+						Number_of_Comments : commentsQuantity
+					});
+					Information.find({}, function (err, infoAll) {
+						if (err) return next(err);
+						if (infoAll[0] == undefined) {
+							lastQuantity = 0;
+							info.save(function (err){ 
+								if (err) return next(err);
+								console.log('info saved');
+							})
+						} else {
+							lastQuantity = infoAll[0].Number_of_Views;
+							Information.update({'Ident' : 'main'}, {	'Number_of_Views'    : currentQuantity,
+																		'Number_of_Comments' : infoAll[0].Number_of_Comments
+
+							}, function (err) {
+								if (err) return next(err);
+								console.log('info updated');
+								console.log('currentQuantity',currentQuantity);
+								console.log('lastQuantity', lastQuantity);
+							})
+						}				
+					})
+					var newsQuantity = newsAll.length;
+					var averageNews  = currentQuantity / newsQuantity;
+					var delta = currentQuantity - lastQuantity;
+
+					res.render('info', {
+						currentQuantity  : currentQuantity,
+						newsQuantity     : newsQuantity,
+						commentsQuantity : commentsQuantity,
+						averageNews      : averageNews,
+						delta            : delta
+					});
+				})
+			})
+		} else res.render('error');
+	})
+	//////////////////////////////////
+
+	app.get('/comments', function (req,res, next) {
+		Comment.find({}, function (err, comments) {
+			if (err) return next(err);
+			if (req.user == undefined) {
+				res.render('error');
+			}
+			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
+				res.json(comments)
+			} else res.render('error');
+		})
+	})
 
 	//ГЛАВНАЯ
 	app.get('/news', function (req, res, next) {

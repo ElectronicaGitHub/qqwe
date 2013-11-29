@@ -57,6 +57,7 @@
 .sidebar .p:hover { background-color: #BA6F30; }
 .sidebar .a:hover { background-color: #16a085; }
 .sidebar .m:hover { background-color: #bdc3c7; }
+.sidebar .admin:hover { background-color: #d82852; }
 
 .sidebar .li-outer {
 	background-color: transparent;
