@@ -15,18 +15,18 @@
 			<div class='id'>ID : <p><%-news[k]._id%></p> </div>
 			
 			<div class="new_type <%-news[k].type%>">Тип новости: <p><%-news[k].type%></p> </div>
-			<div class ='name'>Имя: <%-news[k].name%> </div>
-			<div class ='surname'>Фамилия: <%-news[k].surname%> </div>
-			<div class="text">Текст: <%-news[k].content%> </div>
+			<!-- <div class ='name'>Имя: <%-news[k].name%> </div> -->
+			<!-- <div class ='surname'>Фамилия: <%-news[k].surname%> </div> -->
+			<!-- <div class="text">Текст: <%-news[k].content%> </div> -->
 
-			<div class="photo_wrapper"> <p>Лента</p>
-				<div class="photo"><img src="<%-news[k].url_in_list%>"> </div>
-				<div class="photo_text">Надпись: <%-news[k].text_in_list %> </div>
-			</div>
-			<div class="photo_wrapper"> <p>Верх</p>
-				<div class="photo"><img src="<%-news[k].url_in_top%>"> </div>
-				<div class="photo_text">Надпись: <%-news[k].text_in_top  %> </div>
-			</div>
+			<!-- <div class="photo_wrapper"> <p>Лента</p> -->
+				<!-- <div class="photo"><img src="<%-news[k].url_in_list%>"> </div> -->
+				<!-- <div class="photo_text">Надпись: <%-news[k].text_in_list %> </div> -->
+			<!-- </div> -->
+			<!-- <div class="photo_wrapper"> <p>Верх</p> -->
+				<!-- <div class="photo"><img src="<%-news[k].url_in_top%>"> </div> -->
+				<!-- <div class="photo_text">Надпись: <%-news[k].text_in_top  %> </div> -->
+			<!-- </div> -->
 			<div class="flag">Флаг: 
 			<% if (news[k].top_random) {%>
 				<% a = 'Новость будет показываться в верхнем блоке' %>
