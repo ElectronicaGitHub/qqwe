@@ -134,9 +134,12 @@
 				<li class="p" ><a href="/craft">РЕМЕСЛО</a></li>
 				<li class="o" ><a href="/howto">ХАУ ТУ</a></li>
 				<li class="a" ><a href="/other">ИНОЕ</a></li>
+				<% if (!user) { %>
+				<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
 					<li class="admin" style="font-size:20px;"><a href="/admin">ДОБАВИТЬ НОВОСТЬ</a></li>
-					<li class="admin" style="font-size:20px;"><a href="/comments">КОММЕНТАРИИ</a></li>
 					<li class="admin" style="font-size:20px;"><a href="/info">ИНФОРМАЦИЯ</a></li>
+
+				<% } %>
 			</ul>
 			<div class="block"><a href="http://www.iwoody.ru/" target="_blank"><div class="inner-pic">
 				<!-- <p class='size'>Рекламный блок <br> 275 x 450</p> -->
