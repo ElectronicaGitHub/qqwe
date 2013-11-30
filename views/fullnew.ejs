@@ -16,23 +16,14 @@
 	<% } %>
 	<meta name="robots" content="all">
 	<meta name="keywords" content="Handmade, Своими руками, Ремесло, Хэнд мейд, Музыка, Кино, Мода, Как сделать, Как создать, Производство, Бизнес, Творчество, Автор, Создатель, Творец, Features, Рассказы, Статьи, Новости">
-	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.0.1/normalize.css">
 	<link rel="stylesheet" href="/stylesheets/full-new.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/reg.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css">
-	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<script src="/javascripts/jeezus.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome-4.0.2/css/font-awesome.min.css">
-	<script type="text/javascript" src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Yeseva+One&subset=cyrillic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Oranienbaum&subset=cyrillic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=cyrillic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/advertise-styles.css">
 </head>
 <body>
 	<div class='header'><a href="/news" style="color:#fff;"><p>CASTMAG</p></a>
@@ -165,6 +156,11 @@
 					<li class="o" ><a href="/howto">ХАУ ТУ</a></li>
 					<li class="a" ><a href="/other">ИНОЕ</a></li>				
 				</ul>
+
+				<div class="block"><a href="http://www.iwoody.ru/" target="_blank"><div class="inner-pic">
+				<!-- <p class='size'>Рекламный блок <br> 275 x 450</p> -->
+				</div></a></div>
+
 			</div>
 		</div>
 		<footer class="footer">
@@ -191,6 +187,10 @@
 			</div>
 		</footer>
 	</div>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="/javascripts/jeezus.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
+	<script type="text/javascript" src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
 	<script type="text/javascript">
 		//ДОБАВЛЕНИЕ КОММЕНТАРИЯ
 		$(document.forms['add_comm']).on('submit', function () {
@@ -301,6 +301,22 @@
 
 		ga('create', 'UA-46010192-1', 'castmag.ru');
 		ga('send', 'pageview');
+	</script>
+
+	<script>
+		// IWOODY START
+		var adver = Math.floor(Math.random() * 3) + 1;
+		if (adver == 1 ) {
+			urled = 'http://cs417729.vk.me/v417729280/bddb/mC9ktvnAKCg.jpg';
+		} else if ( adver == 2 ) {
+			urled = 'http://cs417729.vk.me/v417729280/bde2/BUMhQKE844I.jpg';
+		} else if ( adver == 3 ) {
+			urled = 'http://cs417729.vk.me/v417729280/bde9/_w-gt7oF4HE.jpg';
+		}
+		$('.inner-pic').css('background-image' , 'url(' + urled + ')');
+		console.log(adver,'adver');
+		console.log('advertise generated');
+		// iWOODY END
 	</script>
 </body>
 </html>

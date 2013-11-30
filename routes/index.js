@@ -285,20 +285,22 @@ module.exports = function (app) {
 	/////////////////////////////////////////
 
 	// ТОПИК "СОЗДАВАЙ"
-	// app.get('/made', function (req, res, next) {
-	// 	deviceFinder(req);
-	// 	New.find({'top_random' : true}, function (err, newstop) {
-	// 		if (err) return next(err);
-	// 		var newsfinal = lodash.sample(newstop, 4);
-	// 		res.render("made", {
-	// 			mark    : true,
-	// 			// news    : news,
-	// 			newstop : newsfinal,
-	// 			user    : req.user,
-	// 			device  : device
-	// 		});
-	// 	});
-	// });
+	app.get('/made', function (req, res, next) {
+		deviceFinder(req);
+		New.find({'top_random' : true}, function (err, newstop) {
+			if (err) return next(err);
+			var message = 'R2D2 в процессе работы над разделом'
+			var newsfinal = lodash.sample(newstop, 4);
+			res.render("made", {
+				mark    : true,
+				// news    : news,
+				newstop : newsfinal,
+				user    : req.user,
+				device  : device,
+				message : message
+			});
+		});
+	});
 	////////////////////////////////////////
 
 	//СОРТИРОВАННЫЕ НОВОСТИ
