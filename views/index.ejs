@@ -24,6 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css">	
 	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome-4.0.2/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/advertise-styles.css">
 
 </head>
@@ -91,28 +92,62 @@
 
 
 	<div class="all">
-		<div class="content">
-			<% for (var i=0; i<news.length; i++) { %>
-				<a href="/news/<%-news[i]._id%>">
-					<div class="new-min">
-						<div class="new-min-content">
-							<% if (news[i].type == "other" || news[i].type == "fashion" || news[i].type == "features"  || news[i].type == "craft") { %> 
-								<p class="new-min-content-header <%-news[i].type%>" style="color:#fff; text-shadow: 0 1px 0 rgba(0,0,0,.5);"><%-news[i].title_in %></p>
-							<% } else { %>
-								<p class="new-min-content-header <%-news[i].type%>" ><%-news[i].title_in %></p>
-							<% } %>				
-							<div class="img-wrapper">
-								<img src="<%-news[i].url_in_list%>" style="width:100%;">
-								<div class="inliner">
-									<p><%-news[i].text_in_list%></p>
+
+		<div class="content_and_events">
+
+			<div class="events-all">
+
+				<div id="owl-demo" class="owl-carousel">
+					<% for (var j = 0; j < events.length; j++) { %>
+	                	<div class="each-event">
+							<div class="event-left-info">
+								<div class="event-left-text-wrapper">
+									<div class="event-title"><a href="<%-events[j].event_url%>"><%-events[j].title%></a></div>
+									<div class="event-dates"><%-events[j].dates%></div>
+									<div class="event-adress"><%-events[j].adress%></div>
+									<div class="event-price"><%-events[j].price%></div>
 								</div>
-								<p class="views">Заинтересовавшихся: <%-news[i].quantity%></p>
+							</div>
+							<div class="event-photo">
+								<div class="event-photo-wrapper" style="background-image: url('<%-events[j].picture_url%>')"></div>
+							</div>
+							<div class="event-right-info">
+								<div class="event-right-text-wrapper">
+									<div class="event-description"><%-events[j].description%></div>			
+								</div>
 							</div>
 						</div>
-					</div>
-				</a>
-			<% } %>
-		</div>	
+					<% } %>
+
+					
+                </div>
+				
+			</div>
+
+			<div class="content">
+				<% for (var i = 0; i < news.length; i++) { %>
+					<a href="/news/<%-news[i]._id%>">
+						<div class="new-min">
+							<div class="new-min-content">
+								<% if (news[i].type == "other" || news[i].type == "fashion" || news[i].type == "features"  || news[i].type == "craft") { %> 
+									<p class="new-min-content-header <%-news[i].type%>" style="color:#fff; text-shadow: 0 1px 0 rgba(0,0,0,.5);"><%-news[i].title_in %></p>
+								<% } else { %>
+									<p class="new-min-content-header <%-news[i].type%>" ><%-news[i].title_in %></p>
+								<% } %>				
+								<div class="img-wrapper">
+									<img src="<%-news[i].url_in_list%>" style="width:100%;">
+									<div class="inliner">
+										<p><%-news[i].text_in_list%></p>
+									</div>
+									<p class="views">Заинтересовавшихся: <%-news[i].quantity%></p>
+								</div>
+							</div>
+						</div>
+					</a>
+				<% } %>
+			</div>	
+		</div>
+
 		<div class="sidebar">
 			<ul>
 				<% if (mark) { %>
@@ -133,6 +168,8 @@
 				<% if (!user) { %>
 				<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
 					<li class="admin" style="font-size:20px;"><a href="/admin">ДОБАВИТЬ НОВОСТЬ</a></li>
+					<li class="admin" style="font-size:20px;"><a href="/admin_events">ДОБАВИТЬ СОБЫТИЕ</a></li>
+
 					<li class="admin" style="font-size:20px;"><a href="/info">ИНФОРМАЦИЯ</a></li>
 				<% } %>
 			</ul>
@@ -205,6 +242,22 @@
 		console.log('advertise generated');
 		// iWOODY END
 	</script>
+
+	<link href="stylesheets/owl.carousel.css" rel="stylesheet">
+    <script src="javascripts/owl.carousel.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+	        $("#owl-demo").owlCarousel({
+	            items : 1,
+	            autoHeight : false,
+	            pagination : false,
+	            lazyLoad : true,
+	            autoPlay : 3000,
+	            stopOnHover : true
+	        });
+	    });
+    </script>
 	
+
 </body>
 </html>

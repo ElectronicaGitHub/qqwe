@@ -6,15 +6,17 @@
 	<title></title>
 </head>
 <body>
-	<% for (var k=0; k< comments.length; k++) { %>
+	<% for (var k = 0; k < events.length; k++) { %>
 	<form name="neen">
 		<div class='info'> 
-			<div class='number'><%- comments[k]._id_parent %></div> /
-			<div class='title'><%- comments[k]._id %></div> /
-			<div class='id'><%- comments[k].content %></div> /
-			<div class="flag"><%- comments[k].autor_name %> <%- comments[k].autor_surname %></div> /
-			<div class="date"><%- comments[k].post_date %></div> /
-			<a href="/comment/<%-comments[k]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a>
+			<div class='number' style="width:100px"><%- events[k]._id %></div> /
+			<div class='title' style="width:100px"><%- events[k].title %></div> /
+			<div class='description' style="width:100px"><%- events[k].description %></div> /
+			<div class="adress" style="width:100px"><%- events[k].dates %> <%- events[k].adress %></div> /
+			<div class="price" style="width:100px"><%- events[k].price %></div> /
+			<div class="url" style="width:100px"><%- events[k].url %></div> /
+			<div class="picture_url" style="width:100px"><%- events[k].picture_url %></div> /
+			<a style="display:inline-block" href="/event/<%-events[k]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a>
 		</div>
 	</form>
 		<hr>
@@ -60,7 +62,7 @@
 			},
 			statusCode: {
 				200 : function() {
-					window.location.href = '/allcomments';
+					window.location.href = '/allevents';
 				},
 				404 : function() {
 					(this).text('huevo');

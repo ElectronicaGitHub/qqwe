@@ -77,7 +77,6 @@
 			},
 			statusCode: {
 				200 : function() {
-					// form.html("Новость удалена").css('font-size','40px').css('font-family', 'Open Sans Condensed').css('font-weight', 'bold');
 					window.location.href = '/allnews';
 				},
 				404 : function() {
@@ -93,7 +92,6 @@
 
 	$('.change').click(function(event) {
 		var URL = $(this).attr('href');
-		// event.preventDefault();
 		$.ajax({
 			url: URL, 
 			method: 'GET',
@@ -101,8 +99,6 @@
 			},
 			statusCode: {
 				200 : function() {
-					// form.html("Новость удалена").css('font-size','40px').css('font-family', 'Open Sans Condensed').css('font-weight', 'bold');
-					// window.location.href = URL;
 				},
 				404 : function() {
 					(this).text('huevo');

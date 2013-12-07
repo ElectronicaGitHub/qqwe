@@ -2,6 +2,8 @@ var User     = require('../models/user').User;
 var New      = require('../models/news').New;
 var Comment  = require('../models/comments').Comment;
 var Information   = require('../models/information').Information;
+var Event   = require('../models/events').Event;
+
 var mongoose = require('../libs/mongoose');
 var strftime = require('strftime');
 var passport = require('passport');
@@ -85,6 +87,7 @@ module.exports = function (app) {
 	})
 	//////////////////////////////////
 
+	// ВСЕ КОММЕНТЫ
 	app.get('/allcomments', function (req,res, next) {
 		Comment.find({}, function (err, comments) {
 			if (err) return next(err);
@@ -98,6 +101,23 @@ module.exports = function (app) {
 			} else res.render('error');
 		})
 	})
+	//////////////////////////////////////
+
+	// ВСЕ СОБЫТИЯ
+	app.get('/allevents', function (req,res, next) {
+		Event.find({}, function (err, events) {
+			if (err) return next(err);
+			if (req.user == undefined) {
+				res.render('error');
+			}
+			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
+				res.render('allevents', {
+					events : events
+				})
+			} else res.render('error');
+		})
+	})
+	////////////////////////////////////////
 
 	//ГЛАВНАЯ
 	app.get('/news', function (req, res, next) {
@@ -106,15 +126,19 @@ module.exports = function (app) {
 			deviceFinder(req);
 			news.reverse();
 			New.find({'top_random' : true}, function (err, newstop) {
+				if (err) return next(err);
 				var newsfinal = lodash.sample(newstop, 4);
-				res.render("index", {
-					mark    : false,
-					news    : news,
-					newstop : newsfinal,
-					user    : req.user,
-					device  : device
+				Event.find({}, function (err, events) {
+					if (err) return next(err);
+					res.render("index", {
+						mark    : false,
+						news    : news,
+						events  : events,
+						newstop : newsfinal,
+						user    : req.user,
+						device  : device
+					});
 				});
-
 			});
 		});	
 	});
@@ -165,10 +189,15 @@ module.exports = function (app) {
 	app.post('/added/:id', require('./comment').post);
 	/////////////////////////////////////////
 
-	//АДМИНСКОЕ ПРЕДСТАВЛЕНИЕ
+	//АДМИНСКОЕ ПРЕДСТАВЛЕНИЕ НОВОСТИ
 	app.get('/admin', require('./admin').get);
 	app.post('/admin', require('./admin').post);
 	app.post('/changed/:id', require('./admin').change);
+	/////////////////////////////////////////
+
+	// АДМИНСКОЕ ПРЕДСТАВЛЕНИЕ СОБЫТИЯ
+	app.get('/admin_events', require('./admin-events').get);
+	app.post('/admin_events', require('./admin-events').post);
 	/////////////////////////////////////////
 
 	//АДМИНСКОЕ ПРЕДСТАВЛЕНИЕ - ВСЕ НОВОСТИ
@@ -198,6 +227,29 @@ module.exports = function (app) {
 
 				if (n.length > 0) {
 					New.remove(n[0], function() {
+					});
+					res.statusCode = 200;
+					res.end('');
+				} else {
+					res.statusCode = 404;
+					res.end(':c');
+				}
+			} else res.render('error'); 
+		});
+	});
+	/////////////////////////////////////////
+
+	//УДАЛЕНИЕ СОБЫТИЯ
+	app.get('/event/:id/delete', function (req, res, next) {
+		Event.find({'_id':req.params.id}, function (err, n) {
+			if (err) return next(err);
+			if (req.user == undefined) {
+				res.render('error');
+			}
+			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
+
+				if (n.length > 0) {
+					Event.remove(n[0], function() {
 					});
 					res.statusCode = 200;
 					res.end('');

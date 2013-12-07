@@ -1,0 +1,114 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="/javascripts/admin-js.js"></script>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/admin.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/reg.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script type="text/javascript" src="/javascripts/tinymce/tinymce.min.js"></script>
+ 
+	<title> admin-event / add new</title>
+</head>
+<body> 
+	<div class='header'><p>CASTMAG.</p>
+	</div>
+	<form ng-app name="new_add" method='post' action='admin'>
+		<p class='hello'>Привет. Добавь событие</p>
+		<hr>
+
+		<div class="sider" style=" float: left">
+			<p style="font-size:20px;">Название или заголовок события</p>
+			<input style="width: 400px; margin-top:0px" class="title_in" ng-model="title"  name='title' id='title_in'>
+		</div>
+
+		<div class="sider" style=" float: left">
+			<p style="font-size:20px;">Адрес и место проведения</p>
+			<input style="width: 400px; margin-top:0px" class="url_in_list" ng-model="adress" name='adress' id='url_in_list'>
+		</div>
+
+		<div class="sider">
+			<p style="font-size:20px;">Числа</p>
+			<input style="width: 400px; margin-top:0px" class="url_in_list" ng-model="dates" name='dates' id='url_in_list'>
+		</div>
+		<div class="sider">
+			<p style="font-size:20px;">Стоимость входа</p>
+			<input style="width: 400px; margin-top:0px" class="url_in_list" ng-model="price" name='price' id='url_in_list'>
+		</div>
+		<hr>
+
+		<div class="sider" style=" float: left">
+			<p style="font-size:20px;">Описание события</p>
+			<textarea class="text_in" ng-model="description" name='description' id='text_in' style="width: 400px; height: 137px;margin-top:0px"></textarea>
+		</div>
+
+		<div class="sider" style=" float: left">
+			<p style="font-size:20px;">URL картинки</p>
+			<input style="margin-top:0px" class="url_in_list" ng-model="picture_url" name='picture_url' id='url_in_list'>
+
+			<p style="font-size:20px;">URL страницы</p>
+			<input style="margin-top:0px" class="url_in_list" ng-model="event_url" name='event_url' id='url_in_list'>
+		</div>
+
+		<div style="width: 825px; height: 190px;overflow:hidden; border: 1px dotted #303030">
+			<div class="each-event">
+				<div class="event-left-info">
+					<div class="event-left-text-wrapper">
+						<div class="event-title"><a href="{{event_url}}">{{title}}</a></div>
+						<div class="event-dates">{{dates}}</div>
+						<div class="event-adress">{{adress}}</div>
+						<div class="event-price">{{price}}</div>
+					</div>
+				</div>
+				<div class="event-photo">
+					<div class="event-photo-wrapper" style="background-image: url('{{picture_url}}')"></div>
+				</div>
+				<div class="event-right-info">
+					<div class="event-right-text-wrapper">
+						<div class="event-description">{{description}}</div>			
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div style="width:100%; overflow:hidden; margin-top: 10px;">
+			<button  class="poster" id="poster" data-loading-text="Добавляю...">Добавить</button>
+		</div>
+	</form>
+
+	<script>
+		$(document.forms['new_add']).on('submit', function () {
+			var form = $(this);
+
+			$(':submit', form).html('Добавляю...');
+			console.log("ajax");
+			$.ajax({
+				url: '/admin_events', 
+				method: 'POST',
+				data: form.serialize(),
+				complete: function() {
+				},
+				statusCode: {
+					200 : function() {
+						form.html("Событие добавлена").css('font-size','40px').css('font-family', 'Open Sans Condensed').css('font-weight', 'bold');
+						window.location.href = '/news';
+					},
+					201 : function() {
+						$(':submit', form).html('Не все поля заполнены').css('width','300px').css('background-color','#FF352B').css('border-radius','5px').css('outline','none').css('border','2px solid #000');
+					},
+					403 : function() {
+						var error = JSON.parse(jqXHR.responseText);
+						$('.error',form).html(error.message);
+					}
+				}
+			});
+			return false;
+		});
+	</script>
+
+</body>
+</html>

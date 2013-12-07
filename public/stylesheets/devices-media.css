@@ -89,7 +89,6 @@
 .content-full {
 	width: 100%;
 	border-left: 0px;
-
 }
 .sidebar {
 	display: none;
@@ -311,4 +310,12 @@ p.new-date {
 }
 .sidebar-top .adv:nth-of-type(1) {
 	margin-top: 20px;
+}
+.events-all {
+	display: none;
+}
+.content_and_events {
+	width: 100%;
+	display: inline-block;
+	float: left;
 }
