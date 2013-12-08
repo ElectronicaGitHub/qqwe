@@ -367,12 +367,16 @@ module.exports = function (app) {
 			New.find({'top_random' : true}, function (err, newstop) {
 				if (err) return next(err);
 				var newsfinal = lodash.sample(newstop, 4);
-				res.render("index", {
-					mark    : true,
-					news    : news,
-					newstop : newsfinal,
-					user    : req.user,
-					device  : device
+				Event.find({}, function (err, events) {
+					if (err) return next(err);
+					res.render("index", {
+						mark    : true,
+						news    : news,
+						newstop : newsfinal,
+						user    : req.user,
+						device  : device,
+						events  : events
+					});
 				});
 			});
 		});
