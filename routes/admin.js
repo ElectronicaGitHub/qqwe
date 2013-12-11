@@ -36,7 +36,11 @@ exports.post = function (req, res, next) {
 	var text_in_top  = escape(req.body.text_in_top);
 	var top_random   = req.body.top_random;
 	var post_date    = new Date();
-	var quantity     = Math.floor(Math.random() * 60);
+	var quantity     = Math.floor(Math.random()*(200-80+1)+80);
+
+	// function randomFromInterval(from,to) {
+	//     return Math.floor(Math.random()*(to-from+1)+from);
+	// }
 	
     mongoose.connection.on('open', function (err) {
     	if (err) throw err;
