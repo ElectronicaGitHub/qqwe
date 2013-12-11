@@ -18,15 +18,21 @@ module.exports = function (app) {
 
 	// ЛЭНДИНГ 
 	app.get('/', function (req, res, err) {
-		console.log('entered landing');
 		res.render("land");
 	});
 	//////////////////////////////////
 
 	// СТРАНИЦА РЕКЛАМЫ
 	app.get('/advertise', function (req, res, err) {
-		console.log('entered advertise');
 		res.render("ads");
+	});
+	//////////////////////////////////
+
+	
+
+	// СТРАНИЦА О НАС
+	app.get('/about', function (req, res, err) {
+		res.render("about");
 	});
 	//////////////////////////////////
 

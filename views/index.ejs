@@ -188,7 +188,7 @@
 		<div class="third">
 			<div class="text info">Контакты</div>
 			<div class="paddinger"></div>
-			<div class="text info">О проекте</div>
+			<div class="text info" onclick="about_project()">О проекте</div>
 			<div class="paddinger"></div>
 			<div class="text info" onclick="advertise()">Реклама</div>
 		</div>
@@ -253,7 +253,11 @@
 	            pagination : false,
 	            lazyLoad : true,
 	            autoPlay : 3000,
-	            stopOnHover : true
+	            stopOnHover : true,
+	            itemsDesktop : [1199,1],
+			    itemsDesktopSmall : [980,1],
+			    itemsTablet: [768,1],
+			    itemsMobile : [479,1]
 	        });
 	    });
     </script>
