@@ -16,13 +16,16 @@
 	<% } %>
 	<meta name="robots" content="all">
 	<meta name="keywords" content="Handmade, Своими руками, Ремесло, Хэнд мейд, Музыка, Кино, Мода, Как сделать, Как создать, Производство, Бизнес, Творчество, Автор, Создатель, Творец, Features, Рассказы, Статьи, Новости">
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.0.1/normalize.css">
+	<!-- <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.0.1/normalize.css"> -->
 	<link rel="stylesheet" href="/stylesheets/full-new.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/reg.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome-4.0.2/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+
+	<link href='http://fonts.googleapis.com/css?family=Noto+Serif&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+
 	<link rel="stylesheet" type="text/css" href="/stylesheets/advertise-styles.css">
 </head>
 <body>
@@ -143,7 +146,6 @@
 			<div class="sidebar">
 				<ul>
 					<li class="m"><a href="/news">ГЛАВНАЯ</a></li>
-					<!-- <li class="q"><a href="/news">МИР</a></li> -->
 					<li class="i" ><a href="/made">СОЗДАВАЙ</a></li>
 					<li class="li-outer e" id="opener">АРТ
 						<ul>
@@ -157,9 +159,32 @@
 					<li class="a" ><a href="/other">ИНОЕ</a></li>				
 				</ul>
 
-				<div class="block"><a href="http://www.iwoody.ru/" target="_blank"><div class="inner-pic">
+				<div class="block">
+					<a href="http://www.iwoody.ru/" target="_blank">
+						<div class="inner-pic"></div>
+					</a>
+				</div>
 				<!-- <p class='size'>Рекламный блок <br> 275 x 450</p> -->
-				</div></a></div>
+				<div class="hide-menu abs" id="float-block">
+					<div class="title-best">Популярное</div>
+					<div class="news-all-best"></div>
+					<div style="height:auto; width : 100%; overflow: hidden; margin-top:20px;">
+						<ul>
+							<li class="m"><a href="/news">ГЛАВНАЯ</a></li>
+							<li class="i" ><a href="/made">СОЗДАВАЙ</a></li>
+							<li class="li-outer e" id="opener1">АРТ
+								<ul>
+									<a href="/art-cinema"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner r">КИНО</li></a>
+									<a href="/art-music"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner t">МУЗЫКА</li></a>
+									<a href="/fashion"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner u">МОДА</li></a>
+								</ul>
+							</li>
+							<li class="p" ><a href="/craft">РЕМЕСЛО</a></li>
+							<li class="o" ><a href="/howto">ХАУ ТУ</a></li>
+							<li class="a" ><a href="/other">ИНОЕ</a></li>				
+						</ul>
+					</div>
+				</div>
 
 			</div>
 		</div>
@@ -272,6 +297,18 @@
 			});
 		});
 		//////////////////////////////////////
+		 $.ajax({
+				url: '/dynamic/add/right', 
+				method: 'GET',
+				success: function(req,res,err) {
+                    console.log(req);
+                    for (i in req) {
+                    	beta = parseInt(i) + 1 ;
+                    	$('.news-all-best').append('<a href="' + req[i]._id + '"><div class="news-all-best-each"><div class="news-all-best-each-title">' + req[i].title_in + '</div></div></a>');
+                    }
+                }
+			})
+		//////////////////////////////////////
 
 		if ((navigator.userAgent.match(/iPhone/i)) 
 		  	||  (navigator.userAgent.match(/iPod/i)) 
@@ -317,6 +354,21 @@
 		console.log(adver,'adver');
 		console.log('advertise generated');
 		// iWOODY END
+
+		    $(document).scroll(function() {
+		        var scrollPosition = $(document).scrollTop();
+		        var scrollReference = 1050;
+		        if (scrollPosition >= scrollReference) {      
+		            $("#float-block").addClass('fixed');   
+		        } else {
+		            $("#float-block").removeClass('fixed');
+		            $("#float-block").addClass('abs');
+		        };
+		    });
+		    $('#float-block').height($(document).height());
+
 	</script>
 </body>
 </html>
+
+<div class="news-all-best-each"><div class="news-all-best-each-title"></div><div class="news-all-best-each-quantity"></div></div>

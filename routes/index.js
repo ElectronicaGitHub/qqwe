@@ -28,7 +28,14 @@ module.exports = function (app) {
 	});
 	//////////////////////////////////
 
-	
+	// ПЛАВАЮЩИЙ БЛОК( ПОДГРУЗКА НОВОСТЕЙ)
+	app.get('/dynamic/add/right', function (req,res,next) {
+		var data = New.find({}, { 'title_in': 1, 'quantity': 1 }).sort({'quantity':-1}).limit(5);
+		data.execFind(function (err, result) {
+			res.json(result);
+		});
+	});
+	//////////////////////////////////
 
 	// СТРАНИЦА О НАС
 	app.get('/about', function (req, res, err) {

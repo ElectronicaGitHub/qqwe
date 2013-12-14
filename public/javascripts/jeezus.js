@@ -20,6 +20,19 @@ $(document).ready(function() {
 		}
 	});
 
+	var mic1 = true;	
+	$('#opener1').click(function() {
+		if (mic1) {
+			$('#opener1').removeClass('li-outer').addClass('li-outer-open');
+			$('.li-inner').css('display', 'block');
+			mic1 = false;
+		} else {
+			$('.li-inner').css('display','none');
+			$('#opener1').removeClass('li-outer-open').addClass('li-outer');
+			mic1 = true;
+		}
+	});
+
 	if ( (navigator.userAgent.match(/iPhone/i)) 
    	  || (navigator.userAgent.match(/iPod/i)) 
       || (navigator.userAgent.match(/Android/i)) ) 
