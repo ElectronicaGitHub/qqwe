@@ -10,7 +10,7 @@ if (cluster.isMaster) {
     });
 } else {
 	console.log('Hello from Worker ' + cluster.worker.id);
-	// process.env.NODE_ENV = 'production';
+	process.env.NODE_ENV = 'production';
 
 	var express = require('express');
 	var csrf = require('csrf');
