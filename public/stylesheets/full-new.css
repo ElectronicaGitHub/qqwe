@@ -122,11 +122,12 @@ h1.header-new {
 .new {
 	margin: 0px auto 30px auto;
 	color: #222;
-	/*font-size: 22px;*/
-	font-size: 16px;
-	line-height: 25px;
-	/*font-family: 'Open Sans Condensed', sans-serif;*/
-	font-family: 'Noto Serif', serif;
+	font-size: 22px;
+	/*font-size: 16px;*/
+	/*line-height: 25px;*/
+	font-family: 'Open Sans Condensed', sans-serif;
+	/*font-family: 'Open Sans', sans-serif;*/
+	/*font-family: 'Noto Serif', serif;*/
 }
 .new p {
 	margin: 10px 40px;
@@ -413,7 +414,8 @@ a.pluso-more {
 	float: left;
 	width: 100%;
 	margin: 1px 0px;
-	font-family: 'Noto Serif', serif;
+	/*font-family: 'Noto Serif', serif;*/
+	font-family: 'Open Sans', sans-serif;
 
 }
 .news-all-best-each-quantity {
