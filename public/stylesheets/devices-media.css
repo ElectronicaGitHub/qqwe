@@ -291,7 +291,7 @@ p.new-date {
 .sidebar-top .w:hover { background-color: #FFF473; }
 /*.sidebar-top .e:hover { background-color: #FFA857; }*/
 .sidebar-top .e:hover { background-color: #2ecc71; }
-
+.sidebar-top .zz:hover{ background-color: #4A38FF; }
 .sidebar-top .r:hover { background-color: #f39c12; }
 .sidebar-top .t:hover { background-color: #F6475E; }
 .sidebar-top .y:hover { background-color: #84D8FF; }
