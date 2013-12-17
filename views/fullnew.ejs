@@ -29,6 +29,7 @@
 	<%}%>
 </head>
 <body>
+	<div id="go-top" class="go-top"><i class="fa fa-chevron-up" style="text-align:center; padding-left:0px; position:absolute; bottom:0; left:0; color:#333; font-size:40px; height: 40px; width: 40px;"></i></div>
 	<div class='header'><a href="/news" style="color:#fff;"><p>CASTMAG</p></a>
 		<% if (!user) { %>		
 				<p style="font-size: 30px;">Вы не вошли</p>
@@ -145,8 +146,8 @@
 			</div>
 			<div class="sidebar">
 				<ul>
-					<li class="m"><a href="/news">ГЛАВНАЯ</a></li>
-					<li class="i" ><a href="/made">СОЗДАВАЙ</a></li>
+					<a href="/news"><li class="m">ГЛАВНАЯ</li></a>
+					<a href="/made"><li class="i">СОЗДАВАЙ</li></a>
 					<li class="li-outer e" id="opener">АРТ
 						<ul>
 							<a href="/art-cinema"><li class="li-inner r">35 ММ</li></a>
@@ -155,9 +156,9 @@
 							<a href="/fashion"><li class="li-inner u">ПОДИУМ</li></a>
 						</ul>
 					</li>
-					<li class="p" ><a href="/craft">РЕМЕСЛО</a></li>
-					<li class="o" ><a href="/howto">ХАУ ТУ</a></li>
-					<li class="a" ><a href="/other">ИНОЕ</a></li>				
+					<a href="/craft"><li class="p">РЕМЕСЛО</li></a>
+					<a href="/howto"><li class="o">ХАУ ТУ</li></a>
+					<a href="/other"><li class="a">ИНОЕ</li></a>			
 				</ul>
 
 				<div class="block">
@@ -166,27 +167,30 @@
 					</a>
 				</div>
 				<!-- <p class='size'>Рекламный блок <br> 275 x 450</p> -->
+
+				<!-- // ПЛАВАЮЩИЙ БЛОК -->
 				<div class="hide-menu abs" id="float-block">
-					<div class="title-best">Популярное</div>
+					<div class="title-best default-float-color">Популярное</div>
 					<div class="news-all-best"></div>
 					<div style="height:auto; width : 100%; overflow: hidden; margin-top:20px;">
 						<ul>
-							<li class="m"><a href="/news">ГЛАВНАЯ</a></li>
-							<li class="i" ><a href="/made">СОЗДАВАЙ</a></li>
+							<a href="/news"><li class="m">ГЛАВНАЯ</li></a>
+							<a href="/made"><li class="i" >СОЗДАВАЙ</li></a>
 							<li class="li-outer e" id="opener1">АРТ
 								<ul>
-									<a href="/art-cinema"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner r">35 ММ</li></a>
-									<a href="/art-music"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner t">ЗВУК</li></a>
-									<a href="/art-art"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner u">ПОЛОТНО</li></a>
-									<a href="/fashion"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner u">ПОДИУМ</li></a>
+									<a data-style="art-cinema" class="dynamic" href="/art-cinema"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner r">35 ММ</li></a>
+									<a data-style="art-music" class="dynamic" href="/art-music"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner t">ЗВУК</li></a>
+									<a data-style="art-art" class="dynamic" href="/art-art"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner zz">ПОЛОТНО</li></a>
+									<a data-style="fashion" class="dynamic" href="/fashion"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner u">ПОДИУМ</li></a>
 								</ul>
 							</li>
-							<li class="p" ><a href="/craft">РЕМЕСЛО</a></li>
-							<li class="o" ><a href="/howto">ХАУ ТУ</a></li>
-							<li class="a" ><a href="/other">ИНОЕ</a></li>				
+							<a data-style="craft" class="dynamic" href="/craft"><li class="p">РЕМЕСЛО</li></a>
+							<a data-style="howto" class="dynamic" href="/howto"><li class="o">ХАУ ТУ</li></a>
+							<a data-style="other" class="dynamic" href="/other"><li class="a">ИНОЕ</li></a>				
 						</ul>
 					</div>
 				</div>
+				<!-- ////////////////////////////////// -->
 
 			</div>
 		</div>
@@ -298,18 +302,53 @@
 				}
 			});
 		});
-		//////////////////////////////////////
-		 $.ajax({
-				url: '/dynamic/add/right', 
-				method: 'GET',
-				success: function(req,res,err) {
-                    console.log(req);
-                    for (i in req) {
-                    	beta = parseInt(i) + 1 ;
-                    	$('.news-all-best').append('<a href="' + req[i]._id + '"><div class="news-all-best-each"><div class="news-all-best-each-title">' + req[i].title_in + '</div></div></a>');
-                    }
+		////////////////ЗАГРУЗКА ПОПУЛЯРНЫХ НОВОСТЕЙ//////////////////////
+	    $.ajax({
+			url: '/dynamic/add/right', 
+			method: 'GET',
+			success: function(req,res,err) {
+                console.log(req);
+                for (i in req) {
+                	beta = parseInt(i) + 1 ;
+                	$('.news-all-best').append('<a href="' + req[i]._id + '"><div class="news-all-best-each"><div class="news-all-best-each-title">' + req[i].title_in + '</div></div></a>');
                 }
+            }
+		});
+		var lastClass;
+		$('.dynamic').click( function(event) {
+			event.preventDefault();
+			addStyle = $( this ).attr('data-style');
+			name = $( this ).children('li').text();
+			_url = '/dynamic/add' + $(this).attr('href') + '';
+			console.log(_url);
+			$.ajax({
+				url: _url,
+				method: 'GET',
+				statusCode: {
+					200: function (req,res,err) {
+						console.log(req);
+						$('.title-best').removeClass('default-float-color');
+						$('.title-best').removeClass(lastClass);
+						$('.news-all-best').html('');
+						$('.title-best').html('');
+						for (i in req) {
+	                    	beta = parseInt(i) + 1 ;
+	                    	content = $('<a href="' + req[i]._id + '"><div class="news-all-best-each"><div class="news-all-best-each-title">' + req[i].title_in + '</div></div></a>').hide();
+	                    	$('.news-all-best').append(content.show('slow'));
+	                	}				
+						$('.title-best').text(name).addClass(addStyle);
+						lastClass = addStyle;
+					}
+				} 
 			})
+		});
+
+		$("#go-top").on('click', function(){
+
+      		$('html, body').animate({
+       			scrollTop: 0
+   			}, 50);
+       	}); 
 		//////////////////////////////////////
 
 		if ((navigator.userAgent.match(/iPhone/i)) 

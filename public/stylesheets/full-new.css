@@ -227,7 +227,6 @@ h1.header-new {
 .events     { background-color: #FFF473;  }
 /*.art        { background-color: #FFA857;  }*/
 .art        { background-color: #2ecc71;  }
-
 .art-cinema { background-color: #f39c12;  }
 .art-music  { background-color: #F6475E;  }
 .art-art    { background-color: #4A38FF;  }
@@ -237,6 +236,9 @@ h1.header-new {
 .howto      { background-color: #3498db;  }
 .craft      { background-color: #BA6F30;  }
 .other      { background-color: #16a085;  }
+.default-float-color {
+	background-color: #2ecc71;
+}
 .change {
 	display: inline-block; 
 	width: 200px;
@@ -384,7 +386,6 @@ a.pluso-more {
 	height: 60px;
 	line-height: 60px;
 	color: #fff;
-	background-color: #2ecc71;
 	margin-bottom: 10px;
 }
 .news-all-best-each:hover {
@@ -395,7 +396,7 @@ a.pluso-more {
 .news-all-best {
 	/*padding: 0px 10px;*/
 	margin-bottom: 40px;
-	min-height: 100px;
+	min-height: 226px;
 	overflow: hidden;
 }
 .news-all-best-each {
@@ -433,3 +434,18 @@ a.pluso-more {
 	font-size: 40px;
 	line-height: 45px;
 }
+.go-top {
+	position: fixed;
+	height: 100%;
+	width: 40px;
+	top: 0;
+	left: 0;
+	opacity: 0.3;
+	background-color: #fff;
+	cursor: pointer;
+}
+.go-top:hover {
+	opacity: 0.7;
+}
+.go-top:hover i {
+	color: #111 !important;

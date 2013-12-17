@@ -152,10 +152,10 @@
 		<div class="sidebar">
 			<ul>
 				<% if (mark) { %>
-				<li class="m"><a href="/news">ГЛАВНАЯ</a></li>
+				<a href="/news"><li class="m">ГЛАВНАЯ</li></a>
 				<%} %>
 				<!-- <li class="q"><a href="/news">МИР</a></li> -->
-				<li class="i" ><a href="/made">СОЗДАВАЙ</a></li>
+				<a href="/made"><li class="i">СОЗДАВАЙ</li></a>
 				<li class="li-outer e" id="opener">АРТ
 					<ul>
 						<a href="/art-cinema"><li class="li-inner r">35 ММ</li></a>
@@ -164,9 +164,9 @@
 						<a href="/fashion"><li class="li-inner u">ПОДИУМ</li></a>
 					</ul>
 				</li>
-				<li class="p" ><a href="/craft">РЕМЕСЛО</a></li>
-				<li class="o" ><a href="/howto">ХАУ ТУ</a></li>
-				<li class="a" ><a href="/other">ИНОЕ</a></li>
+				<a href="/craft"><li class="p">РЕМЕСЛО</li></a>
+				<a href="/howto"><li class="o">ХАУ ТУ</li></a>
+				<a href="/other"><li class="a">ИНОЕ</li></a>
 				<% if (!user) { %>
 				<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
 					<li class="admin" style="font-size:20px;"><a href="/admin">ДОБАВИТЬ НОВОСТЬ</a></li>
