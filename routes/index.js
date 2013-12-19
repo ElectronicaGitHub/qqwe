@@ -320,7 +320,8 @@ module.exports = function (app) {
 			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 
 				res.render('changer', {
-					news: n[0]
+					news: n[0],
+					name: req.user._json.name
 				});
 			} else res.render('error');
 		});
