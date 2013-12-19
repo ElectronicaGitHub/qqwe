@@ -35,7 +35,7 @@
 	<div class='header'><p>CASTMAG.</p>
 	</div>
 	<form ng-app name="new_add" method='post' action='admin'>
-		<p class='hello'>Привет <%=name%>. Создай пост</p>
+		<p class='hello'>Привет <%-name%> Создай пост</p>
 		<hr>
 		<p>Заголовок</p>
 		<input class="title_in" ng-model="new_title"  name='title_in' id='title_in'>
@@ -94,7 +94,10 @@
 		<hr>
 
 		<p class="top_random_text"><input type='checkbox' id="top_random" name='top_random' ng-model="top_random_text"> Новость будет участвовать в рандоме на Верхнюю новость.</p>
-		<div>{{top_random_text}}</div>
+		<div style="font-size:20px; font-weight:bold;">{{top_random_text}}</div>
+		<hr>
+		<p class='btwn'> Хэш-теги</p>
+		<input name="hash_tags" class="hash_tags_in" placeholder="Имя"></input>
 		<hr>
 		<p class='btwn'> Имя и Фамилия автора</p>
 		<input name="name" class="name_in" placeholder="Имя"></input> <input name="surname" class="surname_in" placeholder="Фамилия"></input>

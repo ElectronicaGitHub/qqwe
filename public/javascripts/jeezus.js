@@ -93,15 +93,15 @@ $(document).ready(function() {
 	      	}, 500);
        	}); 
 
-    $container.imagesLoaded(function(){
-	    $('.img-wrapper').each(function() {
-	    	var a = $( this ).children('img').height();
-	    	var imgHeight = a;
-	    	a = imgHeight;
-	    	console.log(imgHeight);
-	    	$( this ).height(imgHeight);
-	    })
-	});
+ //    $container.imagesLoaded(function(){
+	//     $('.img-wrapper').each(function() {
+	//     	var a = $( this ).children('img').height();
+	//     	var imgHeight = a;
+	//     	a = imgHeight;
+	//     	console.log(imgHeight);
+	//     	$( this ).height(imgHeight);
+	//     })
+	// });
 
 
 

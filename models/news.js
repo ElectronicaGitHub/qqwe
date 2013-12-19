@@ -42,6 +42,9 @@ var schema = new Schema({
 	}, 
 	quantity : {
 		type : Number
+	},
+	hash_tags : {
+		type: String
 	}
 });
 exports.New = mongoose.model('New', schema);

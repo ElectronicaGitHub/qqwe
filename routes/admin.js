@@ -36,6 +36,7 @@ exports.post = function (req, res, next) {
 	var text_in_top  = escape(req.body.text_in_top);
 	var top_random   = req.body.top_random;
 	var post_date    = new Date();
+	var hash_tags    = req.body.hash_tags;
 	var quantity     = Math.floor(Math.random()*(200-80+1)+80);
 
 	// function randomFromInterval(from,to) {
@@ -60,7 +61,8 @@ exports.post = function (req, res, next) {
 		url_in_top   : url_in_top,
 		text_in_top  : text_in_top,
 		post_date    : post_date,
-		quantity     : quantity
+		quantity     : quantity,
+		hash_tags    : hash_tags
 	});
 
 	if  ((_id          != '') &&
@@ -72,7 +74,8 @@ exports.post = function (req, res, next) {
 		 (content      != '') &&
 		 (url_in_list  != '') &&
 		 (text_in_list != '') &&
-		 (post_date    != '') ) {
+		 (post_date    != '') &&
+		 (hash_tags    != '')) {
 
 			news.save(function (err) {
 				if (err) return next(err);
@@ -107,6 +110,7 @@ exports.change = function (req, res, next) {
 	var url_in_top   = escape(req.body.url_in_top);
 	var text_in_top  = escape(req.body.text_in_top);
 	var top_random   = req.body.top_random;
+	var hash_tags    = req.body.hash_tags;
 	var post_date    = req.body.post_date;
 	// var quantity     = Math.floor(Math.random() * 60);
 	
@@ -124,7 +128,8 @@ exports.change = function (req, res, next) {
 		 (content      != '') &&
 		 (url_in_list  != '') &&
 		 (text_in_list != '') &&
-		 (post_date    != '') ) {
+		 (post_date    != '') &&
+		 (hash_tags    != '') ) {
 
 			New.find({'_id' : req.params.id}, function (err,newschange) {
 				if (err) return next(err);
@@ -141,6 +146,7 @@ exports.change = function (req, res, next) {
 					text_in_list : text_in_list,
 					url_in_top   : url_in_top,
 					text_in_top  : text_in_top,
+					hash_tags    : hash_tags,
 					post_date    : newschange[0].post_date,
 					quantity     : newschange[0].quantity
 				});
@@ -160,7 +166,8 @@ exports.change = function (req, res, next) {
 												'url_in_top'   : news.url_in_top,
 												'text_in_top'  : news.text_in_top,
 												'post_date'    : newschange[0].post_date,
-												'quantity'     : newschange[0].quantity
+												'quantity'     : newschange[0].quantity,
+												'hash_tags'    : news.hash_tags
 
 				} , function (err) {
 					console.log(err);

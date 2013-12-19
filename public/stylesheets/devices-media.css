@@ -325,3 +325,6 @@ p.new-date {
 	display: inline-block;
 	float: left;
 }
+.go-top {
+	display: none;
+}

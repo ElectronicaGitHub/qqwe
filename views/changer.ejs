@@ -39,7 +39,7 @@
 	<div class='header'><p>CASTMAG</p>
 	</div>
 	<form ng-app name="new_change" method='post' action='admin'>
-		<p class='hello'>Привет #####. Создай пост</p>
+		<p class='hello'>Привет <%-name%> Создай пост</p>
 		<hr>
 		<p>Заголовок</p>
 		<input type='text' class="title_in" ng-model="new_title"  name='title_in' id='title_in'>
@@ -104,7 +104,11 @@
 		<hr>
 
 		<p class="top_random_text"><input type='checkbox' id="top_random" name='top_random' ng-model="top_random_text"> Новость будет участвовать в рандоме на Верхнюю новость.</p>
-		<div>{{top_random_text}}</div>
+		<div style="font-size:20px; font-weight:bold;">{{top_random_text}}</div>
+		<hr>
+		<p class='btwn'> Хэш-теги</p>
+		<input name="hash_tags" id="hash_tags_in" class="hash_tags_in" placeholder="Имя"></input>
+		<div id='hash_tags_div' style="display: none"><%-news.hash_tags%></div>
 		<hr>
 		<p class='btwn'> Имя и Фамилия автора</p>
 		<input name="name" id="name_in" class="name_in" placeholder="Имя"></input>
@@ -127,6 +131,7 @@
 			var u = $('#name_div').text(); $('#name_in').val(u);
 			var w = $('#surname_div').text(); $('#surname_in').val(w);
 			var b = $('.text_in').text(); text_in_ifr.document.body.innerHTML(b);
+			var q = $('#hash_tags_div').text(); $('#hash_tags_in').val(q);
 		});
 
 
