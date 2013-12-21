@@ -68,14 +68,5 @@ if (cluster.isMaster) {
 	    log.info('Express server listening on port ' + config.get('port'));
 	});
 
-	var io = require('socket.io').listen(server);
-
-	io.sockets.on('connection', function (socket) {
-
-	    socket.on('message', function (text,cb) {
-	    	socket.broadcast.emit('message', text);
-	    	cb('hello world');
-	    });
-	});
 }
 
