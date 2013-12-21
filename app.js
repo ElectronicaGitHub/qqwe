@@ -63,8 +63,19 @@ if (cluster.isMaster) {
 		// error sender
 	});
 
-	http.createServer(app).listen(config.get('port'), function(){
-	  log.info('Express server listening on port ' + config.get('port'));
+	var server = http.createServer(app);
+	server.listen(config.get('port'), function(){
+	    log.info('Express server listening on port ' + config.get('port'));
+	});
+
+	var io = require('socket.io').listen(server);
+
+	io.sockets.on('connection', function (socket) {
+
+	    socket.on('message', function (text,cb) {
+	    	socket.broadcast.emit('message', text);
+	    	cb('hello world');
+	    });
 	});
 }
 

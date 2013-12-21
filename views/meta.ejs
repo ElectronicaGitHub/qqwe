@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title> chat test</title>
+	
+
+</head>
+<body>
+	<form id="room">
+		<div id="window" style="width:100px; height:50px; background-color:#eee"></div>
+		<input>
+		<div style="width:50px; height:25px; background-color: #444" id="qq"></div>
+
+	</form>
+
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io.connect();
+
+		var form = $('#room form');
+
+		$('#qq').click(function () {
+			var input = $(this).find(':input');
+			var text = input.val();
+			input.val('');
+
+			socket.emit('message', text, function (data) {
+				console.log(data);
+				$('#window').text('hi');
+
+				
+			});
+
+			return false;
+		});
+
+		// socket.on('message', function (text) {
+		// 	$('<li>', {text: text});
+		// });
+	</script>
+
+</body>
+</html>

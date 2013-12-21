@@ -16,11 +16,21 @@ var db = mongoose.connection.db;
 
 module.exports = function (app) {
 
+
+
+
 	// ЛЭНДИНГ 
 	app.get('/', function (req, res, err) {
 		res.render("land");
 	});
 	//////////////////////////////////
+
+	////////// TEST SOCKETS ///////////////////
+	app.get('/info2', function (req,res,err)  {
+		res.render("meta");
+	})
+	///////////////////////////////////////////
+
 
 	// СТРАНИЦА РЕКЛАМЫ
 	app.get('/advertise', function (req, res, err) {
@@ -432,4 +442,6 @@ module.exports = function (app) {
 		return device;
 	}
 	///////////////////////////////////////////
+
+
 };
