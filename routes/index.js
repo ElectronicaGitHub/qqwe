@@ -22,7 +22,7 @@ module.exports = function (app) {
 	});
 	//////////////////////////////////
 
-	app.get('/info2', function (req, res, err) {
+	app.get('/info/chat', function (req, res, err) {
 		res.render("meta");
 	});
 
@@ -48,6 +48,19 @@ module.exports = function (app) {
 			if (err) return next(err);
 			res.json(result);
 		})
+	});
+
+	app.get('/dynamic/newsadd/:id', function (req, res, next) {
+		var data = New.find({}, {'type':1, 
+					  'title_in':1, 
+					  'url_in_list':1, 
+					  'text_in_list':1, 
+					  'quantity':1 }).skip(req.params.id).limit(10);
+		data.execFind(function (err, result) {
+			res.json(result);
+		})
+			
+
 	})
 
 	// СТРАНИЦА О НАС
@@ -147,11 +160,18 @@ module.exports = function (app) {
 
 	//ГЛАВНАЯ
 	app.get('/news', function (req, res, next) {
-		New.find({}, function (err, news) {
+		New.find({}, {'type':1, 
+					  'title_in':1, 
+					  'url_in_list':1, 
+					  'text_in_list':1, 
+					  'quantity':1 }, 
+			function (err, news) {
 			if (err) return next(err);
 			deviceFinder(req);
 			news.reverse();
-			New.find({'top_random' : true}, function (err, newstop) {
+			New.find({'top_random' : true}, {'url_in_top':1, 
+											 'text_in_top':1 }, 
+					function (err, newstop) {
 				if (err) return next(err);
 				var newsfinal = lodash.sample(newstop, 4);
 				Event.find({}, function (err, events) {
@@ -178,7 +198,9 @@ module.exports = function (app) {
 				res.render('error');
 			}
 			deviceFinder(req);
-			New.find({'top_random' : true}, function (err, newstop) {
+			New.find({'top_random' : true}, {'url_in_top':1, 
+											 'text_in_top':1 },
+				function (err, newstop) {
 				if (err) return next(err);
 				
 				try {
@@ -194,7 +216,7 @@ module.exports = function (app) {
 				var newsfinal = lodash.sample(newstop, 4);
 				Comment.find({'_id_parent': req.params.id}, function (err, comments) {
 					if (err) return next(err);	
-					comments.reverse();				
+					comments.reverse();			
 
 					res.render('fullnew', {
 						strftime : strftime,
@@ -384,14 +406,21 @@ module.exports = function (app) {
 
 	//СОРТИРОВАННЫЕ НОВОСТИ
 	app.get('/:type', function (req, res, next) {
-		New.find({'type': req.params.type}, function (err, news) {
+		New.find({'type': req.params.type}, {'type':1, 
+					  						 'title_in':1, 
+					  						 'url_in_list':1, 
+					  						 'text_in_list':1, 
+					  						 'quantity':1 }, 
+			function (err, news) {
 			if (err) return next(err);
 			if (news == (null || undefined)) {
 				res.render('error');
 			}
 			deviceFinder(req);
 			news.reverse();
-			New.find({'top_random' : true}, function (err, newstop) {
+			New.find({'top_random' : true}, {'url_in_top':1, 
+											 'text_in_top':1 }, 
+				function (err, newstop) {
 				if (err) return next(err);
 				var newsfinal = lodash.sample(newstop, 4);
 				Event.find({}, function (err, events) {
