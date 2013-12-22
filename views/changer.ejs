@@ -117,6 +117,7 @@
 		<div id='surname_div' style="display: none"><%-news.surname%></div>
 		<hr>
 
+		<input id="lenta_height" name="lenta_height" style="display:none;"></input>
 		<button  class="poster" id="poster" data-loading-text="Добавляю...">Изменить</button>
 	</form>
 
@@ -138,6 +139,9 @@
 
 		$(document.forms['new_change']).on('submit', function () {
 			var form = $(this);
+
+			// var a = $('.img-wrapper').height();
+			// $('#lenta_height').height(a);
 
 			$('.error', form).html('');
 			$(':submit', form).html('Добавляю...');

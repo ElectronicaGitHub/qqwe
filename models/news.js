@@ -46,5 +46,8 @@ var schema = new Schema({
 	hash_tags : {
 		type: String
 	}
+	// lenta_height: {
+	// 	type: String
+	// }
 });
 exports.New = mongoose.model('New', schema);

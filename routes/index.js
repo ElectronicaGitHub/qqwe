@@ -22,6 +22,10 @@ module.exports = function (app) {
 	});
 	//////////////////////////////////
 
+	app.get('/info2', function (req, res, err) {
+		res.render("meta");
+	});
+
 	// СТРАНИЦА РЕКЛАМЫ
 	app.get('/advertise', function (req, res, err) {
 		res.render("ads");
