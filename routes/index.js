@@ -59,9 +59,7 @@ module.exports = function (app) {
 		data.execFind(function (err, result) {
 			res.json(result);
 		})
-			
-
-	})
+	});
 
 	// СТРАНИЦА О НАС
 	app.get('/about', function (req, res, err) {

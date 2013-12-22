@@ -79,6 +79,7 @@ $(document).ready(function() {
 			        	}
 				});
 			});
+			
    		};
       	$(".menu-starter").on('click', function(){
 
