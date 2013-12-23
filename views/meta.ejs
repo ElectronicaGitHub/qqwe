@@ -2,51 +2,46 @@
 <script src="/socket.io/socket.io.js"></script>
 
 <div id="room">
-  <ul style="list-style-type: none;"></ul>
+  <ul class="list-unstyled"></ul>
   <form>
-    <input class="form-control" autocomplete="off" autofocus placeholder="Сообщение..." style="width: 300px">
+    <input disabled class="form-control" autocomplete="off" autofocus placeholder="Сообщение...">
   </form>
 </div>
 
 <script>
-  var socket = io.connect('',{
-    reconnect: false});
-
-  var form = $('#room form');
+  var input = $('#room input');
   var ul = $('#room ul');
-  var input = $('#room input')
+  var form = $('#room form');
+
+  var socket = io.connect('', {
+    reconnect: false
+  });
 
   socket
-    .on('message', function (message) {
-      printMessage(message);
-    })
-    .on('connect', function () {
-      printStatus('Соединение установлено');
-      input.prop('disabled', false);
-    })
-    .on('disconnect', function () {
-      printStatus('Соединение потеряно');
-      // form.off('submit', sendMessage);
-      input.prop('disabled', true);
-      setTimeout(reconnect, 500);
-    });
+      .on('message', function(message) {
+        printMessage(message);
+      })
+      .on('connect', function() {
+        printStatus("соединение установлено");
+        form.on('submit', sendMessage);
+        input.prop('disabled', false);
+      })
+      .on('disconnect', function() {
+        printStatus("соединение потеряно");
+        form.off('submit', sendMessage);
+        input.prop('disabled', true);
+        setTimeout(reconnect, 500);
+      });
 
-  form.submit(function() {
-    var input = $(this).find('input');
+  function sendMessage() {
     var text = input.val();
-    input.val('');
-
-    socket.emit('message', text, function(data) {
-      $('<li>', {text: text}).appendTo(ul);
-      console.log(data);
+    socket.emit('message', text, function() {
+      printMessage(text);
     });
 
+    input.val('');
     return false;
-  });
-
-  socket.on('message', function(text) {
-    $('<li>', {text: text}).appendTo(ul);
-  });
+  }
 
   function reconnect() {
     socket.once('error', function() {
@@ -62,4 +57,5 @@
   function printMessage(text) {
     $('<li>').text(text).appendTo(ul);
   }
+
 </script>
