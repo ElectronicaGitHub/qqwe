@@ -35,7 +35,7 @@
 	<div class='header'><p>CASTMAG.</p>
 	</div>
 	<form ng-app name="new_add" method='post' action='admin'>
-		<p class='hello'>Привет <%-name%> Создай пост</p>
+		<p class='hello'>Привет <%-name %> Создай пост</p>
 		<hr>
 		<p>Заголовок</p>
 		<input class="title_in" ng-model="new_title"  name='title_in' id='title_in'>
@@ -102,13 +102,18 @@
 		<p class='btwn'> Имя и Фамилия автора</p>
 		<input name="name" class="name_in" placeholder="Имя"></input> <input name="surname" class="surname_in" placeholder="Фамилия"></input>
 		<hr>
-
+		<!-- <input id="lenta_height" name="lenta_height" style="display:none;"></input> -->
 		<button  class="poster" id="poster" data-loading-text="Добавляю...">Добавить</button>
 	</form>
 
 	<script>
+
 		$(document.forms['new_add']).on('submit', function () {
 			var form = $(this);
+
+			// var a = $('.img-wrapper').height();
+			// $('#lenta_height').height(a);
+			// alert($('#lenta_height').height());
 
 			$('.error', form).html('');
 			$(':submit', form).html('Добавляю...');

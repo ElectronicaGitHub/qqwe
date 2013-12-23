@@ -37,6 +37,7 @@ exports.post = function (req, res, next) {
 	var top_random   = req.body.top_random;
 	var post_date    = new Date();
 	var hash_tags    = req.body.hash_tags;
+	// var lenta_height = req.body.lenta_height;
 	var quantity     = Math.floor(Math.random()*(200-80+1)+80);
 
 	// function randomFromInterval(from,to) {
@@ -63,6 +64,7 @@ exports.post = function (req, res, next) {
 		post_date    : post_date,
 		quantity     : quantity,
 		hash_tags    : hash_tags
+		// lenta_height : lenta_height
 	});
 
 	if  ((_id          != '') &&
@@ -147,6 +149,7 @@ exports.change = function (req, res, next) {
 					url_in_top   : url_in_top,
 					text_in_top  : text_in_top,
 					hash_tags    : hash_tags,
+					// lenta_height : newschange[0].lenta_height,
 					post_date    : newschange[0].post_date,
 					quantity     : newschange[0].quantity
 				});
@@ -168,6 +171,7 @@ exports.change = function (req, res, next) {
 												'post_date'    : newschange[0].post_date,
 												'quantity'     : newschange[0].quantity,
 												'hash_tags'    : news.hash_tags
+												// 'lenta_height' : newschange[0].lenta_height
 
 				} , function (err) {
 					console.log(err);

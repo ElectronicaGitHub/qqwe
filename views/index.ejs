@@ -41,10 +41,28 @@
 			    	var a = $( this ).children('img').height();
 			    	var imgHeight = a;
 			    	a = imgHeight;
-			    	console.log(imgHeight);
 			    	$( this ).height(imgHeight);
 			    })
 			});
+
+			// $.ajax({
+			// 	url: '/dynamic/newsadd/2', 
+			// 	method: 'GET',
+			// 	success: function(responce) {
+	  //               console.log(responce);
+	  //               elems = [];
+	  //               for (i in responce) {
+	  //               	var element = '<a href="/news/' + responce[i]._id + '"><div class="new-min"><div class="new-min-content"><p class="new-min-content-header ' + responce[i].type + '" >' + responce[i].title_in  + '</p><div class="img-wrapper"><img src="' + responce[i].url_in_list + '" style="width:100%;"><div class="inliner"><p> '+ responce[i].text_in_list + '</p></div><p class="views">Заинтересовавшихся:' + responce[i].quantity + '</p></div></div></div></a>';
+			// 			$container.append(element);
+			// 			elems.push(element);
+	  //               }
+			// 		// add and lay out newly appended elements
+			// 		// $container.masonry( 'appended', elems );
+
+
+	  //           }
+			// });
+
 		})
 	</script>
 
