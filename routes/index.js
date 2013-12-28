@@ -133,14 +133,14 @@ module.exports = function (app) {
 	app.get('/allcomments', function (req, res, next) {
 		Comment.find({}, function (err, comments) {
 			if (err) return next(err);
-			// if (req.user == undefined) {
-			// 	res.render('error');
-			// }
-			// else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
+			if (req.user == undefined) {
+				res.render('error');
+			}
+			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 				res.render('allcomments', {
 					comments : comments
 				})
-			// } else res.render('error');
+			} else res.render('error');
 		})
 	})
 	app.get('/allcomments/getName/:id', function (req, res, next) {
