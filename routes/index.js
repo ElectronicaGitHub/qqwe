@@ -45,6 +45,7 @@ module.exports = function (app) {
 	});
 	//////////////////////////////////
 
+	// HANDLER для подгрузки статей в флоат блок
 	app.get('/dynamic/add/:id', function (req, res, next) {
 		var data = New.find({ 'type' : req.params.id}, { 'title_in': 1 }).sort({'quantity': -1}).limit(5);
 		data.execFind(function (err, result) {
@@ -52,13 +53,14 @@ module.exports = function (app) {
 			res.json(result);
 		})
 	});
+	//////////////////////////////////
 
 	app.get('/dynamic/newsadd/:id', function (req, res, next) {
 		var data = New.find({}, {'type':1, 
-					  'title_in':1, 
-					  'url_in_list':1, 
-					  'text_in_list':1, 
-					  'quantity':1 }).skip(req.params.id).limit(10);
+					 			 'title_in':1, 
+					 			 'url_in_list':1, 
+					 			 'text_in_list':1, 
+					 			 'quantity':1 }).skip(req.params.id).limit(10);
 		data.execFind(function (err, result) {
 			res.json(result);
 		})
@@ -142,6 +144,24 @@ module.exports = function (app) {
 		})
 	})
 	//////////////////////////////////////
+
+	// //ВСЕ МАСТЕРА 
+	// app.get('/creators', function (req, res, next) {
+	// 	New.find({'top_random' : true}, {'url_in_top':1, 
+	// 									 'text_in_top':1 }, 
+	// 		function (err, newstop) {
+	// 			if (err) return next(err);
+	// 			deviceFinder(req);
+	// 			var newsfinal = lodash.sample(newstop, 4);
+	// 			if (err) return next(err);
+	// 			res.render("creators", {
+	// 				mark    : false,
+	// 				newstop : newsfinal,
+	// 				user    : req.user,
+	// 				device  : device
+	// 			});
+	// 	});
+	// })
 
 	// ВСЕ СОБЫТИЯ
 	app.get('/allevents', function (req,res, next) {
@@ -258,7 +278,8 @@ module.exports = function (app) {
 			}
 			else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
 				res.render("allnews", {
-					news : news
+					news     : news,
+					strftime : strftime
 				});
 			} else res.render('error'); 
 		})

@@ -2,36 +2,45 @@
 <html>
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <head>
-	<title></title>
+	<title>Комменты</title>
 </head>
 <body>
-	<% for (var k=0; k< comments.length; k++) { %>
-	<form name="neen">
-		<div class='info'> 
-			<div class='number'><%- comments[k]._id_parent %></div> /
-			<div class='title'><%- comments[k]._id %></div> /
-			<div class='id'><%- comments[k].content %></div> /
-			<div class="flag"><%- comments[k].autor_name %> <%- comments[k].autor_surname %></div> /
-			<div class="date"><%- comments[k].post_date %></div> /
-			<a href="/comment/<%-comments[k]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a>
-		</div>
-	</form>
-		<hr>
-	
-	<% }%>
-
+	<table class="table table-bordered table-hover">
+		<thead>
+			<td>Id новости</td>
+			<td>Id коммента</td>
+			<td>Сообщение</td>
+			<td>Имя, Фамилия автора</td>
+			<td>Дата размещения</td>
+			<td>Действия</td>
+		</thead>
+		<tbody>
+		<% for (var k=0; k< comments.length; k++) { %>
+			<tr>
+				<form name="neen">
+					<td><%- comments[k]._id_parent %></td>
+					<td><%- comments[k]._id %></td>
+					<td><%- comments[k].content %></td>
+					<td><%- comments[k].autor_name %> <%- comments[k].autor_surname %></td>
+					<td><%- comments[k].post_date %></td>
+					<td><a href="/comment/<%-comments[k]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a></td>
+				</form>
+			</tr>
+		</tbody>
+		
+		<% }%>
+	</table>
 
 	<style type="text/css">
-		* {
-			margin: 0;
-			padding: 0;
-		}
-		.info div {
-			display: inline-block;
+		table {
+			font-family: "Open Sans Condensed";
 			font-size: 15px;
-			min-height: 20px;
-			margin: 0px 5px;
+		}
+		table thead {
+			font-weight: 700;
 		}
 	</style>
 </body>
@@ -40,13 +49,13 @@
 	$(document).ready(function() {
 		$( ".delete" )
 		    .on( "mouseenter", function() {
-		    	$( this ).parent().css({ "background-color": "#FFA9A8"});
+		    	$( this ).parent().parent().css({ "background-color": "#FFA9A8"});
 			})
 		    .on( "mouseleave", function() {
 		        var styles = {
 		        backgroundColor : "#fff",
 		    };
-		    $( this ).parent().css( styles );
+		    $( this ).parent().parent().css( styles );
 		});
 	});	
 

@@ -3,67 +3,69 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/allnews.css">
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <head>
-	<title></title>
+	<title>Новости</title>
 </head>
 <body>
-	<% for (var k=0; k< news.length; k++) { %>
-	<form name="neen">
-		<div class='info'> 
-			<div class='number'>Новость # <%-k%> </div>
-			<div class='title'><%-news[k].title_in%> </div>
-			<div class='id'>ID : <p><%-news[k]._id%></p> </div>
-			
-			<div class="new_type <%-news[k].type%>">Тип новости: <p><%-news[k].type%></p> </div>
-			<!-- <div class ='name'>Имя: <%-news[k].name%> </div> -->
-			<!-- <div class ='surname'>Фамилия: <%-news[k].surname%> </div> -->
-			<!-- <div class="text">Текст: <%-news[k].content%> </div> -->
-
-			<!-- <div class="photo_wrapper"> <p>Лента</p> -->
-				<!-- <div class="photo"><img src="<%-news[k].url_in_list%>"> </div> -->
-				<!-- <div class="photo_text">Надпись: <%-news[k].text_in_list %> </div> -->
-			<!-- </div> -->
-			<!-- <div class="photo_wrapper"> <p>Верх</p> -->
-				<!-- <div class="photo"><img src="<%-news[k].url_in_top%>"> </div> -->
-				<!-- <div class="photo_text">Надпись: <%-news[k].text_in_top  %> </div> -->
-			<!-- </div> -->
-			<div class="flag">Флаг: 
-			<% if (news[k].top_random) {%>
-				<% a = 'Новость будет показываться в верхнем блоке' %>
-			<% } else a = 'Новость не будет показываться в верхнем блоке'%>
-			<p><%-a%></p> </div>
-			<div class="date">Дата размещения: <p><%-news[k].post_date%></p> </div>
-		</div>	
-		<a href="/allnews/<%-news[k]._id%>/change" class="change" data-loading-text="Изменяю...">Редактировать</a>
-		<a href="/allnews/<%-news[k]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a>
-	</form>
-		<hr>
-	
-	<% }%>
-
+	<table class="table table-bordered">
+		<thead>
+			<td>Номер</td>
+			<td>Заголовок</td>
+			<td>ID</td>
+			<td>Тип</td>
+			<td>Топ</td>
+			<td>Дата</td>
+			<td>Действия</td>
+		</thead>
+		<tbody>
+			<% for (var k=0; k< news.length; k++) { %>
+				<tr>
+					<form name="neen">
+						<td># <%-k%></td>
+						<td style=" font-size: 20px;"> <%-news[k].title_in%></td>
+						<td> <%-news[k]._id%></td>
+						<td class="<%-news[k].type%>"> <%-news[k].type%></td>
+						<td>
+							<% if (news[k].top_random) {%>
+								<% a = 'В топе' %>
+							<% } else a = 'Не в топе' %>
+							<%- a %>
+						</td>
+						<td> <%-strftime('%d %B, %Y года', news[k].post_date) %></td>
+						<td>
+							<a href="/allnews/<%-news[k]._id%>/change" class="change" data-loading-text="Изменяю...">Редактировать</a>
+							<a href="/allnews/<%-news[k]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a>
+						</td>
+					</form>
+				</tr>
+			<% }%>
+		</tbody>
+	</table>
 </body>
 
 <script type="text/javascript">
 	$(document).ready(function() {
 		$( ".delete" )
 		    .on( "mouseenter", function() {
-		    	$( this ).parent().css({ "background-color": "#FFA9A8"});
+		    	$( this ).parent().parent().css({ "background-color": "#FFA9A8"});
 			})
 		    .on( "mouseleave", function() {
 		        var styles = {
 		        backgroundColor : "#fff",
 		    };
-		    $( this ).parent().css( styles );
+		    $( this ).parent().parent().css( styles );
 		});
 		$( ".change" )
 		    .on( "mouseenter", function() {
-		    	$( this ).parent().css({ "background-color": "#9FFFA4"});
+		    	$( this ).parent().parent().css({ "background-color": "#9FFFA4"});
 			})
 		    .on( "mouseleave", function() {
 		        var styles = {
 		        backgroundColor : "#fff",
 		    };
-		    $( this ).parent().css( styles );
+		    $( this ).parent().parent().css( styles );
 		});
 	});	
 

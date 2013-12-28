@@ -2,38 +2,46 @@
 <html>
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <head>
-	<title></title>
+	<title>События</title>
 </head>
 <body>
-	<% for (var k = 0; k < events.length; k++) { %>
-	<form name="neen">
-		<div class='info'> 
-			<div class='number' style="width:100px"><%- events[k]._id %></div> /
-			<div class='title' style="width:100px"><%- events[k].title %></div> /
-			<div class='description' style="width:100px"><%- events[k].description %></div> /
-			<div class="adress" style="width:100px"><%- events[k].dates %> <%- events[k].adress %></div> /
-			<div class="price" style="width:100px"><%- events[k].price %></div> /
-			<div class="url" style="width:100px"><%- events[k].url %></div> /
-			<div class="picture_url" style="width:100px"><%- events[k].picture_url %></div> /
-			<a style="display:inline-block" href="/event/<%-events[k]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a>
-		</div>
-	</form>
-		<hr>
-	
-	<% }%>
-
+	<table class="table table-bordered table-hover">
+		<thead>
+			<td>Номер</td>
+			<td>Заголовок</td>
+			<td>Описание</td>
+			<td>Дата, Адрес</td>
+			<td>Цена</td>
+			<td>Картинка</td>
+			<td>Действие</td>
+		</thead>
+		<tbody>
+			<% for (var k = 0; k < events.length; k++) { %>
+				<tr>
+					<form name="neen">
+						<td><%- events[k]._id %></td>
+						<td><a href="<%- events[k].event_url %>"><%- events[k].title %></a></td>
+						<td><%- events[k].description %></td>
+						<td><%- events[k].dates %> <%- events[k].adress %></td>
+						<td><%- events[k].price %></td>
+						<td><%- events[k].picture_url %></td>
+						<td><a style="display:inline-block" href="/event/<%-events[k]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a>	</td>
+					</form>
+				</tr>
+			<% }%>
+		</tbody>
+	</table>
 
 	<style type="text/css">
-		* {
-			margin: 0;
-			padding: 0;
-		}
-		.info div {
-			display: inline-block;
+		table {
+			font-family: "Open Sans Condensed";
 			font-size: 15px;
-			min-height: 20px;
-			margin: 0px 5px;
+		}
+		table thead {
+			font-weight: 700;
 		}
 	</style>
 </body>
@@ -42,13 +50,13 @@
 	$(document).ready(function() {
 		$( ".delete" )
 		    .on( "mouseenter", function() {
-		    	$( this ).parent().css({ "background-color": "#FFA9A8"});
+		    	$( this ).parent().parent().css({ "background-color": "#FFA9A8"});
 			})
 		    .on( "mouseleave", function() {
 		        var styles = {
 		        backgroundColor : "#fff",
 		    };
-		    $( this ).parent().css( styles );
+		    $( this ).parent().parent().css( styles );
 		});
 	});	
 

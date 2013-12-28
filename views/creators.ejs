@@ -2,13 +2,13 @@
 <html lang="en">
 <head prefix="og: http://ogp.me/ns#">
 	<meta charset="UTF-8">
-	<meta name="description" content="<%-onenew.title_in%>">
-	<title>CASTMAG \ <%-onenew.title_in%></title>
+	<meta name="description" content="">
+	<title>CASTMAG \</title>
 	<meta property="og:title" content="Интернет-журнал CASTMAG" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="http://castmag.ru" />
-	<meta property="og:image:secure_url" content="<%onenew.url_in_top%>" />
-	<meta property="og:description" content="<%-onenew.title_in%>">
+	<meta property="og:image:secure_url" content="" />
+	<meta property="og:description" content="">
 	<% if (device == 'iPhone') { %>
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 	<% } else if (device == 'Android')  {%>
@@ -21,6 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome-4.0.2/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/masters.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/advertise-styles.css">
@@ -29,7 +30,7 @@
 	<%}%>
 </head>
 <body>
-	<div id="go-top" class="go-top"><i class="fa fa-chevron-up" style="text-align:center; padding-left:0px; position:absolute; bottom:0; left:0; color:#333; font-size:40px; height: 40px; width: 40px;"></i></div>
+	<!-- <div id="go-top" class="go-top"><i class="fa fa-chevron-up" style="text-align:center; padding-left:0px; position:absolute; bottom:0; left:0; color:#333; font-size:40px; height: 40px; width: 40px;"></i></div> -->
 	<div class='header'><a href="/news" style="color:#fff;"><p>CASTMAG</p></a>
 		<% if (!user) { %>		
 				<p style="font-size: 30px;">Вы не вошли</p>
@@ -63,9 +64,9 @@
 			<% } %>	
 	</div>	
 	<div class='slider-all'>
-			<% for (var i=0; i<news.length; i++) { %>
-					<a href="/news/<%-news[i]._id%>">
-						<div class="slider-element" style ="background-size:100%; background-image: url('<%-news[i].url_in_top%>')"><div class="wrap-p"><p> <%-news[i].text_in_top%> </p></div>
+			<% for (var i=0; i<newstop.length; i++) { %>
+					<a href="/news/<%-newstop[i]._id%>">
+						<div class="slider-element" style ="background-size:100%; background-image: url('<%-newstop[i].url_in_top%>')"><div class="wrap-p"><p> <%-newstop[i].text_in_top%> </p></div>
 						</div>
 					</a>
 			<% } %>
@@ -73,77 +74,33 @@
 	<div class="all">
 		<div class="content-full">
 			<div class="news-block">
-				<div class="new">
-					<div class="<%-onenew.type%>" style="width: 100%; min-height: 50px; overflow: hidden;">
-						<h1 class="header-new"><%-onenew.title_in%></h1>
+				
+				<div class="master-each">
+					<div class="topper">
+						<h1> <a href="www.castmag.ru">Ким Малыгин </a></h1>
+						<h3> Обувной мастер</h3>
 					</div>
-					<%-onenew.content%>
-					<hr style="-webkit-margin-after: 0;">
-					<p style="display: inline-block; font-weight:bold; font-size: 16px; height: 25px; line-height:25px; margin: 0px 10px;" class="new-autor">Автор: <%-onenew.name%> <%-onenew.surname%></p>
-<!-- 					<p style="display: inline-block; font-weight:bold; font-size: 16px; height: 25px; line-height:25px; margin: 0px 10px;" class="new-date">Новость добавлена: <%-strftime('%d %B, %Y года', onenew.post_date) %></p>	 -->
-					<p style="display: inline-block; font-weight:bold; font-size: 16px; height: 25px; line-height:25px; margin: 0px 10px;" class="new-date">Тэги: <%-onenew.hash_tags %></p>	
-				</div>
-
-				<script type="text/javascript">(function() {
-				    if (window.pluso)if (typeof window.pluso.start == "function") return;
-				    if (window.ifpluso==undefined) { window.ifpluso = 1;
-				        var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-				        s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-				        s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
-				        var h=d[g]('body')[0];
-				        h.appendChild(s);
-					}})();
-				</script>
-				<div class="pluso" data-background="transparent" data-options="big,square,line,horizontal,nocounter,theme=06" data-services="vkontakte,facebook,twitter,google,odnoklassniki" data-user="794962481"></div>
-
-				<% if (!user) { %>
-				<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
-					<div style="width:100%; height: 50px; background-color: transparent; border: 0px; overflow: hidden; text-align: center">
-						<hr>
-						<a href="/allnews/<%-onenew._id%>/change" class="change" data-loading-text="Изменяю...">Редактировать</a>
+					<div class="onetwo">
+						<div class="photo" style="background-image: url('http://cs425727.vk.me/v425727106/4879/kOrxoBD2OXE.jpg')"></div>
+						<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna.</div>
 					</div>
-				<% } %>
-			</div>
-			<div class="comment_wrapper">
-				<% if (!user) { %>
-					<div style="width: 100%; height: 80px; text-align:center; line-height: 80px"><a class="nouser" style="overflow:hidden; font-size: 30px; text-decoration: none; border-bottom: 1px dashed #000; box-sizing:border-box" href="#">Зарегистрируйтесь для добавления комментариев</a></div>
-				<% } else {%>
-					<form name="add_comm" class='add_form'>
-						<% if (!user) { %>
-							<div class="comment_photo_add" name="comment_photo_add"></div>
-						<% } else if (user.provider == 'facebook') { %>
-							<div class="comment_photo_add" style="background-image: url('https://graph.facebook.com/<%= user.username %>/picture'); background-size: 100%;" name="comment_photo_add"></div>
-						<% } else if (user.provider == 'vkontakte') { %>
-							<div class="comment_photo_add" style="background-image: url('<%= user._json.photo %>'); background-size: 100%;" name="comment_photo_add"></div>
-						<% } else if (user.provider == 'twitter') { %>
-							<div class="comment_photo_add" style="background-image: url('<%= user._json.profile_image_url %>'); background-size: 100%;" name="comment_photo_add"></div>
-						<% } %>
-						<textarea class="comment_text_add" name="comment_text_add"></textarea>
-						<button class="comment_press" name="comment">Коммент</button>
-					</form name="add_comm">
-				<% } %>
-				<div class="comments_all">
-					<%for ( var q = 0; q < comments.length; q++) { %>
-						<div class="comment_each">
-							<form class="comment_">
-								<div class="comment_photo" style="background-image: url('<%= comments[q].user_photo %>'); background-size: 100%;"></div>								
-								<% if (comments[q].autor_surname == undefined) { %>
-									<div class='name'><%-comments[q].autor_name%></div>
-								<% } else { %>
-									<div class='name'><%-comments[q].autor_name%></div>
-									<div class="surname"><%-comments[q].autor_surname%></div> 
-								<% } %>
-								написал в <div class="date"><%-strftime('%H:%M:%S, %d %B %Y года ', comments[q].post_date) %></div> 
-								<div class="comment_text sizable each"><%-comments[q].content%></div>
-								<% if (!user) { %>
-								<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
-									<a href="/comment/<%-comments[q]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a>
-								<% } %>
-							</form>
+					<div class="onetwo">
+						<div class="pic-slider">
+							<div id="owl-demo" class="owl-carousel">
+								<img src="http://cs310420.vk.me/v310420106/5329/MDKHw2DsKaw.jpg">
+								<img src="http://cs419630.vk.me/v419630106/afcf/Jde9_D47LhQ.jpg">
+								<img src="http://cs412925.vk.me/v412925106/6465/ftIDzwSelGA.jpg">
+								<img src="http://cs310420.vk.me/v310420106/5329/MDKHw2DsKaw.jpg">
+							</div>
 						</div>
-					<% } %>
+					</div>
 				</div>
+
+				
+								
 			</div>
+			
 			</div>
 			<div class="sidebar">
 				<ul>
@@ -162,15 +119,15 @@
 					<a href="/other"><li class="a">ИНОЕ</li></a>			
 				</ul>
 
-				<div class="block">
+				<!-- <div class="block">
 					<a href="http://www.iwoody.ru/" target="_blank">
 						<div class="inner-pic"></div>
 					</a>
-				</div>
+				</div> -->
 				<!-- <p class='size'>Рекламный блок <br> 275 x 450</p> -->
 
 				<!-- // ПЛАВАЮЩИЙ БЛОК -->
-				<div class="hide-menu abs" id="float-block">
+				<!-- <div class="hide-menu abs" id="float-block">
 					<div class="title-best default-float-color">Популярное</div>
 					<div class="news-all-best"></div>
 					<div style="height:auto; width : 100%; overflow: hidden; margin-top:20px;">
@@ -190,7 +147,7 @@
 							<a data-style="other" class="dynamic" href="/other"><li class="a">ИНОЕ</li></a>				
 						</ul>
 					</div>
-				</div>
+				</div> -->
 				<!-- ////////////////////////////////// -->
 
 			</div>
@@ -224,85 +181,7 @@
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
 	<script type="text/javascript" src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
 	<script type="text/javascript">
-		//ДОБАВЛЕНИЕ КОММЕНТАРИЯ
-		$(document.forms['add_comm']).on('submit', function () {
-			var form = $(this);
-			console.log("ajax");
-			$.ajax({
-				url: '/added/<%-onenew._id%>', 
-				method: 'POST',
-				data: form.serialize(),
-				complete: function() {
-				},
-				statusCode: {
-					200 : function (res) {
-						form.find('.comment_text_add').val('');
-						var new_comment = $('<div class="comment_each"><form class="comment_"><div class="comment_photo" style="background-image: url(' + res.user_photo + '); background-size: 100%;"></div> <div class="comment_text sizable each">' + res.content + '</div></form></div>').hide();
-						$('.comments_all').prepend(new_comment.show('slow'));
-						console.log(res);
-					},
-					201 : function() {
-						$(':submit', form).html('Не все поля заполнены').css('width','300px').css('background-color','#FF352B').css('border-radius','5px').css('outline','none').css('border','2px solid #000');
-					},
-					403 : function() {
-						var error = JSON.parse(jqXHR.responseText);
-						$('.error',form).html(error.message);
-					}
-				}
-			});
-			return false;
-		});
-		////////////////////////////////////////
-
-		// ИЗМЕНЕНИЕ НОВОСТИ АДМИНКА 
-		$('.change').click(function(event) {
-			var URL = $(this).attr('href');
-			// event.preventDefault();
-			$.ajax({
-				url: URL, 
-				method: 'GET',
-				complete: function() {
-				},
-				statusCode: {
-					200 : function() {
-						window.location.href ="/";
-					},
-					404 : function() {
-						(this).text('huevo');
-					},
-					403 : function() {
-						var error = JSON.parse(jqXHR.responseText);
-						$('.error',form).html(error.message);
-					}
-				}
-			});
-		});
-		///////////////////////////////////////
-
-		//УДАЛЕНИЕ КОММЕНТАРИЯ 
-		$('.delete').click(function(event) {
-			var URL = $(this).attr('href');
-			event.preventDefault();
-			$.ajax({
-				url: URL, 
-				method: 'GET',
-				complete: function() {
-				},
-				statusCode: {
-					200 : function() {
-						$(this).parent().parent().html("Коммент удален").css('font-size','20px').css('font-family', 'Open Sans Condensed').css('font-weight', 'bold').hide('slow');
-						window.location.reload();
-					},
-					404 : function() {
-						(this).text('huevo');
-					},
-					403 : function() {
-						var error = JSON.parse(jqXHR.responseText);
-						$('.error',form).html(error.message);
-					}
-				}
-			});
-		});
+		
 		////////////////ЗАГРУЗКА ПОПУЛЯРНЫХ НОВОСТЕЙ//////////////////////
 	    $.ajax({
 			url: '/dynamic/add/right', 
@@ -315,6 +194,9 @@
                 }
             }
 		});
+		////////////////////////////////////////////////////////
+
+		// ДИНАМИЧЕСКАЯ ПОДГРУЗКА НУЖНЫХ БЛОКОВ ////////////
 		var lastClass;
 		$('.dynamic').click( function(event) {
 			event.preventDefault();
@@ -343,7 +225,9 @@
 				} 
 			})
 		});
+		///////////////////////////////////////////////
 
+		// ПОЛОСА СЛЕВА - НАВЕРХ
 		$("#go-top").on('click', function(){
 
       		$('html, body').animate({
@@ -395,18 +279,36 @@
 		console.log('advertise generated');
 		// iWOODY END
 
-		    $(document).scroll(function() {
-		        var scrollPosition = $(document).scrollTop();
-		        var scrollReference = 1050;
-		        if (scrollPosition >= scrollReference) {      
-		            $("#float-block").addClass('fixed');   
-		        } else {
-		            $("#float-block").removeClass('fixed');
-		            $("#float-block").addClass('abs');
-		        };
-		    });
-		    $('#float-block').height($(document).height());
+		    // $(document).scroll(function() {
+		    //     var scrollPosition = $(document).scrollTop();
+		    //     var scrollReference = 1050;
+		    //     if (scrollPosition >= scrollReference) {      
+		    //         $("#float-block").addClass('fixed');   
+		    //     } else {
+		    //         $("#float-block").removeClass('fixed');
+		    //         $("#float-block").addClass('abs');
+		    //     };
+		    // });
+		    // $('#float-block').height($(document).height());
 
 	</script>
+	<link href="stylesheets/owl.carousel.css" rel="stylesheet">
+    <script src="javascripts/owl.carousel.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+	        $(".owl-carousel").owlCarousel({
+	            items : 1,
+	            autoHeight : false,
+	            pagination : false,
+	            lazyLoad : true,
+	            // autoPlay : 3000,
+	            stopOnHover : true,
+	            itemsDesktop : [1199,1],
+			    itemsDesktopSmall : [980,1],
+			    itemsTablet: [768,1],
+			    itemsMobile : [479,1]
+	        });
+	    });
+    </script>
 </body>
 </html>
