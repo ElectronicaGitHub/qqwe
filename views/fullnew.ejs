@@ -133,7 +133,7 @@
 									<div class='name'><%-comments[q].autor_name%></div>
 									<div class="surname"><%-comments[q].autor_surname%></div> 
 								<% } %>
-								написал в <div class="date"><%-strftime('%H:%M:%S, %d %B %Y года ', comments[q].post_date) %></div> 
+								<!-- написал в <div class="date"><%-strftime('%H:%M:%S, %d %B %Y года ', comments[q].post_date) %></div>  -->
 								<div class="comment_text sizable each"><%-comments[q].content%></div>
 								<% if (!user) { %>
 								<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>

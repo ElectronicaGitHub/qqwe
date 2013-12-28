@@ -10,7 +10,7 @@
 <body>
 	<table class="table table-bordered table-hover">
 		<thead>
-			<td>Id новости</td>
+			<td>Id статьи <p id="showNames"> Показать названия статей</p></td>
 			<td>Id коммента</td>
 			<td>Сообщение</td>
 			<td>Имя, Фамилия автора</td>
@@ -18,20 +18,19 @@
 			<td>Действия</td>
 		</thead>
 		<tbody>
-		<% for (var k=0; k< comments.length; k++) { %>
-			<tr>
-				<form name="neen">
-					<td><%- comments[k]._id_parent %></td>
-					<td><%- comments[k]._id %></td>
-					<td><%- comments[k].content %></td>
-					<td><%- comments[k].autor_name %> <%- comments[k].autor_surname %></td>
-					<td><%- comments[k].post_date %></td>
-					<td><a href="/comment/<%-comments[k]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a></td>
-				</form>
-			</tr>
+			<% for (var k=0; k< comments.length; k++) { %>
+				<tr data="<%- comments[k]._id_parent %>">
+					<form name="neen">
+						<td class="here"><%- comments[k]._id_parent %></td>
+						<td><a href="/news/<%- comments[k]._id_parent %>"><%- comments[k]._id %></a></td>
+						<td><%- comments[k].content %></td>
+						<td><%- comments[k].autor_name %> <%- comments[k].autor_surname %></td>
+						<td><%- comments[k].post_date %></td>
+						<td><a href="/comment/<%-comments[k]._id%>/delete" class="delete" data-loading-text="Удаление...">Удалить</a></td>
+					</form>
+				</tr>
+			<% }%>
 		</tbody>
-		
-		<% }%>
 	</table>
 
 	<style type="text/css">
@@ -79,6 +78,22 @@
 					$('.error',form).html(error.message);
 				}
 			}
+		});
+	});
+	$('tr').children('.here').hover(function(event) {
+		var bb = $( this ).parent();
+		bb.each(function() {
+			id = bb.attr('data');
+			url = '/allcomments/getName/' + id;
+			$.ajax({
+				url: url, 
+				method: 'GET',
+				success: function(res) {
+					console.log(res[0].title_in);
+					bb.children('.here').text(res[0].title_in);
+
+				}
+			});
 		});
 	});
 </script>

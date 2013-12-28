@@ -141,10 +141,10 @@ h1.header-new {
 	height: 40px;
 	font-size: 30px;
 }
-.comment_text {
+.comment_text, .comment_text_add {
 	font-size: 25px;
 }
-.comment_photo {
+.comment_photo, .comment_photo_add {
 	width: 120px;
 	height: 120px;
 }
