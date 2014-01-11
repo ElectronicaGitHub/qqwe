@@ -25,6 +25,7 @@ module.exports = function (app) {
 	});
 	//////////////////////////////////
 
+	// ДЛЯ ЧАТА НА СОКЕТ ИО
 	app.get('/info/chat', function (req, res, err) {
 		res.render("meta");
 	});

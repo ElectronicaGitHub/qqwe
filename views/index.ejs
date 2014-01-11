@@ -44,25 +44,6 @@
 			    	$( this ).height(imgHeight);
 			    })
 			});
-
-			// $.ajax({
-			// 	url: '/dynamic/newsadd/2', 
-			// 	method: 'GET',
-			// 	success: function(responce) {
-	  //               console.log(responce);
-	  //               elems = [];
-	  //               for (i in responce) {
-	  //               	var element = '<a href="/news/' + responce[i]._id + '"><div class="new-min"><div class="new-min-content"><p class="new-min-content-header ' + responce[i].type + '" >' + responce[i].title_in  + '</p><div class="img-wrapper"><img src="' + responce[i].url_in_list + '" style="width:100%;"><div class="inliner"><p> '+ responce[i].text_in_list + '</p></div><p class="views">Заинтересовавшихся:' + responce[i].quantity + '</p></div></div></div></a>';
-			// 			$container.append(element);
-			// 			elems.push(element);
-	  //               }
-			// 		// add and lay out newly appended elements
-			// 		// $container.masonry( 'appended', elems );
-
-
-	  //           }
-			// });
-
 		})
 	</script>
 
@@ -107,7 +88,7 @@
 			<% } %>
 	</div>
 
-	<!-- /// SLIDER MENU -->
+	<!-- /// SLIDER MENU FOR MOBILES -->
 
 	<div class="menu-starter"> <p>Список топиков</p>
 	</div>
@@ -128,9 +109,7 @@
 			</ul>
 		</div>
 
-	<!-- /// SLIDER MENU ENDS -->
-
-
+	<!-- /// SLIDER MENU FOR MOBILES ENDS -->
 
 	<div class="all">
 
@@ -159,8 +138,6 @@
 							</div>
 						</div>
 					<% } %>
-
-					
                 </div>
 				
 			</div>
@@ -194,7 +171,6 @@
 				<% if (mark) { %>
 				<a href="/news"><li class="m">ГЛАВНАЯ</li></a>
 				<%} %>
-				<!-- <li class="q"><a href="/news">МИР</a></li> -->
 				<a href="/made"><li class="i">СОЗДАВАЙ</li></a>
 				<li class="li-outer e" id="opener">АРТ
 					<ul>
@@ -207,12 +183,18 @@
 				<a href="/craft"><li class="p">РЕМЕСЛО</li></a>
 				<a href="/howto"><li class="o">ХАУ ТУ</li></a>
 				<a href="/other"><li class="a">ИНОЕ</li></a>
+
 				<% if (!user) { %>
 				<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
 					<li class="admin" style="font-size:20px;"><a href="/admin">ДОБАВИТЬ НОВОСТЬ</a></li>
 					<li class="admin" style="font-size:20px;"><a href="/admin_events">ДОБАВИТЬ СОБЫТИЕ</a></li>
-
 					<li class="admin" style="font-size:20px;"><a href="/info">ИНФОРМАЦИЯ</a></li>
+
+					<script src="/socket.io/socket.io.js"></script>
+					<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+					<script type="text/javascript" src="/javascripts/controller/indexCtrl.js"></script>
+
+					<li class="admin" style="font-size:20px;" ng-app="app" ><stat></stat></li>
 				<% } %>
 			</ul>
 			<div class="block">

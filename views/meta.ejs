@@ -1,5 +1,49 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+
+<script type="text/javascript">
+
+    var socket = io.connect('', {
+        reconnect: false
+    });
+    socket
+        .on('message', function(message) {
+            printMessage(message);
+        })
+        .on('connect', function() {
+            printStatus("соединение установлено");
+            form.on('submit', sendMessage);
+            input.prop('disabled', false);
+        })
+        .on('disconnect', function() {
+            printStatus("соединение потеряно");
+            form.off('submit', sendMessage);
+            input.prop('disabled', true);
+            setTimeout(reconnect, 500);
+        });
+
+    var app = angular.module('app', []);
+
+    app.controller('ControlStat', function($scope) {
+        $scope.data = 1;
+    })  
+    app.directive('stat', function() {
+        return {
+            restrict : 'E',
+            template : '<p> На сайте:  {{ data }}</p>',
+            link : function($scope, element) {
+                plus = true;
+                socket.on('count', function (data) {
+                    $scope.data = data.data;
+                    $scope.$apply();
+                    console.log(data);
+                });
+
+            }
+        }
+    })
+</script>
 
 <div id="room">
   <ul class="list-unstyled"></ul>
@@ -8,54 +52,42 @@
   </form>
 </div>
 
+<hr>
+
+<div ng-app="app" ng-controller="ControlStat">
+    <stat></stat> 
+</div>
+
+
 <script>
-  var input = $('#room input');
-  var ul = $('#room ul');
-  var form = $('#room form');
+    var input = $('#room input');
+    var ul = $('#room ul');
+    var form = $('#room form');
 
-  var socket = io.connect('', {
-    reconnect: false
-  });
+    
 
-  socket
-      .on('message', function(message) {
-        printMessage(message);
-      })
-      .on('connect', function() {
-        printStatus("соединение установлено");
-        form.on('submit', sendMessage);
-        input.prop('disabled', false);
-      })
-      .on('disconnect', function() {
-        printStatus("соединение потеряно");
-        form.off('submit', sendMessage);
-        input.prop('disabled', true);
-        setTimeout(reconnect, 500);
-      });
+    function sendMessage() {
+        var text = input.val();
+        socket.emit('message', text, function() {
+            printMessage(text);
+        });
 
-  function sendMessage() {
-    var text = input.val();
-    socket.emit('message', text, function() {
-      printMessage(text);
-    });
+        input.val('');
+        return false;
+    }
 
-    input.val('');
-    return false;
-  }
+    function reconnect() {
+        socket.once('error', function() {
+            setTimeout(reconnect, 500);
+        });
+        socket.socket.connect();
+    }
 
-  function reconnect() {
-    socket.once('error', function() {
-      setTimeout(reconnect, 500);
-    });
-    socket.socket.connect();
-  }
+    function printStatus(status) {
+        $('<li>').append($('<i>').text(status)).appendTo(ul);
+    }
 
-  function printStatus(status) {
-    $('<li>').append($('<i>').text(status)).appendTo(ul);
-  }
-
-  function printMessage(text) {
-    $('<li>').text(text).appendTo(ul);
-  }
-
+    function printMessage(text) {
+        $('<li>').text(text).appendTo(ul);
+    }
 </script>

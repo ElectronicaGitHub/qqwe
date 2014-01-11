@@ -46,10 +46,7 @@
 	height: 100%;
 	background-color: rgba(0,0,0,.5);
 	text-align: center;
-	/*padding-top: 60px;*/
-
 	display: table;
-
 	position: absolute;
 	top: -220px;
 	font-weight: bold;
@@ -169,19 +166,14 @@
 	left: -260px;
 	top: 0px;
 	vertical-align: middle;
-	/*display: table-cell;*/
 	display: table;
 }
 .inliner p{
 	width: 100%;
-	/*height: 42%;*/
-	/*position: absolute;*/
-	/*top: 0; left: 0; bottom: 0; right: 0;*/
 	display: table-cell;
 	vertical-align: middle;
 	overflow: auto;
   	margin: auto;
-	/*display: inline-block;*/
 	font-weight: bold;
 	padding: 0 5px;
 	box-sizing: border-box;
@@ -299,9 +291,9 @@ img {
 .events-all {
 	width: 100%;
 	height: 180px;
-	/*background-color: #f4f4f4;*/
 	background-color: #EEFFED;
 	border-bottom: 1px #d5d5d5 solid;
+	overflow: hidden;
 }
 .event-photo {
 	width: 33.3333%;

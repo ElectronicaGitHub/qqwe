@@ -69,6 +69,7 @@ if (cluster.isMaster) {
 	  log.info('Express server listening on port ' + config.get('port'));
 	});
 
+	// ДЛЯ ЧАТА НА СОКЕТ ИО
 	require('./socket')(server);
 }
 
