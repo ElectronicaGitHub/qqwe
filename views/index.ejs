@@ -168,6 +168,14 @@
 
 		<div class="sidebar">
 			<ul>
+				<% if (!user) { %>
+				<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
+					<script src="/socket.io/socket.io.js"></script>
+					<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+					<script type="text/javascript" src="/javascripts/controller/indexCtrl.js"></script>
+					<li class="admin" style="font-size:20px;" ng-app="app" ><stat></stat></li>
+				<% } %>
+
 				<% if (mark) { %>
 				<a href="/news"><li class="m">ГЛАВНАЯ</li></a>
 				<%} %>
@@ -189,12 +197,6 @@
 					<li class="admin" style="font-size:20px;"><a href="/admin">ДОБАВИТЬ НОВОСТЬ</a></li>
 					<li class="admin" style="font-size:20px;"><a href="/admin_events">ДОБАВИТЬ СОБЫТИЕ</a></li>
 					<li class="admin" style="font-size:20px;"><a href="/info">ИНФОРМАЦИЯ</a></li>
-
-					<script src="/socket.io/socket.io.js"></script>
-					<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-					<script type="text/javascript" src="/javascripts/controller/indexCtrl.js"></script>
-
-					<li class="admin" style="font-size:20px;" ng-app="app" ><stat></stat></li>
 				<% } %>
 			</ul>
 			<div class="block">
