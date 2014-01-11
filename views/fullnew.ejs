@@ -24,6 +24,10 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/advertise-styles.css">
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script type="text/javascript" src="/javascripts/controller/indexCtrl.js"></script>
+
 	<% if (device!='PC') { %>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/devices-media.css">
 	<%}%>
@@ -175,6 +179,10 @@
 					<div class="news-all-best"></div>
 					<div style="height:auto; width : 100%; overflow: hidden; margin-top:20px;">
 						<ul>
+							<% if (!user) { %>
+							<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
+								<li class="admin" style="font-size:20px;" ng-app="app" ><stat></stat></li>
+							<% } %>
 							<a href="/news"><li class="m">ГЛАВНАЯ</li></a>
 							<a href="/made"><li class="i" >СОЗДАВАЙ</li></a>
 							<li class="li-outer e" id="opener1">АРТ

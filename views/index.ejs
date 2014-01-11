@@ -30,6 +30,9 @@
 	<script src="/javascripts/jeezus.js"></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.1/masonry.pkgd.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script type="text/javascript" src="/javascripts/controller/indexCtrl.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			
@@ -170,9 +173,6 @@
 			<ul>
 				<% if (!user) { %>
 				<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
-					<script src="/socket.io/socket.io.js"></script>
-					<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-					<script type="text/javascript" src="/javascripts/controller/indexCtrl.js"></script>
 					<li class="admin" style="font-size:20px;" ng-app="app" ><stat></stat></li>
 				<% } %>
 
