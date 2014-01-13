@@ -24,10 +24,6 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/advertise-styles.css">
-	<script src="/socket.io/socket.io.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-	<script type="text/javascript" src="/javascripts/controller/indexCtrl.js"></script>
-
 	<% if (device!='PC') { %>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/devices-media.css">
 	<%}%>
@@ -81,11 +77,31 @@
 					<div class="<%-onenew.type%>" style="width: 100%; min-height: 50px; overflow: hidden;">
 						<h1 class="header-new"><%-onenew.title_in%></h1>
 					</div>
+
+					<div class="underheader">
+						
+						<div class="underheader-autor">
+							<h3> Автор: </h3>
+							<h1 class="header-new"> <%-onenew.name%> <%-onenew.surname%> </h1>
+						</div>
+						<div class="underheader-type">
+							<h3> Раздел: </h3>
+							<% if (onenew.type == 'art-music')  { onenew.phrase = 'Звук'    } %>
+							<% if (onenew.type == 'art-cinema') { onenew.phrase = '35 ММ'   } %>
+							<% if (onenew.type == 'art-art')    { onenew.phrase = 'Полотно' } %>
+							<% if (onenew.type == 'fashion')    { onenew.phrase = 'Подиум'  } %>
+							<% if (onenew.type == 'howto')      { onenew.phrase = 'Хауту'   } %>
+							<% if (onenew.type == 'craft')      { onenew.phrase = 'Ремесло' } %>
+							<% if (onenew.type == 'other')      { onenew.phrase = 'Иное'    } %>
+							<h1 class="header-new"> <%-onenew.phrase%> </h1>
+
+						</div>
+					</div>
+
 					<%-onenew.content%>
 					<hr style="-webkit-margin-after: 0;">
-					<p style="display: inline-block; font-weight:bold; font-size: 16px; height: 25px; line-height:25px; margin: 0px 10px;" class="new-autor">Автор: <%-onenew.name%> <%-onenew.surname%></p>
-<!-- 					<p style="display: inline-block; font-weight:bold; font-size: 16px; height: 25px; line-height:25px; margin: 0px 10px;" class="new-date">Новость добавлена: <%-strftime('%d %B, %Y года', onenew.post_date) %></p>	 -->
-					<p style="display: inline-block; font-weight:bold; font-size: 16px; height: 25px; line-height:25px; margin: 0px 10px;" class="new-date">Тэги: <%-onenew.hash_tags %></p>	
+
+					<!-- <p style="display: inline-block; font-weight:bold; font-size: 16px; height: 25px; line-height:25px; margin: 0px 10px;" class="new-autor">Тэги: <%-onenew.hash_tags %></p>	 -->
 				</div>
 
 				<script type="text/javascript">(function() {
@@ -151,10 +167,6 @@
 			</div>
 			<div class="sidebar">
 				<ul>
-					<% if (!user) { %>
-					<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
-						<li class="admin" style="font-size:30px;" ng-app="app" ><stat></stat></li>
-					<% } %>
 					<a href="/news"><li class="m">ГЛАВНАЯ</li></a>
 					<a href="/made"><li class="i">СОЗДАВАЙ</li></a>
 					<li class="li-outer e" id="opener">АРТ
@@ -311,6 +323,7 @@
 				}
 			});
 		});
+
 		////////////////ЗАГРУЗКА ПОПУЛЯРНЫХ НОВОСТЕЙ//////////////////////
 	    $.ajax({
 			url: '/dynamic/add/right', 
@@ -351,9 +364,10 @@
 				} 
 			})
 		});
+		//////////////////////////////////////
 
+		// СКРОЛЛЕР НАВЕРХ
 		$("#go-top").on('click', function(){
-
       		$('html, body').animate({
        			scrollTop: 0
    			}, 50);
@@ -390,17 +404,16 @@
 
 	<script>
 		// IWOODY START
-		var adver = Math.floor(Math.random() * 3) + 1;
-		if (adver == 1 ) {
-			urled = 'http://cs417729.vk.me/v417729280/bddb/mC9ktvnAKCg.jpg';
-		} else if ( adver == 2 ) {
-			urled = 'http://cs417729.vk.me/v417729280/bde2/BUMhQKE844I.jpg';
-		} else if ( adver == 3 ) {
-			urled = 'http://cs417729.vk.me/v417729280/bde9/_w-gt7oF4HE.jpg';
-		}
+		// var adver = Math.floor(Math.random() * 3) + 1;
+		// if (adver == 1 ) {
+		// 	urled = 'http://cs417729.vk.me/v417729280/bddb/mC9ktvnAKCg.jpg';
+		// } else if ( adver == 2 ) {
+		// 	urled = 'http://cs417729.vk.me/v417729280/bde2/BUMhQKE844I.jpg';
+		// } else if ( adver == 3 ) {
+		// 	urled = 'http://cs417729.vk.me/v417729280/bde9/_w-gt7oF4HE.jpg';
+		// }
+		urled = 'http://cs408122.vk.me/v408122334/6aed/6Jva8_C4fno.jpg';
 		$('.inner-pic').css('background-image' , 'url(' + urled + ')');
-		console.log(adver,'adver');
-		console.log('advertise generated');
 		// iWOODY END
 
 		    $(document).scroll(function() {

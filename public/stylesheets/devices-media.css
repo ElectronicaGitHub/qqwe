@@ -126,6 +126,7 @@
 h1.header-new {
 	font-size: 60px;
 }
+
 .new hr {
 	height: 4px;
 }
@@ -327,4 +328,46 @@ p.new-date {
 }
 .go-top {
 	display: none;
+}
+
+.underheader {
+	width: 100%; 
+	min-height: 90px; 
+	overflow: hidden; 
+	background-color: #ccc;
+}
+.underheader-autor {
+	position: relative;
+	width: 66.66666%; 
+	min-height: 60px; 
+	overflow: hidden; 
+	float: left;
+} 
+.underheader-autor h3, .underheader-type h3 {
+	width:auto; 
+	color: #fff; 
+	text-shadow: 0 2px 0 rgba(0,0,0,.5); 
+	float: left; 
+	display: inline-block; 
+	position: absolute;
+	top: 0px;
+	font-size: 35px;
+	margin: 0;
+	left: 20px;
+}
+.underheader-type {
+	position: relative;
+	width: 33.3333%; 
+	min-height: 90px; 
+	overflow: hidden; 
+	float: left
+}
+.underheader-autor h1, .underheader-type h1 {
+	width: 70%; 
+	float: left; 
+	display: inline-block;
+	font-size: 45px;
+	margin: 30px 20px 0px 40px !important;
+	text-shadow: 0 3px 0 rgba(0,0,0,.5); 
+	height: 90px;
 }

@@ -30,9 +30,6 @@
 	<script src="/javascripts/jeezus.js"></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.1/masonry.pkgd.js"></script>
-	<script src="/socket.io/socket.io.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-	<script type="text/javascript" src="/javascripts/controller/indexCtrl.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			
@@ -160,7 +157,7 @@
 									<div class="inliner">
 										<p><%-news[i].text_in_list%></p>
 									</div>
-									<p class="views">Заинтересовавшихся: <%-news[i].quantity%></p>
+									<p class="views">Просмотров: <%-news[i].quantity%></p>
 								</div>
 							</div>
 						</div>
@@ -171,11 +168,6 @@
 
 		<div class="sidebar">
 			<ul>
-				<% if (!user) { %>
-				<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
-					<li class="admin" style="font-size:30px;" ng-app="app" ><stat></stat></li>
-				<% } %>
-
 				<% if (mark) { %>
 				<a href="/news"><li class="m">ГЛАВНАЯ</li></a>
 				<%} %>
@@ -206,8 +198,6 @@
 			</div>
 
 			<!-- <p class='size'>Рекламный блок <br> 275 x 450</p> -->
-			<!-- <div class="block"><div class="inner-pic"><div class="circle"><p class="size">Разработка<br> сайтов</p></div><p class="bottomer">8-915-222-27-22</p></div></div> -->
-
 
 		</div>
 		<div class="new-news-loader">НАШИ РОБОТЫ УСЕРДНО ТРУДЯТСЯ НАД НОВЫМ МАТЕРИАЛОМ</div>
@@ -253,17 +243,16 @@
 
 	<script>
 		// IWOODY START
-		var adver = Math.floor(Math.random() * 3) + 1;
-		if (adver == 1 ) {
-			urled = 'http://cs417729.vk.me/v417729280/bddb/mC9ktvnAKCg.jpg';
-		} else if ( adver == 2 ) {
-			urled = 'http://cs417729.vk.me/v417729280/bde2/BUMhQKE844I.jpg';
-		} else if ( adver == 3 ) {
-			urled = 'http://cs417729.vk.me/v417729280/bde9/_w-gt7oF4HE.jpg';
-		}
+		// var adver = Math.floor(Math.random() * 3) + 1;
+		// if (adver == 1 ) {
+		// 	urled = 'http://cs417729.vk.me/v417729280/bddb/mC9ktvnAKCg.jpg';
+		// } else if ( adver == 2 ) {
+		// 	urled = 'http://cs417729.vk.me/v417729280/bde2/BUMhQKE844I.jpg';
+		// } else if ( adver == 3 ) {
+		// 	urled = 'http://cs417729.vk.me/v417729280/bde9/_w-gt7oF4HE.jpg';
+		// }
+		urled = 'http://cs408122.vk.me/v408122334/6aed/6Jva8_C4fno.jpg';
 		$('.inner-pic').css('background-image' , 'url(' + urled + ')');
-		console.log(adver,'adver');
-		console.log('advertise generated');
 		// iWOODY END
 	</script>
 

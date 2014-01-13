@@ -27,7 +27,6 @@ var io = require('socket.io').listen(server);
 		});
 		
 	 	socket.on('disconnect', function () {
- 	        console.log('DISCONNESSO!!! ');
  	        count--;
  	        io.sockets.emit('count', {
  	            data: count
