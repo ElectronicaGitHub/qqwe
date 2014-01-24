@@ -62,25 +62,7 @@ $(document).ready(function() {
 	        		}
 				});
 			});
-   		} else {
-
-   			var $container = $('.content');
-			var msnry = $container.data('masonry');
-
-			$container.imagesLoaded(function(){
-				$container.masonry({
-					columnWidth: 274,
-					itemSelector: '.new-min',
-					isResizable: true,
-					isAnimated: true,
-			        	animationOptions: { 
-			        	queue: false, 
-			        	duration: 500 
-			        	}
-				});
-			});
-			
-   		};
+   		} 
       	$(".menu-starter").on('click', function(){
 
       		$('html, body').animate({
@@ -93,19 +75,6 @@ $(document).ready(function() {
 	   			$('.sidebar-top').addClass('visible');
 	      	}, 500);
        	}); 
-
- //    $container.imagesLoaded(function(){
-	//     $('.img-wrapper').each(function() {
-	//     	var a = $( this ).children('img').height();
-	//     	var imgHeight = a;
-	//     	a = imgHeight;
-	//     	console.log(imgHeight);
-	//     	$( this ).height(imgHeight);
-	//     })
-	// });
-
-
-
 });
 
 

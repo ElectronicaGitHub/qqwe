@@ -26,26 +26,14 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/advertise-styles.css">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<script src="/javascripts/jeezus.js"></script>
+	<script type="text/javascript" src='/javascripts/libs/jquery-1.10.2.min.js'></script>
+	<script type='text/javascript' src='/javascripts/libs/angular.min.js'></script>
+	<script type="text/javascript" src="/javascripts/libs/ng-animate.js"></script>
+	<script type='text/javascript' src='/javascripts/libs/infinite-scroll.js'></script>
+	<script type="text/javascript" src='/javascripts/controller/indexCtrl.js'></script>
+	<script type="text/javascript" src="/javascripts/jeezus.js"></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.1/masonry.pkgd.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			
-			var $container = $('.content');
-			var msnry = $container.data('masonry');
-
-			$container.imagesLoaded(function(){
-			    $('.img-wrapper').each(function() {
-			    	var a = $( this ).children('img').height();
-			    	var imgHeight = a;
-			    	a = imgHeight;
-			    	$( this ).height(imgHeight);
-			    })
-			});
-		})
-	</script>
 
 </head>
 <body>
@@ -87,9 +75,7 @@
 					</a>
 			<% } %>
 	</div>
-
 	<!-- /// SLIDER MENU FOR MOBILES -->
-
 	<div class="menu-starter"> <p>Список топиков</p>
 	</div>
 		<div class="sidebar-top">
@@ -97,7 +83,6 @@
 				<% if (mark) { %>
 				<li class="m"><a href="/news">ГЛАВНАЯ</a></li>
 				<%} %>
-				<!-- <li class="q"><a href="/news">МИР</a></li> -->
 				<li class="i"><a href="/made">СОЗДАВАЙ</a></li>
 				<li class="r"><a href="/art-cinema">КИНО</a></li>
 				<li class="t"><a href="/art-music">МУЗЫКА</a></li>
@@ -108,9 +93,7 @@
 				<li class="a"><a href="/other">ИНОЕ</a></li>
 			</ul>
 		</div>
-
 	<!-- /// SLIDER MENU FOR MOBILES ENDS -->
-
 	<div class="all">
 
 		<div class="content_and_events">
@@ -142,27 +125,50 @@
 				
 			</div>
 
-			<div class="content">
-				<% for (var i = 0; i < news.length; i++) { %>
-					<a href="/news/<%-news[i]._id%>">
+			<div class="content" ng-app='app' 
+								 ng-controller="indexCtrl" 
+								 ng-init="get6()" 
+								 infinite-scroll="get3()" 
+								 infinite-scroll-distance="0"
+								 infinite-scroll-disabled="cribrum">
+				<div class='column'><feedelem class="animate-repeat" ng-repeat="block in column_2"></feedelem></div>
+				<div class='column'><feedelem class="animate-repeat" ng-repeat="block in column_3"></feedelem></div>
+				<div class='column'><feedelem class="animate-repeat" ng-repeat="block in column_1"></feedelem></div>
+
+
+				<script type="text/ng-template" id="feedElement.html">
+					<a href="/news/{{ block._id }}">
 						<div class="new-min">
 							<div class="new-min-content">
-								<% if (news[i].type == "other" || news[i].type == "fashion" || news[i].type == "art-art" || news[i].type == "features"  || news[i].type == "craft") { %> 
-									<p class="new-min-content-header <%-news[i].type%>" style="color:#fff; text-shadow: 0 1px 0 rgba(0,0,0,.5);"><%-news[i].title_in %></p>
-								<% } else { %>
-									<p class="new-min-content-header <%-news[i].type%>" ><%-news[i].title_in %></p>
-								<% } %>				
-								<div class="img-wrapper">
-									<img src="<%-news[i].url_in_list%>" style="width:100%;">
+								<p class="new-min-content-header {{ block.type }}" ng-class="setClass(block.type)">{{ block.title_in | decode }}</p>
+								<div class="img-wrapper" >
+									<img name="pic" src="{{ block.url_in_list }}" style="width:100%;">
 									<div class="inliner">
-										<p><%-news[i].text_in_list%></p>
+										<p>{{ block.text_in_list }}</p>
 									</div>
-									<p class="views">Просмотров: <%-news[i].quantity%></p>
+									<p class="views">Просмотров: {{ block.quantity }}</p>
 								</div>
 							</div>
 						</div>
 					</a>
-				<% } %>
+				</script>
+
+				<style type="text/css">
+				.column {
+					display: inline-block;
+					width: 33.2%;
+					float: left;
+				}
+				.whited {
+					color:#fff; 
+					text-shadow: 0 1px 0 rgba(0,0,0,.5);
+				}
+				.blacked {
+					color:#000; 
+					text-shadow: 0 1px 0 rgba(255,255,255,.5);
+				}
+				</style>
+
 			</div>	
 		</div>
 
@@ -274,7 +280,23 @@
 	        });
 	    });
     </script>
-	
-
+    <style type="text/css">
+	.animate-repeat.ng-move,
+	.animate-repeat.ng-enter,
+	.animate-repeat.ng-leave {
+	    -webkit-transition:all linear 1s;
+	    transition:all linear 1s;
+	}
+	.animate-repeat.ng-leave.ng-leave-active,
+	.animate-repeat.ng-move,
+	.animate-repeat.ng-enter {
+	    opacity:0;
+	}
+	.animate-repeat.ng-leave,
+	.animate-repeat.ng-move.ng-move-active,
+	.animate-repeat.ng-enter.ng-enter-active {
+	    opacity:1;
+	}
+    </style>
 </body>
 </html>
