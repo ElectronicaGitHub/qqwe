@@ -74,7 +74,7 @@ module.exports = function(app) {
             'url_in_list': 1,
             'text_in_list': 1,
             'quantity': 1
-        }).skip(req.params.page * req.params.qnt).limit(req.params.qnt).sort({post_date : -1});
+        }).skip(req.params.page * req.params.qnt).limit(req.params.qnt).sort({$natural:-1});
         data.execFind(function(err, result) {
             res.json(result);
         })
