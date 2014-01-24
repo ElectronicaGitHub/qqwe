@@ -67,14 +67,14 @@ module.exports = function(app) {
     //////////////////////////////////
 
     // РУЧКА ДЛЯ ФИДА
-    app.get('/dynamic/newsadd/:page/:quantity', function(req, res, next) {
+    app.get('/dynamic/newsadd/:page/:qnt', function(req, res, next) {
         var data = New.find({}, {
             'type': 1,
             'title_in': 1,
             'url_in_list': 1,
             'text_in_list': 1,
             'quantity': 1
-        }).skip(req.params.page * req.params.quantity).limit(req.params.quantity).sort({post_date : -1});
+        }).skip(req.params.page * req.params.qnt).limit(req.params.qnt).sort({post_date : -1});
         data.execFind(function(err, result) {
             res.json(result);
         })
