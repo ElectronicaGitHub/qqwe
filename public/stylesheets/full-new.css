@@ -503,18 +503,21 @@ blockquote {
 
 }
 blockquote strong {
-    position: absolute;
-    font-size: 120px;
-    top: 45px;
-    color: #000;
-    text-shadow: 0 2px 0 rgba(255,255,255,.5);
-    left: 60px;
-    width: 80px;
-    font-family: 'Wendy One', sans-serif;
-    -webkit-transition: all 0.7s ease;
-	-moz-transition: all 0.7s ease;
-	-ms-transition: all 0.7s  ease;
+position: absolute;
+font-size: 120px;
+top: 45px;
+text-align: right;
+color: #000;
+text-shadow: 0 2px 0 rgba(255,255,255,.5);
+left: 10px;
+padding-right: 14px;
+width: 140px;
+font-family: 'Wendy One', sans-serif;
+-webkit-transition: all 0.7s ease;
+-moz-transition: all 0.7s ease;
+-ms-transition: all 0.7s ease;
 }
+
 blockquote:hover strong {
 	color: #fff;
 	text-shadow: 0 2px 0 rgba(0,0,0,.5);
