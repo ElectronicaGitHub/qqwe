@@ -241,13 +241,11 @@
 	</div>
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="/javascripts/jeezus.js"></script>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
-	<script type="text/javascript" src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
+	<script type="text/javascript" src="/javascripts/libs/waypoints.min.js"></script>
 	<script type="text/javascript">
 		//ДОБАВЛЕНИЕ КОММЕНТАРИЯ
 		$(document.forms['add_comm']).on('submit', function () {
 			var form = $(this);
-			console.log("ajax");
 			$.ajax({
 				url: '/added/<%-onenew._id%>', 
 				method: 'POST',
@@ -277,7 +275,6 @@
 		// ИЗМЕНЕНИЕ НОВОСТИ АДМИНКА 
 		$('.change').click(function(event) {
 			var URL = $(this).attr('href');
-			// event.preventDefault();
 			$.ajax({
 				url: URL, 
 				method: 'GET',
@@ -329,7 +326,6 @@
 			url: '/dynamic/add/right', 
 			method: 'GET',
 			success: function(req,res,err) {
-                console.log(req);
                 for (i in req) {
                 	beta = parseInt(i) + 1 ;
                 	$('.news-all-best').append('<a href="' + req[i]._id + '"><div class="news-all-best-each"><div class="news-all-best-each-title">' + req[i].title_in + '</div></div></a>');
@@ -342,7 +338,6 @@
 			addStyle = $( this ).attr('data-style');
 			name = $( this ).children('li').text();
 			_url = '/dynamic/add' + $(this).attr('href') + '';
-			console.log(_url);
 			$.ajax({
 				url: _url,
 				method: 'GET',
@@ -427,6 +422,28 @@
 		        };
 		    });
 		    $('#float-block').height($(document).height());
+
+	</script>
+	<script type="text/javascript">
+		// $(document).ready(function() {	
+			// $('strong').each(function() {
+			// 	a = $(this).parent();
+			// 	a.addClass('undercolored');
+			// })
+
+			// $('strong').parent('p').waypoint(function(direction) {
+			// 	console.log('strong p ');
+			// 	// $(this).addClass('undecolored');
+			// }, { offset: 'bottom-in-view' });
+
+			$('strong').parent('p').waypoint(function(direction) {
+				if (direction == 'down') {
+				    console.log('Direction example triggered scrolling ' + direction);
+				    $(this).addClass('undercolored');
+				}
+			}, { offset: 'bottom-in-view'});
+		// })
+
 
 	</script>
 </body>
