@@ -141,7 +141,7 @@
 								<div class="img-wrapper" >
 									<img name="pic" src="{{ block.url_in_list }}" style="width:100%;">
 									<div class="inliner">
-										<p>{{ block.text_in_list }}</p>
+										<p>{{ block.text_in_list | decode }}</p>
 									</div>
 									<p class="views">Просмотров: {{ block.quantity }}</p>
 								</div>

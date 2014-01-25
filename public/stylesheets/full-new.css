@@ -137,9 +137,10 @@ h1.header-new {
 .new ul li:hover {
 	background-color: rgba(243, 156, 18,.4)
 }
-.new img {
+/*.new img {
 	margin-bottom: 5px;
-}
+	margin-top: 5px;
+}*/
 .new hr {
 	background-color: #ddd;
 	border: 0px;
@@ -498,6 +499,7 @@ blockquote {
 	line-height: 35px;
 	position: relative;
 	min-height: 125px;
+	margin-bottom: 5px;
 
 }
 blockquote strong {
@@ -507,7 +509,7 @@ blockquote strong {
     color: #000;
     text-shadow: 0 2px 0 rgba(255,255,255,.5);
     left: 60px;
-    width: 60px;
+    width: 80px;
     font-family: 'Wendy One', sans-serif;
     -webkit-transition: all 0.7s ease;
 	-moz-transition: all 0.7s ease;
