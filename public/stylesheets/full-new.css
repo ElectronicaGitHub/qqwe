@@ -126,6 +126,7 @@ h1.header-new {
 }
 .new ul {
 	list-style: none;
+	padding-bottom: 10px;
 }
 .new ul li {
 	margin: 0 40px;
@@ -137,10 +138,6 @@ h1.header-new {
 .new ul li:hover {
 	background-color: rgba(243, 156, 18,.4)
 }
-/*.new img {
-	margin-bottom: 5px;
-	margin-top: 5px;
-}*/
 .new hr {
 	background-color: #ddd;
 	border: 0px;
