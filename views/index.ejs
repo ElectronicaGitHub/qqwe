@@ -70,7 +70,7 @@
 	<div class='slider-all'>
 			<% for (var i=0; i<newstop.length; i++) { %>
 					<a href="/news/<%-newstop[i]._id%>">
-						<div class="slider-element" style ="background-size:100%; background-image: url('<%-newstop[i].url_in_top%>')"><div class="wrap-p"> <p><%-newstop[i].text_in_top%></p></div>
+						<div class="slider-element unfader" style ="background-size:100%; background-image: url('<%-newstop[i].url_in_top%>')"><div class="wrap-p"> <p><%-newstop[i].text_in_top%></p></div>
 						</div>
 					</a>
 			<% } %>
@@ -83,7 +83,7 @@
 				<% if (mark) { %>
 				<li class="m"><a href="/news">ГЛАВНАЯ</a></li>
 				<%} %>
-				<li class="i"><a href="/made">СОЗДАВАЙ</a></li>
+				<!-- <li class="i"><a href="/made">СОЗДАВАЙ</a></li> -->
 				<li class="r"><a href="/art-cinema">КИНО</a></li>
 				<li class="t"><a href="/art-music">МУЗЫКА</a></li>
 				<li class="zz"><a href="/art-art">АРТ</a></li>
@@ -94,7 +94,7 @@
 			</ul>
 		</div>
 	<!-- /// SLIDER MENU FOR MOBILES ENDS -->
-	<div class="all">
+	<div class="all" ng-app='app' ng-controller="indexCtrl">
 
 		<div class="content_and_events">
 
@@ -125,16 +125,13 @@
 				
 			</div>
 
-			<div class="content" ng-app='app' 
-								 ng-controller="indexCtrl" 
-								 ng-init="get6()" 
-								 infinite-scroll="get3()" 
-								 infinite-scroll-distance="0"
-								 infinite-scroll-disabled="cribrum">
+			<div class="content"  
+				 ng-init="get6()" 
+				 infinite-scroll="get3()" 
+				 infinite-scroll-distance="0">
 				<div class='column'><feedelem class="animate-repeat" ng-repeat="block in column_2"></feedelem></div>
 				<div class='column'><feedelem class="animate-repeat" ng-repeat="block in column_3"></feedelem></div>
 				<div class='column'><feedelem class="animate-repeat" ng-repeat="block in column_1"></feedelem></div>
-
 
 				<script type="text/ng-template" id="feedElement.html">
 					<a href="/news/{{ block._id }}">
@@ -152,43 +149,26 @@
 						</div>
 					</a>
 				</script>
-
-				<style type="text/css">
-				.column {
-					display: inline-block;
-					width: 33.2%;
-					float: left;
-				}
-				.whited {
-					color:#fff; 
-					text-shadow: 0 1px 0 rgba(0,0,0,.5);
-				}
-				.blacked {
-					color:#000; 
-					text-shadow: 0 1px 0 rgba(255,255,255,.5);
-				}
-				</style>
-
 			</div>	
 		</div>
 
 		<div class="sidebar">
 			<ul>
 				<% if (mark) { %>
-				<a href="/news"><li class="m">ГЛАВНАЯ</li></a>
+				<a ng-click="themeAll()"><li class="m">ГЛАВНАЯ</li></a>
 				<%} %>
-				<a href="/made"><li class="i">СОЗДАВАЙ</li></a>
+				<!-- <a href="/made"><li class="i">СОЗДАВАЙ</li></a> -->
 				<li class="li-outer e" id="opener">АРТ
 					<ul>
-						<a href="/art-cinema"><li class="li-inner r">35 ММ</li></a>
-						<a href="/art-music"><li class="li-inner t">ЗВУК</li></a>
-						<a href="/art-art"><li class="li-inner zz">ПОЛОТНО</li></a>
-						<a href="/fashion"><li class="li-inner u">ПОДИУМ</li></a>
+						<a ng-click="themeChange('art-cinema')"><li class="li-inner r">35 ММ</li></a>
+						<a ng-click="themeChange('art-music')"><li class="li-inner t">ЗВУК</li></a>
+						<a ng-click="themeChange('art-art')"><li class="li-inner zz">ПОЛОТНО</li></a>
+						<a ng-click="themeChange('fashion')"><li class="li-inner u">ПОДИУМ</li></a>
 					</ul>
 				</li>
-				<a href="/craft"><li class="p">РЕМЕСЛО</li></a>
-				<a href="/howto"><li class="o">ХАУ ТУ</li></a>
-				<a href="/other"><li class="a">ИНОЕ</li></a>
+				<a ng-click="themeChange('craft')"><li class="p">РЕМЕСЛО</li></a>
+				<a ng-click="themeChange('howto')"><li class="o">ХАУ ТУ</li></a>
+				<a ng-click="themeChange('other')"><li class="a">ИНОЕ</li></a>
 
 				<% if (!user) { %>
 				<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
@@ -235,7 +215,6 @@
 	<% if (device!='PC') { %>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/devices-media.css">
 	<%}%>
-	<!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script> -->
 	<script type="text/javascript" src="//vk.com/js/api/openapi.js?101"></script>
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -297,6 +276,25 @@
 	.animate-repeat.ng-enter.ng-enter-active {
 	    opacity:1;
 	}
+	.unfader {
+		animation:myfirst 2s;
+		-webkit-animation:myfirst 2s;
+		}
+
+		@keyframes myfirst
+		{
+			from {opacity: 0}
+			to {opacity: 1}
+		}
+
+		@-webkit-keyframes myfirst
+		{
+			from {opacity: 0}
+			to {opacity: 1}
+		}
+	}
+
+
     </style>
 </body>
 </html>

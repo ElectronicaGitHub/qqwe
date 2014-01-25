@@ -6,13 +6,17 @@ app.config(function($sceProvider) {
 
 app.controller('indexCtrl', function ($scope, $http) {
     $scope.feed = [];
-    $scope.column_1 = [];
-    $scope.column_2 = [];
-    $scope.column_3 = [];
-    $scope.cribrum = false;
+    $scope.clearColumns = function() {
+        $scope.column_1 = [];
+        $scope.column_2 = [];
+        $scope.column_3 = [];
+    }
+    $scope.clearColumns();
     var flag = 0,
         page = 0,
         quantity = 3; 
+    $scope.themeFlag = false;
+    $scope.theme = '';
 
     $scope.get6 = function() {
         $scope.get3();
@@ -20,15 +24,17 @@ app.controller('indexCtrl', function ($scope, $http) {
     }
 
     $scope.get3 = function() {
-        url = '/dynamic/newsadd/'+ page + '/' + quantity + '/';
+        if (!$scope.themeFlag) {
+            url = '/dynamic/newsadd/' + page + '/' + quantity;
+        }
+        if ($scope.themeFlag) {
+            url  = '/dynamic/newsadd/' + page + '/' + quantity + '/' + $scope.theme;
+        }
         console.log(url)
         $http.get(url)
             .success( function (result) {
                 console.log(result)
                 $scope.feed = result;
-                if (result < quantity) {
-                    $scope.cribrum = true;
-                }
                 for (_new in $scope.feed) {
                     if (flag === 0) {
                         $scope.column_1.push($scope.feed[_new]);
@@ -47,7 +53,19 @@ app.controller('indexCtrl', function ($scope, $http) {
             })          
         page += 1;
     }
-
+    $scope.themeChange = function(theme) {
+        page = 0;
+        $scope.themeFlag  = true;
+        $scope.theme = theme;
+        $scope.clearColumns();
+        $scope.get6();
+    }
+    $scope.themeAll = function() {
+        page = 0;
+        $scope.themeFlag = false;
+        $scope.clearColumns();
+        $scope.get6();
+    }
     $scope.setClass = function(type) {
         if (type == 'other' || type == 'fashion' || type == 'art' || type == 'features' || type == 'craft') {
             return 'whited'
@@ -57,6 +75,7 @@ app.controller('indexCtrl', function ($scope, $http) {
     }
 
 });
+
 
 app.directive('feedelem', function() {
     return {
@@ -77,9 +96,8 @@ app.directive('feedelem', function() {
         }
     }
 })
-
 app.filter("decode",function(){
-    return function(str){ 
+    return function (str){ 
         var el = document.createElement("p");
         el.innerHTML = str;
         str =  el.innerText || el.textContent;

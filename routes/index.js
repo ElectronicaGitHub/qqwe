@@ -79,6 +79,18 @@ module.exports = function(app) {
             res.json(result);
         })
     });
+    app.get('/dynamic/newsadd/:page/:qnt/:type', function(req, res, next) {
+        var data = New.find({'type': req.params.type}, {
+            'type': 1,
+            'title_in': 1,
+            'url_in_list': 1,
+            'text_in_list': 1,
+            'quantity': 1
+        }).skip(req.params.page * req.params.qnt).limit(req.params.qnt).sort({$natural:-1});
+        data.execFind(function(err, result) {
+            res.json(result);
+        })
+    });
     //////////////////////////////////////////////////////
 
     // СТРАНИЦА О НАС
@@ -229,8 +241,8 @@ module.exports = function(app) {
     /////////////////////////////////////////
 
     // НОВОСТЬ НА СТРАНИЦЕ
-    app.get('/news/:id', function(req, res, next) {
-        New.findById(req.params.id, function(err, onenew) {
+    app.get('/news/:id', function (req, res, next) {
+        New.findById(req.params.id, function (err, onenew) {
             if (err) return next(err);
             if (onenew == (null || undefined)) {
                 res.render('error');
