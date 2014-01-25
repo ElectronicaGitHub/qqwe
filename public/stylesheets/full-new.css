@@ -51,10 +51,7 @@ html {
 	height: 100%;
 	background-color: rgba(0,0,0,.5);
 	text-align: center;
-	/*padding-top: 60px;*/
-
 	display: table;
-
 	position: absolute;
 	top: -220px;
 	font-weight: bold;
@@ -128,7 +125,17 @@ h1.header-new {
 	margin: 10px 40px;
 }
 .new ul {
-	margin-left: 70px;
+	list-style: none;
+}
+.new ul li {
+	margin: 0 40px;
+	padding: 3px 10px;
+	border-radius: 2px;
+	background-color: rgba(243, 156, 18,.2);
+	border-top: 1px solid #fff; 
+}
+.new ul li:hover {
+	background-color: rgba(243, 156, 18,.4)
 }
 .new img {
 	margin-bottom: 5px;
@@ -481,4 +488,39 @@ a.pluso-more {
 	display: inline-block;
 	font-size: 35px;
 	margin: 20px 20px 0px 40px !important;
+}
+
+blockquote {
+	padding: 10px 20px 10px 150px;
+	background-color: rgba(41, 128, 185,.3);
+	font-size: 30px;
+	letter-spacing: -0.1ex;
+	line-height: 35px;
+	position: relative;
+	min-height: 125px;
+
+}
+blockquote strong {
+    position: absolute;
+    font-size: 120px;
+    top: 45px;
+    color: #000;
+    text-shadow: 0 2px 0 rgba(255,255,255,.5);
+    left: 60px;
+    width: 60px;
+    font-family: 'Wendy One', sans-serif;
+    -webkit-transition: all 0.7s ease;
+	-moz-transition: all 0.7s ease;
+	-ms-transition: all 0.7s  ease;
+}
+blockquote:hover strong {
+	color: #fff;
+	text-shadow: 0 2px 0 rgba(0,0,0,.5);
+	-webkit-transition: all 0.7s ease;
+	-moz-transition: all 0.7s ease;
+	-ms-transition: all 0.7s ease;
+
+}
+blockquote:hover {
+	background-color: rgba(41, 128, 185,.5);
 }
