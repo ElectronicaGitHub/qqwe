@@ -91,7 +91,35 @@ module.exports = function(app) {
             res.json(result);
         })
     });
+
+    app.get('/dynamic/newsaddevice/:page/:qnt/:type' , function(req, res, next) {
+        var data = New.find({'type': req.params.type}, {
+            'type': 1,
+            'title_in': 1,
+            'url_in_list': 1,
+            'text_in_list': 1,
+            'quantity': 1
+        }).skip(req.params.page * req.params.qnt).limit(req.params.qnt).sort({$natural:-1});
+        data.execFind(function(err, result) {
+            if (err) return next(err);
+            res.json(result);
+        })
+    })
+      app.get('/dynamic/newsaddevice/:page/:qnt' , function(req, res, next) {
+        var data = New.find({}, {
+            'type': 1,
+            'title_in': 1,
+            'url_in_list': 1,
+            'text_in_list': 1,
+            'quantity': 1
+        }).skip(req.params.page * req.params.qnt).limit(req.params.qnt).sort({$natural:-1});
+        data.execFind(function(err, result) {
+            if (err) return next(err);
+            res.json(result);
+        })
+    })
     //////////////////////////////////////////////////////
+
 
     // СТРАНИЦА О НАС
     app.get('/about', function(req, res, err) {

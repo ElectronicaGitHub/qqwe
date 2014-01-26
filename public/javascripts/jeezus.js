@@ -47,21 +47,21 @@ $(document).ready(function() {
     			};
       			$(".form").css( styles );
       		});
-      		var $container = $('.content');
-			var msnry = $container.data('masonry');
+   //    		var $container = $('.content');
+			// var msnry = $container.data('masonry');
 
-      		$container.imagesLoaded(function(){
-				$container.masonry({
-					columnWidth: 486,
-					itemSelector: '.new-min',
-					isResizable: true,
-					isAnimated: true,
-		        	animationOptions: { 
-		        	queue: false, 
-		        	duration: 500 
-	        		}
-				});
-			});
+   //    		$container.imagesLoaded(function(){
+			// 	$container.masonry({
+			// 		columnWidth: 486,
+			// 		itemSelector: '.new-min',
+			// 		isResizable: true,
+			// 		isAnimated: true,
+		 //        	animationOptions: { 
+		 //        	queue: false, 
+		 //        	duration: 500 
+	  //       		}
+			// 	});
+			// });
    		} 
       	$(".menu-starter").on('click', function(){
 
