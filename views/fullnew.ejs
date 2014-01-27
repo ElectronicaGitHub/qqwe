@@ -425,25 +425,16 @@
 
 	</script>
 	<script type="text/javascript">
-		// $(document).ready(function() {	
-			// $('strong').each(function() {
-			// 	a = $(this).parent();
-			// 	a.addClass('undercolored');
-			// })
-
-			// $('strong').parent('p').waypoint(function(direction) {
-			// 	console.log('strong p ');
-			// 	// $(this).addClass('undecolored');
-			// }, { offset: 'bottom-in-view' });
-
 			$('strong').parent('p').waypoint(function(direction) {
 				if (direction == 'down') {
-				    console.log('Direction example triggered scrolling ' + direction);
 				    $(this).addClass('undercolored');
 				}
 			}, { offset: 'bottom-in-view'});
-		// })
-
+			$('em').waypoint(function(direction) {
+				if (direction == 'down') {
+				    $(this).addClass('underitalic');
+				}
+			}, { offset: 'bottom-in-view'});
 
 	</script>
 </body>
