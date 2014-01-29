@@ -79,7 +79,6 @@
 					</div>
 
 					<div class="underheader">
-						
 						<div class="underheader-autor">
 							<h3> Автор: </h3>
 							<h1 class="header-new"> <%-onenew.name%> <%-onenew.surname%> </h1>
@@ -94,14 +93,11 @@
 							<% if (onenew.type == 'craft')      { onenew.phrase = 'Ремесло' } %>
 							<% if (onenew.type == 'other')      { onenew.phrase = 'Иное'    } %>
 							<h1 class="header-new"> <%-onenew.phrase%> </h1>
-
 						</div>
 					</div>
 
 					<%-onenew.content%>
 					<hr style="-webkit-margin-after: 0;">
-
-					<!-- <p style="display: inline-block; font-weight:bold; font-size: 16px; height: 25px; line-height:25px; margin: 0px 10px;" class="new-autor">Тэги: <%-onenew.hash_tags %></p>	 -->
 				</div>
 
 				<script type="text/javascript">(function() {
@@ -410,20 +406,8 @@
 		urled = 'http://cs408122.vk.me/v408122334/6aed/6Jva8_C4fno.jpg';
 		$('.inner-pic').css('background-image' , 'url(' + urled + ')');
 		// iWOODY END
-
-		    $(document).scroll(function() {
-		        var scrollPosition = $(document).scrollTop();
-		        var scrollReference = 1050;
-		        if (scrollPosition >= scrollReference) {      
-		            $("#float-block").addClass('fixed');   
-		        } else {
-		            $("#float-block").removeClass('fixed');
-		            $("#float-block").addClass('abs');
-		        };
-		    });
-		    $('#float-block').height($(document).height());
-
 	</script>
+	<script type="text/javascript" src="/javascripts/go_top_block.js"></script>
 	<script type="text/javascript">
 			$('strong').parent('p').waypoint(function(direction) {
 				if (direction == 'down') {

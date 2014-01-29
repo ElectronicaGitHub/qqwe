@@ -5,49 +5,79 @@
 
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script type="text/javascript" src="/javascripts/admin-js.js"></script>
+	<link rel="stylesheet" href="/stylesheets/full-new.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/admin.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/reg.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script type="text/javascript" src="/javascripts/libs/waypoints.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+	<script type="text/javascript" src="http://code.angularjs.org/1.2.9/angular-sanitize.min.js"></script>
 	<script type="text/javascript" src="/javascripts/tinymce/tinymce.min.js"></script>
+	<script type="text/javascript">
+	var app = angular.module('app', ['ngSanitize']);
 
-	<script type="text/javascript"> 
+	app.controller('CreateCtrl', function ($scope, $http, $sce) {
 		tinymce.init({
-	    selector: "textarea",
-	    theme: "modern",
-	    width: "742px",
-	    plugins: [
-	        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-	        "searchreplace wordcount visualblocks visualchars code fullscreen",
-	        "insertdatetime media nonbreaking save table contextmenu directionality",
-	        "emoticons template paste textcolor"
-	    ],
-	    toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-	    toolbar2: "print preview media | forecolor backcolor emoticons",
-	    image_advtab: true,
-	    templates: [
-	        {title: 'Test template 1', content: 'Test 1'},
-	        {title: 'Test template 2', content: 'Test 2'}
-	    ]
-	});</script>     
+		    selector: "textarea",
+		    theme: "modern",
+		    width: "700px",
+		    theme_advanced_background_colors : "111111, aaaaaa, ffffff",
+		    plugins: [
+		        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+		        "searchreplace wordcount visualblocks visualchars code fullscreen",
+		        "insertdatetime media nonbreaking save table contextmenu directionality",
+		        "emoticons template paste textcolor"
+		    ],
+		    toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image | preview media",
+		    image_advtab: true,
+		    templates: [
+		        {title: 'Test template 1', content: 'Test 1'},
+		        {title: 'Test template 2', content: 'Test 2'}
+		    ]
+		});
+
+		$scope.look = function() {
+			$scope.text_in = tinymce.get('text_in').getContent();
+			console.log($scope.text_in)
+
+			setTimeout(function() {
+				$('img').parent().css('width', '100%').css('margin', '0px 0px');
+				$('iframe').parent().css('width', '100%').css('margin', '0px 0px');
+				$('strong').parent('p').waypoint(function(direction) {
+					if (direction == 'down') {
+					    $(this).addClass('undercolored');
+					}
+				}, { offset: 'bottom-in-view'});
+				$('em').waypoint(function(direction) {
+					if (direction == 'down') {
+					    $(this).addClass('underitalic');
+					}
+				}, { offset: 'bottom-in-view'});
+				console.log('Прошел скрипт')
+			}, 1000)
+		}
+
+		$scope.deliberatelyTrustDangerousSnippet = function() {
+		    return $sce.trustAsHtml($scope.text_in);
+		};
+	})
+	</script>
+
 	<title> admin / add new</title>
 </head>
-<body> 
+<body ng-app="app" ng-controller="CreateCtrl"> 
 	<div class='header'><p>CASTMAG.</p>
 	</div>
-	<form ng-app name="new_add" method='post' action='admin'>
-		<p class='hello'>Привет <%-name %> Создай пост</p>
-		<hr>
+	<form name="new_add" method='post' action='admin'>
 		<p>Заголовок</p>
-		<input class="title_in" ng-model="new_title"  name='title_in' id='title_in'>
+		<input class="title_in" ng-model="new_title" name='title_in' id='title_in'>
 		<p>Раздел</p>
 			<select id="type_in" class="type_in {{type_in}}" name="type" ng-model="type_in">
 				<!-- <option value="news">МИР</option> -->
-				<option value="made">СОЗДАВАЙ</option>
+				<!-- <option value="made">СОЗДАВАЙ</option> -->
 				<option value="art-cinema">35 мм ( АРТ )</option>
 				<option value="art-music">ЗВУК ( АРТ )</option>
 				<option value="art-art">ПОЛОТНО ( АРТ )</option>
 				<option value="fashion">ПОДИУМ ( АРТ )</option>
-
 				<option value="howto">ХАУ ТУ</option>
 				<option value="craft">РЕМЕСЛО</option>
 				<option value="other">ИНОЕ</option>
@@ -55,7 +85,8 @@
 			<div id='idk' style="display : none" ></div>
 		<p>Текст статьи</p>
 
-		<textarea class="text_in" name='content' id='text_in' style="width:742px"></textarea>
+		<textarea class="text_in" name='content' id='text_in' ng-model="text_in" style="width:742px"></textarea>
+		<div id="looker" ng-click="look()">Запалить как будет выглядеть</div>
 		<hr>
 		
 		<div class="sider">
@@ -102,18 +133,16 @@
 		<p class='btwn'> Имя и Фамилия автора</p>
 		<input name="name" class="name_in" placeholder="Имя"></input> <input name="surname" class="surname_in" placeholder="Фамилия"></input>
 		<hr>
-		<!-- <input id="lenta_height" name="lenta_height" style="display:none;"></input> -->
 		<button  class="poster" id="poster" data-loading-text="Добавляю...">Добавить</button>
 	</form>
+
+	<div class="new" ng-bind-html="deliberatelyTrustDangerousSnippet()"></div>
+
 
 	<script>
 
 		$(document.forms['new_add']).on('submit', function () {
 			var form = $(this);
-
-			// var a = $('.img-wrapper').height();
-			// $('#lenta_height').height(a);
-			// alert($('#lenta_height').height());
 
 			$('.error', form).html('');
 			$(':submit', form).html('Добавляю...');
@@ -127,8 +156,8 @@
 				},
 				statusCode: {
 					200 : function() {
-						// form.html("Новость добавлена").css('font-size','40px').css('font-family', 'Open Sans Condensed').css('font-weight', 'bold');
-						// window.location.href = '/news';
+						form.html("Новость добавлена").css('font-size','40px').css('font-family', 'Open Sans Condensed').css('font-weight', 'bold');
+						window.location.href = '/news';
 					},
 					201 : function() {
 						$(':submit', form).html('Не все поля заполнены').css('width','300px').css('background-color','#FF352B').css('border-radius','5px').css('outline','none').css('border','2px solid #000');
@@ -142,6 +171,5 @@
 			return false;
 		});
 	</script>
-
 </body>
 </html>

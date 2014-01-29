@@ -37,12 +37,7 @@ exports.post = function (req, res, next) {
 	var top_random   = req.body.top_random;
 	var post_date    = new Date();
 	var hash_tags    = req.body.hash_tags;
-	// var lenta_height = req.body.lenta_height;
 	var quantity     = Math.floor(Math.random()*(200-80+1)+80);
-
-	// function randomFromInterval(from,to) {
-	//     return Math.floor(Math.random()*(to-from+1)+from);
-	// }
 	
     mongoose.connection.on('open', function (err) {
     	if (err) throw err;
@@ -64,7 +59,6 @@ exports.post = function (req, res, next) {
 		post_date    : post_date,
 		quantity     : quantity,
 		hash_tags    : hash_tags
-		// lenta_height : lenta_height
 	});
 
 	if  ((_id          != '') &&
@@ -114,7 +108,6 @@ exports.change = function (req, res, next) {
 	var top_random   = req.body.top_random;
 	var hash_tags    = req.body.hash_tags;
 	var post_date    = req.body.post_date;
-	// var quantity     = Math.floor(Math.random() * 60);
 	
     mongoose.connection.on('open', function (err) {
     	if (err) throw err;
