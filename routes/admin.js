@@ -23,55 +23,29 @@ exports.post = function (req, res, next) {
 		res.render('error'); 
 	}
 	else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
-
-	var _id          = uuidString();
-	var type         = req.body.type;
-	var name         = req.body.name;
-	var surname      = req.body.surname;	
-	var title_in     = escape(req.body.title_in);
-	var content      = req.body.content;
-	var url_in_list  = escape(req.body.url_in_list);
-	var text_in_list = escape(req.body.text_in_list);
-	var url_in_top   = escape(req.body.url_in_top);
-	var text_in_top  = escape(req.body.text_in_top);
-	var top_random   = req.body.top_random;
-	var post_date    = new Date();
-	var hash_tags    = req.body.hash_tags;
-	var quantity     = Math.floor(Math.random()*(200-80+1)+80);
-	
-    mongoose.connection.on('open', function (err) {
-    	if (err) throw err;
-    });
-	var New = require('../models/news').New;
-
-	var news = new New ({
-	    _id          : _id,
-	    top_random   : top_random,
-		type         : type,
-		name         : name,
-		surname      : surname,
-		title_in     : title_in,
-		content      : content,
-		url_in_list  : url_in_list,
-		text_in_list : text_in_list,
-		url_in_top   : url_in_top,
-		text_in_top  : text_in_top,
-		post_date    : post_date,
-		quantity     : quantity,
-		hash_tags    : hash_tags
-	});
-
-	if  ((_id          != '') &&
-	     (top_random   != '') &&
-		 (type         != '') &&
-		 (name         != '') &&
-		 (surname      != '') &&
-		 (title_in     != '') &&
-		 (content      != '') &&
-		 (url_in_list  != '') &&
-		 (text_in_list != '') &&
-		 (post_date    != '') &&
-		 (hash_tags    != '')) {
+	    mongoose.connection.on('open', function (err) {
+	    	if (err) throw err;
+	    });
+		var New = require('../models/news').New;
+		var news = new New ({
+		    _id          : uuidString(),
+			type         : req.body.type,
+			name         : req.body.name,
+			surname      : req.body.surname,
+			content      : req.body.content,
+			title_in     : escape(req.body.title_in),
+			url_in_list  : escape(req.body.url_in_list),
+			text_in_list : escape(req.body.text_in_list),
+			url_in_top   : escape(req.body.url_in_top),
+			text_in_top  : escape(req.body.text_in_top),
+		    top_random   : req.body.top_random,
+			post_date    : new Date(),
+			quantity     : Math.floor(Math.random()*(200-80+1)+80),
+			hash_tags    : req.body.hash_tags
+		});
+		if ((news._id          != '') && (news.top_random   != '') && (news.type         != '') && (news.name         != '') &&
+			(news.surname      != '') && (news.title_in     != '') && (news.content      != '') && (news.url_in_list  != '') &&
+			(news.text_in_list != '') && (news.post_date    != '') && (news.hash_tags    != '')) {
 
 			news.save(function (err) {
 				if (err) return next(err);
@@ -94,55 +68,40 @@ exports.change = function (req, res, next) {
 		res.render('error');
 	}
 	else if ((req.user.id == 1584815370 && req.user.username == 'philip.antonov') || req.user.id == 1160344910 ) {
-
-	var _id          = req.params.id;
-	var type         = req.body.type;
-	var name         = req.body.name;
-	var surname      = req.body.surname;	
-	var title_in     = escape(req.body.title_in);
-	var content      = req.body.content;
-	var url_in_list  = escape(req.body.url_in_list);
-	var text_in_list = escape(req.body.text_in_list);
-	var url_in_top   = escape(req.body.url_in_top);
-	var text_in_top  = escape(req.body.text_in_top);
-	var top_random   = req.body.top_random;
-	var hash_tags    = req.body.hash_tags;
-	var post_date    = req.body.post_date;
 	
-    mongoose.connection.on('open', function (err) {
-    	if (err) throw err;
-    });
-	var New = require('../models/news').New;
+	    mongoose.connection.on('open', function (err) {
+	    	if (err) throw err;
+	    });
+		var New = require('../models/news').New;
 
-	if  ((_id          != '') &&
-	     (top_random   != '') &&
-		 (type         != '') &&
-		 (name         != '') &&
-		 (surname      != '') &&
-		 (title_in     != '') &&
-		 (content      != '') &&
-		 (url_in_list  != '') &&
-		 (text_in_list != '') &&
-		 (post_date    != '') &&
-		 (hash_tags    != '') ) {
+		if ((req.params.id                 != '') &&
+			(req.body.type                 != '') &&
+			(req.body.name                 != '') &&
+			(req.body.surname              != '') &&
+			(req.body.content              != '') &&
+			(escape(req.body.title_in)     != '') &&
+			(escape(req.body.url_in_list)  != '') &&
+			(escape(req.body.text_in_list) != '') &&
+		    (req.body.top_random           != '') &&
+			(req.body.post_date            != '') &&
+			(req.body.hash_tags            != '') ) {
 
 			New.find({'_id' : req.params.id}, function (err,newschange) {
 				if (err) return next(err);
 
 				var news = new New ({
 				    _id          : newschange[0]._id,
-				    top_random   : top_random,
-					type         : type,
-					name         : name,
-					surname      : surname,
-					title_in     : title_in,
-					content      : content,
-					url_in_list  : url_in_list,
-					text_in_list : text_in_list,
-					url_in_top   : url_in_top,
-					text_in_top  : text_in_top,
-					hash_tags    : hash_tags,
-					// lenta_height : newschange[0].lenta_height,
+				    top_random   : req.body.top_random,
+					type         : req.body.type,
+					name         : req.body.name,
+					surname      : req.body.surname,
+					title_in     : escape(req.body.title_in),
+					content      : req.body.content,
+					url_in_list  : escape(req.body.url_in_list),
+					text_in_list : escape(req.body.text_in_list),
+					url_in_top   : escape(req.body.url_in_top),
+					text_in_top  : escape(req.body.text_in_top),
+					hash_tags    : req.body.hash_tags,
 					post_date    : newschange[0].post_date,
 					quantity     : newschange[0].quantity
 				});
@@ -151,20 +110,19 @@ exports.change = function (req, res, next) {
 				console.log('Стало', news);
 
 				New.update({'_id' : news._id}, {
-											    'top_random'   : news.top_random,
-												'type'         : news.type,
-												'name'         : news.name,
-												'surname'      : news.surname,
-												'title_in'     : news.title_in,
-												'content'      : news.content,
-												'url_in_list'  : news.url_in_list,
-												'text_in_list' : news.text_in_list,
-												'url_in_top'   : news.url_in_top,
-												'text_in_top'  : news.text_in_top,
-												'post_date'    : newschange[0].post_date,
-												'quantity'     : newschange[0].quantity,
-												'hash_tags'    : news.hash_tags
-												// 'lenta_height' : newschange[0].lenta_height
+				    'top_random'   : news.top_random,
+					'type'         : news.type,
+					'name'         : news.name,
+					'surname'      : news.surname,
+					'title_in'     : news.title_in,
+					'content'      : news.content,
+					'url_in_list'  : news.url_in_list,
+					'text_in_list' : news.text_in_list,
+					'url_in_top'   : news.url_in_top,
+					'text_in_top'  : news.text_in_top,
+					'post_date'    : newschange[0].post_date,
+					'quantity'     : newschange[0].quantity,
+					'hash_tags'    : news.hash_tags
 
 				} , function (err) {
 					console.log(err);
