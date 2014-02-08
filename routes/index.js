@@ -123,7 +123,10 @@ module.exports = function(app) {
 
     // СТРАНИЦА О НАС
     app.get('/about', function(req, res, err) {
-        res.render("about");
+        deviceFinder(req);
+        res.render("about", {
+            device: device
+        });
     });
     //////////////////////////////////
 
@@ -257,6 +260,7 @@ module.exports = function(app) {
             Event.find({}, function (err, events) {
                 if (err) return next(err);
                 res.render('index', {
+                    default_theme : req.query.topic,
                     mark : true,
                     events : events, 
                     newstop : newsfinal,
@@ -454,19 +458,19 @@ module.exports = function(app) {
             failureRedirect: '/login'
         }),
         function(req, res) {
-            res.redirect('/news');
+            res.redirect('/news?topic=all');
         });
     app.get('/auth/vkontakte/callback', passport.authenticate('vkontakte', {
             failureRedirect: '/login'
         }),
         function(req, res) {
-            res.redirect('/news');
+            res.redirect('/news?topic=all');
         });
     app.get('/auth/twitter/callback', passport.authenticate('twitter', {
             failureRedirect: '/login'
         }),
         function(req, res) {
-            res.redirect('/news');
+            res.redirect('/news?topic=all');
         });
     /////////////////////////////////////////
 

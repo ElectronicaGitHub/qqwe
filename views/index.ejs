@@ -21,7 +21,8 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/castmag-index.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/reg.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
-	<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css">	
+	<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/stylesheets/header.css">	 -->
 	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome-4.0.2/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=cyrillic' rel='stylesheet' type='text/css'>
@@ -38,10 +39,14 @@
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.1/masonry.pkgd.js"></script>
  	</head>
- 	<script type="text/javascript"> var device = '<%=device%>'</script>
+ 	<script type="text/javascript"> 
+ 		var device = '<%=device%>'
+ 		window.default_theme = '<%=default_theme%>' || null;
+ 	</script>
+
 <body>
 
-	<div class='header'><a href="/news" style="color:#fff;"><p>CASTMAG</p></a>
+	<div class='header'><a href="/news?topic=all" style="color:#fff;"><p>CASTMAG</p></a>
 			<% if (!user) { %>
 				<p class='auth' style="font-size: 30px;">Вы не авторизованы </p>
 				<div class="reg-wrapper">
@@ -155,7 +160,7 @@
 							<div class="new-min-content">
 								<p class="new-min-content-header {{ block.type }}" ng-class="setClass(block.type)">{{ block.title_in | decode }}</p>
 								<div class="img-wrapper" >
-									<img name="pic" src="{{ block.url_in_list }}" style="width:100%;">
+									<img name="pic" src='{{ block.url_in_list }}' style="width:100%;">
 									<div class="inliner">
 										<p>{{ block.text_in_list | decode }}</p>
 									</div>
@@ -173,7 +178,7 @@
 				<% if (mark) { %>
 				<a ng-click="themeAll()"><li class="m">ГЛАВНАЯ</li></a>
 				<%} %>
-				<!-- <a href="/made"><li class="i">СОЗДАВАЙ</li></a> -->
+				<a href="/made"><li class="i">СОЗДАВАЙ</li></a>
 				<li class="li-outer e" id="opener">АРТ
 					<ul>
 						<a ng-click="themeChange('art-cinema')"><li class="li-inner r">35 ММ</li></a>
@@ -307,8 +312,6 @@
 			to {opacity: 1}
 		}
 	}
-
-
     </style>
 </body>
 </html>

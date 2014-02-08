@@ -1,0 +1,6 @@
+.header a p {
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-image: url('/images/header.png');
+	background-position: -440px 75px;
+}

@@ -7,7 +7,9 @@ app.config(function($sceProvider) {
 
 app.controller('indexCtrl', function ($scope, $http) {
     var device = window.device; 
+    $scope.theme = window.default_theme;   
 
+    console.log($scope.theme);
     $scope.feed = [];
     $scope.clearColumns = function() {
         $scope.column_1 = [];
@@ -23,37 +25,35 @@ app.controller('indexCtrl', function ($scope, $http) {
     } else {
         var quantity = 3; 
     }
-    $scope.themeFlag = false;
-    $scope.theme = '';
     var dontLoad = false;
 
     $scope.getAll = function() {
-         if (!$scope.themeFlag) {
+         if ($scope.theme == 'all') {
             url = '/dynamic/newsaddevice/' + page + '/' + quantity;
         }
-        if ($scope.themeFlag) {
+        else if ($scope.theme) {
             url = '/dynamic/newsaddevice/' + page + '/' + quantity + '/' + $scope.theme;
         }
-        if (dontLoad) { return 0 }
-        $http.get(url)
-        .success( function (result) {
-            console.log(result)
-            $scope.feed = result;
-            for (_new in $scope.feed) {
-                if (flag === 0) {
-                    $scope.column_1.push($scope.feed[_new]);
-                    flag = 1;
-                } else if (flag === 1) {
-                    $scope.column_2.push($scope.feed[_new]);
-                    flag = 0;
+        console.log('URL ', url);
+        if (!dontLoad) {
+            $http.get(url)
+            .success( function (result) {
+                $scope.feed = result;
+                for (_new in $scope.feed) {
+                    if (flag === 0) {
+                        $scope.column_1.push($scope.feed[_new]);
+                        flag = 1;
+                    } else if (flag === 1) {
+                        $scope.column_2.push($scope.feed[_new]);
+                        flag = 0;
+                    }
                 }
-            }
-            if ($scope.feed < quantity) { dontLoad = true; }
-            page += 1;
-        })
-        .error(function (result) {
-            console.log(result)
-        })  
+                if ($scope.feed < quantity) { dontLoad = true; }
+                page += 1;
+            })
+            .error(function (result) {
+            })  
+        }
     }
     if (device != "PC") {
         window.onscroll = function() {
@@ -66,13 +66,14 @@ app.controller('indexCtrl', function ($scope, $http) {
         $scope.get3();     
     }
     $scope.get3 = function() {
-        if (!$scope.themeFlag) {
+        if ($scope.theme == 'all') {
             url = '/dynamic/newsadd/' + page + '/' + quantity;
         }
-        if ($scope.themeFlag) {
+        else if ($scope.theme) {
             url = '/dynamic/newsadd/' + page + '/' + quantity + '/' + $scope.theme;
         }
-        console.log(url)
+        console.log(url);      
+        if (dontLoad) {return 0}
         $http.get(url)
             .success( function (result) {
                 console.log(result)
@@ -89,11 +90,15 @@ app.controller('indexCtrl', function ($scope, $http) {
                         flag = 0;
                     }
                 }
+                if ($scope.feed.length != quantity) { 
+                    dontLoad = true;
+                }
             })
             .error(function (result) {
-                console.log(result)
-            })          
+            })    
         page += 1;
+        console.log('длина $scope.feed ', $scope.feed.length, ', а quantity ', quantity)
+        console.log('dontLoad ',dontLoad); 
     }
     $scope.themeChange = function(theme) {
         page = 0;
@@ -141,7 +146,6 @@ app.directive('feedelem', function() {
                     $( this ).height(imgHeight);
                 })
             });
-            console.log(scope.block.type)
         }
     }
 })

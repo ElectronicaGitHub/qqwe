@@ -16,15 +16,16 @@
 	<meta property="og:description" content="Если вам интересно сегодняшнее искусство, ремесло, и вы бы хотели черпать вдохновение, вдохновлять - присоединяйтесь к нам! Мы не только рассказываем, но и показываем!">
 	<meta name="robots" content="all">
 	<meta name="keywords" content="Handmade, Своими руками, Ремесло, Хэнд мейд, Музыка, Кино, Мода, Как сделать, Как создать, Производство, Бизнес, Творчество, Автор, Создатель, Творец, Features, Рассказы, Статьи, Новости">
-	<link rel="stylesheet" type="text/css" href="/stylesheets/made.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome-4.0.2/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/reg.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css">	
-	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome-4.0.2/css/font-awesome.min.css">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/made.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/stylesheets/header.css">	 -->
 </head>
-<body>
-	<div class='header'><a href="/news" style="color:#fff;"><p>CASTMAG</p></a>
+<body ng-app="app" ng-controller="Ctrl">
+	<div class='header'><a href="/news?topic=all" style="color:#fff;"><p>CASTMAG</p></a>
 			<% if (!user) { %>
 				<p class='auth' style="font-size: 30px;">Вы не авторизованы </p>
 				<div class="reg-wrapper">
@@ -55,23 +56,22 @@
 	</div>
 	<div class='slider-all'>
 			<% for (var i=0; i<newstop.length; i++) { %>
-					<a href="/news/<%-newstop[i]._id%>">
-						<div class="slider-element" style ="background-size:100%; background-image: url('<%-newstop[i].url_in_top%>')"><div class="wrap-p"> <p><%-newstop[i].text_in_top%></p></div>
-						</div>
-					</a>
+				<a href="/news/<%-newstop[i]._id%>">
+					<div class="slider-element" style ="background-size:100%; background-image: url('<%-newstop[i].url_in_top%>')"><div class="wrap-p"> <p><%-newstop[i].text_in_top%></p></div>
+					</div>
+				</a>
 			<% } %>
 	</div>
 
 	<!-- /// SLIDER MENU -->
 
-	<div class="menu-starter"> <p>Список топиков</p>
+	<!-- <div class="menu-starter"> <p>Список топиков</p>
 	</div>
 	<div class="sidebar-top">
 		<ul>
 			<% if (mark) { %>
 			<li class="m"><a href="/news">ГЛАВНАЯ</a></li>
 			<%} %>
-			<!-- <li class="q"><a href="/news">МИР</a></li> -->
 			<li class="i"><a href="/made">СОЗДАВАЙ</a></li>
 			<li class="r"><a href="/art-cinema">КИНО</a></li>
 			<li class="t"><a href="/art-music">МУЗЫКА</a></li>
@@ -81,81 +81,65 @@
 			<li class="o"><a href="/howto">ХАУ ТУ</a></li>
 			<li class="a"><a href="/other">ИНОЕ</a></li>
 		</ul>
-	</div>
+	</div> -->
 
 	<!-- /// SLIDER MENU ENDS -->
 
 	<div class="all">
 		<div class="content">
-				<!-- <a href="">
-					<div class="made-block">
-						<p class="made-block-header made" >Это заголовок</p>
-							<div class="pic" style="background-image: url('https://s3-eu-west-1.amazonaws.com/castmagqwe/EugeneOnegin/%D0%A4%D0%9E%D0%A2%D0%9E2.jpg')"></div>
-							<div class="side-text">
-								<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<a href="">
+					<div class="made-block" >
+						<p class="made-block-header">Изделие с логотипом CASTMAG</p>
+						<div class="container" style="background-image: url('http://cs409230.vk.me/v409230276/8890/6BTMzFDxn98.jpg');">
+							<div class="level-1">
+								<p class="a">Ты хорош в своем деле?</p> 
+								<p class="ab">У тебя есть шанс продемонстрировать свое мастерство!</p>
+								<p class="abc">Кастмаг устраивает конкурс на лучшую работу с эмблемой нашего журнала!</p>
 							</div>
+							<div class="half">
+								<div class="level-2 appear-a">От Вас</div>
+								<div class="level-3">
+									<ul>
+										<li class="appear-b">Информация о вас и о вашем продукте</li>
+										<li class="appear-c">1 марта прислать нам фотографии готового изделия и процесса.</li>
+										<li class="appear-d">Ждать результата</li>
+									</ul>
+								</div>
+							</div>
+							<div class="half">
+								<div class="level-2 appear-a">От Нас</div>
+								<div class="level-3">
+									<ul>
+										<li class="appear-b">Рекламный блог на нашем сайте</li>
+										<li class="appear-c">Замечательные призы от Varvar</li>
+										<li class="appear-d">Вера в вас и в ваши проекты</li>
+									</ul>
+								</div>
+							</div>
+						</div>
 					</div>
 				</a>
 
-				<a href="">
-					<div class="made-block">
-						<p class="made-block-header made" >Это заголовок</p>
-							<div class="pic" style="background-image: url('https://s3-eu-west-1.amazonaws.com/castmagqwe/EugeneOnegin/%D0%A4%D0%9E%D0%A2%D0%9E2.jpg')"></div>
-							<div class="side-text">
-								<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum. cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderi</p>
-							</div>
-					</div>
-				</a> -->
-				<div class="message" style="margin: 20px auto; width 100%; height:600px; text-align: center; background-image: url('');"><p style="font-family:'Open Sans Condensed'; font-size:60px; width: 100%; min-height:60px; font-weight:700; padding:20px; box-sizing: border-box"><%-message %></p></div>
+				<!-- <div class="message" style="margin: 20px auto; width 100%; height:600px; text-align: center; background-image: url('');"><p style="font-family:'Open Sans Condensed'; font-size:60px; width: 100%; min-height:60px; font-weight:700; padding:20px; box-sizing: border-box"><%-message %></p></div> -->
 
 		</div>	
 		<div class="sidebar">
 			<ul>
 				<% if (mark) { %>
-				<li class="m"><a href="/news">ГЛАВНАЯ</a></li>
+				<li class="m"><a href="/news?topic=news">ГЛАВНАЯ</a></li>
 				<%} %>
-				<!-- <li class="q"><a href="/news">МИР</a></li> -->
-				<li class="i" ><a href="/made">СОЗДАВАЙ</a></li>
+				<li class="i" ><a href="/news?topic=made">СОЗДАВАЙ</a></li>
 				<li class="li-outer e" id="opener">АРТ
 					<ul>
-						<a href="/art-cinema"><li class="li-inner r">35 ММ</li></a>
-						<a href="/art-music"><li class="li-inner t">ЗВУК</li></a>
-						<a href="/art-art"><li class="li-inner zz">ПОЛОТНО</li></a>
-						<a href="/fashion"><li class="li-inner u">ПОДИУМ</li></a>
+						<a href="/news?topic=art-cinema"><li class="li-inner r">35 ММ</li></a>
+						<a href="/news?topic=art-music"><li class="li-inner t">ЗВУК</li></a>
+						<a href="/news?topic=art-art"><li class="li-inner zz">ПОЛОТНО</li></a>
+						<a href="/news?topic=fashion"><li class="li-inner u">ПОДИУМ</li></a>
 					</ul>
 				</li>
-				<li class="p" ><a href="/craft">РЕМЕСЛО</a></li>
-				<li class="o" ><a href="/howto">ХАУ ТУ</a></li>
-				<li class="a" ><a href="/other">ИНОЕ</a></li>
+				<li class="p" ><a href="/news?topic=craft">РЕМЕСЛО</a></li>
+				<li class="o" ><a href="/news?topic=howto">ХАУ ТУ</a></li>
+				<li class="a" ><a href="/news?topic=other">ИНОЕ</a></li>
 			</ul>
 		</div>
 		<!-- <div class="new-news-loader">НАШИ РОБОТЫ УСЕРДНО ТРУДЯТСЯ НАД НОВЫМ МАТЕРИАЛОМ</div> -->
@@ -163,21 +147,15 @@
 	
 	<footer class="footer">
 		<div class="third">
-			<div class="text info">Контакты</div>
-			<div class="paddinger"></div>
-			<div class="text info">О проекте</div>
-			<div class="paddinger"></div>
+			<div class="text info">Контакты</div> <div class="paddinger"></div>
+			<div class="text info">О проекте</div> <div class="paddinger"></div>
 			<div class="text info" onclick="advertise()">Реклама</div>
 		</div>
 		<div class="third">
-			<div class="text" onclick="fcbk()">facebook</div>
-			<div class="paddinger"></div>
-			<div class="text" onclick="twtr()">twitter</div>
-			<div class="paddinger"></div>
-			<div class="text" onclick="vk()">Вконтакте</div>
-			<div class="paddinger"></div>
-			<div class="text" onclick="nstgr()">instagram</div>
-			<div class="paddinger"></div>
+			<div class="text" onclick="fcbk()">facebook</div> <div class="paddinger"></div>
+			<div class="text" onclick="twtr()">twitter</div> <div class="paddinger"></div>
+			<div class="text" onclick="vk()">Вконтакте</div> <div class="paddinger"></div>
+			<div class="text" onclick="nstgr()">instagram</div> <div class="paddinger"></div>
 			<div class="text" onclick="youtb()">vimeo</div>
 		</div>
 		<div class="third">
@@ -187,11 +165,9 @@
 	<% if (device!='PC') { %>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/devices-media.css">
 	<%}%>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<!-- // <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
+	<script type="text/javascript" src='/javascripts/libs/jquery-1.10.2.min.js'></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script>
-
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.1/masonry.pkgd.js"></script>
 	<script src="/javascripts/made.js"></script>
 	<script type="text/javascript" src="//vk.com/js/api/openapi.js?101"></script>
 	<script>

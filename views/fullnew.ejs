@@ -19,8 +19,10 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/reg.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/stylesheets/header.css">	 -->
 	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome-4.0.2/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Wendy+One' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/advertise-styles.css">
@@ -30,7 +32,7 @@
 </head>
 <body>
 	<div id="go-top" class="go-top"><i class="fa fa-chevron-up" style="text-align:center; padding-left:0px; position:absolute; bottom:0; left:0; color:#333; font-size:40px; height: 40px; width: 40px;"></i></div>
-	<div class='header'><a href="/news" style="color:#fff;"><p>CASTMAG</p></a>
+	<div class='header'><a href="/news?topic=all" style="color:#fff;"><p>CASTMAG</p></a>
 		<% if (!user) { %>		
 				<p style="font-size: 30px;">Вы не вошли</p>
 				<div class="reg-wrapper">
@@ -149,7 +151,6 @@
 									<div class='name'><%-comments[q].autor_name%></div>
 									<div class="surname"><%-comments[q].autor_surname%></div> 
 								<% } %>
-								<!-- написал в <div class="date"><%-strftime('%H:%M:%S, %d %B %Y года ', comments[q].post_date) %></div>  -->
 								<div class="comment_text sizable each"><%-comments[q].content%></div>
 								<% if (!user) { %>
 								<% } else if (user.id == 1584815370 || user.id == 1160344910) { %>
@@ -163,19 +164,19 @@
 			</div>
 			<div class="sidebar">
 				<ul>
-					<a href="/news"><li class="m">ГЛАВНАЯ</li></a>
-					<!-- <a href="/made"><li class="i">СОЗДАВАЙ</li></a> -->
+					<a href="/news?topic=all"><li class="m">ГЛАВНАЯ</li></a>
+					<a href="/news?topic=made"><li class="i">СОЗДАВАЙ</li></a>
 					<li class="li-outer e" id="opener">АРТ
 						<ul>
-							<a href="/art-cinema"><li class="li-inner r">35 ММ</li></a>
-							<a href="/art-music"><li class="li-inner t">ЗВУК</li></a>
-							<a href="/art-art"><li class="li-inner zz">ПОЛОТНО</li></a>
-							<a href="/fashion"><li class="li-inner u">ПОДИУМ</li></a>
+							<a href="/news?topic=art-cinema"><li class="li-inner r">35 ММ</li></a>
+							<a href="/news?topic=art-music"><li class="li-inner t">ЗВУК</li></a>
+							<a href="/news?topic=art-art"><li class="li-inner zz">ПОЛОТНО</li></a>
+							<a href="/news?topic=fashion"><li class="li-inner u">ПОДИУМ</li></a>
 						</ul>
 					</li>
-					<a href="/craft"><li class="p">РЕМЕСЛО</li></a>
-					<a href="/howto"><li class="o">ХАУ ТУ</li></a>
-					<a href="/other"><li class="a">ИНОЕ</li></a>			
+					<a href="/news?topic=craft"><li class="p">РЕМЕСЛО</li></a>
+					<a href="/news?topic=howto"><li class="o">ХАУ ТУ</li></a>
+					<a href="/news?topic=other"><li class="a">ИНОЕ</li></a>			
 				</ul>
 
 				<div class="block">
@@ -191,19 +192,19 @@
 					<div class="news-all-best"></div>
 					<div style="height:auto; width : 100%; overflow: hidden; margin-top:20px;">
 						<ul>
-							<a href="/news"><li class="m">ГЛАВНАЯ</li></a>
-							<!-- <a href="/made"><li class="i" >СОЗДАВАЙ</li></a> -->
+							<a href="/news?topic=all"><li class="m">ГЛАВНАЯ</li></a>
+							<a href="/news?topic=made"><li class="i" >СОЗДАВАЙ</li></a>
 							<li class="li-outer e" id="opener1">АРТ
 								<ul>
-									<a data-style="art-cinema" class="dynamic" href="/art-cinema"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner r">35 ММ</li></a>
-									<a data-style="art-music" class="dynamic" href="/art-music"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner t">ЗВУК</li></a>
-									<a data-style="art-art" class="dynamic" href="/art-art"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner zz">ПОЛОТНО</li></a>
-									<a data-style="fashion" class="dynamic" href="/fashion"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner u">ПОДИУМ</li></a>
+									<a data-style="art-cinema" class="dynamic" href="/news?topic=art-cinema"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner r">35 ММ</li></a>
+									<a data-style="art-music" class="dynamic" href="/news?topic=art-music"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner t">ЗВУК</li></a>
+									<a data-style="art-art" class="dynamic" href="/news?topic=art-art"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner zz">ПОЛОТНО</li></a>
+									<a data-style="fashion" class="dynamic" href="/news?topic=fashion"><li style=" font-size:25px; height: 30px; line-height: 30px" class="li-inner u">ПОДИУМ</li></a>
 								</ul>
 							</li>
-							<a data-style="craft" class="dynamic" href="/craft"><li class="p">РЕМЕСЛО</li></a>
-							<a data-style="howto" class="dynamic" href="/howto"><li class="o">ХАУ ТУ</li></a>
-							<a data-style="other" class="dynamic" href="/other"><li class="a">ИНОЕ</li></a>				
+							<a data-style="craft" class="dynamic" href="/news?topic=craft"><li class="p">РЕМЕСЛО</li></a>
+							<a data-style="howto" class="dynamic" href="/news?topic=howto"><li class="o">ХАУ ТУ</li></a>
+							<a data-style="other" class="dynamic" href="/news?topic=other"><li class="a">ИНОЕ</li></a>				
 						</ul>
 					</div>
 				</div>
@@ -215,7 +216,7 @@
 			<div class="third">
 				<div class="text info">Контакты</div>
 				<div class="paddinger"></div>
-				<div class="text info">О проекте</div>
+				<div class="text info" onclick="about_project()">О проекте</div>
 				<div class="paddinger"></div>
 				<div class="text info" onclick="advertise()">Реклама</div>
 			</div>

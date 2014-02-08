@@ -109,7 +109,8 @@
 	font-size: 40px;
 }
 .new p {
-	font-size: 45px;
+	font-size: 30px;
+	line-height: 38px;
 }
 .new h1 {
 	font-size: 70px;
@@ -120,15 +121,15 @@
 	line-height: 60px;
 }
 .new h3 {
-	font-size: 40px;
-	line-height: 45px;
+	font-size: 50px;
+	line-height: 58px;
 }
 h1.header-new {
 	font-size: 60px;
 }
 
 .new hr {
-	height: 4px;
+	height: 2px;
 }
 
 .inliner {
@@ -175,15 +176,16 @@ p.new-date {
 	font-size: 40px !important;
 }
 .footer {
-	height: 240px;
+	height: 300px;
 }
 .footer .third {
-	height: 80px;
-	line-height: 80px;
+	height: 100px;
+	overflow: hidden;
+	line-height: 100px;
 }
 .footer .text {
-	font-size: 40px;
-	width: 140px;
+	font-size: 50px;
+	width: 180px;
 }
 .footer .paddinger {
 	margin: 0px 20px;
@@ -375,4 +377,37 @@ p.new-date {
 	display: inline-block;
 	width: 50%;
 	float: left;
+}
+
+blockquote {
+	padding: 10px 20px 10px 150px;
+	background-color: rgba(41, 128, 185,.3);
+	font-size: 35px;
+	letter-spacing: -0.1ex;
+	line-height: 42px;
+	position: relative;
+	min-height: 125px;
+	margin-bottom: 5px;
+}
+.main {
+	font-size: 200px;
+}
+.inform {
+	font-size: 40px;
+}
+.inform-big {
+	font-size: 50px; 
+	line-height:55px;
+}
+.wrapperX {
+	width: 900px;
+	height: 800px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+	right: 0;
+	text-align: center;
+	z-index: 9999;
 }

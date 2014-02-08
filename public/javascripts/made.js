@@ -15,16 +15,6 @@ $(document).ready(function() {
 			mic = true;
 		}
 	});
-
-	$('.made-block').each(function() {
-		var picMargin = ( $(this).children('.side-text').height() - $(this).children('.pic').height()) / 2;
-		console.log(picMargin);
-		if (picMargin > 0 ) {
-			$(this).children('.pic').css('margin-top', picMargin);
-		}
-	});
-	
-
 	if ( (navigator.userAgent.match(/iPhone/i)) 
    	  || (navigator.userAgent.match(/iPod/i)) 
       || (navigator.userAgent.match(/Android/i)) ) 
