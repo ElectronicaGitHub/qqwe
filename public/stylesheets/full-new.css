@@ -130,9 +130,9 @@ html {
 	background-color: rgba(243, 156, 18,.2);
 	border-top: 1px solid #fff; 
 }
-.new ul li:hover {
+/*.new ul li:hover {
 	background-color: rgba(243, 156, 18,.4)
-}
+}*/
 .new hr {
 	background-color: #ddd;
 	border: 0px;
@@ -393,12 +393,9 @@ a.pluso-more {
 	margin-bottom: 10px;
 }
 .news-all-best-each:hover {
-	/*background-color: #bdc3c7;*/
-	color: #bdc3c7;
-	/*text-shadow: 0 1px 0 rgba(0,0,0,.6);*/
+	color: #f39c12;
 }
 .news-all-best {
-	/*padding: 0px 10px;*/
 	margin-bottom: 40px;
 	min-height: 226px;
 	overflow: hidden;
@@ -524,12 +521,10 @@ blockquote:hover strong {
 	-webkit-transition: all 0.7s ease;
 	-moz-transition: all 0.7s ease;
 	-ms-transition: all 0.7s ease;
-
 }
 blockquote:hover {
 	background-color: rgba(41, 128, 185,.5);
 }
-
 .undercolored {
 	background-color: rgba(52, 152, 219,.3);
 	-webkit-transition: all 0.7s ease;
