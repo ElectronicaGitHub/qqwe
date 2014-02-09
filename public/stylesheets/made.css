@@ -217,7 +217,7 @@
 .container {
 	height: auto;
 	overflow: hidden;
-	background-position-y: -140px;
+	background-position-y: -30px;
 	background-size: cover;
 	position: relative;
 }
@@ -234,9 +234,11 @@
 	        transform: translate(0,0);
 }
 
-.level-1 .a   { -webkit-animation: move .5s ease; -moz-animation: move .5s ease; animation: move .5s ease; }
-.level-1 .ab  { -webkit-animation: move .8s ease; -moz-animation: move .8s ease; animation: move .8s ease; }
-.level-1 .abc { -webkit-animation: move  1s ease; -moz-animation: move  1s ease; animation: move  1s ease; }
+.level-1 .a     { -webkit-animation: move   .5s ease; -moz-animation: move  .5s ease; animation: move  .5s ease; }
+.level-1 .ab    { -webkit-animation: move   .8s ease; -moz-animation: move  .8s ease; animation: move  .8s ease; }
+.level-1 .abc   { -webkit-animation: move  1.2s ease; -moz-animation: move 1.2s ease; animation: move 1.2s ease; }
+.level-1 .abcd  { -webkit-animation: move  1.5s ease; -moz-animation: move 1.5s ease; animation: move 1.5s ease; }
+.level-1 .abcde { -webkit-animation: move  1.8s ease; -moz-animation: move 1.8s ease; animation: move 1.8s ease; }
 
 .appear-a { -webkit-animation: appear 1.2s ease; -moz-animation: appear 1.2s ease; animation: appear 1.2s ease;	}
 .appear-b { -webkit-animation: appear 1.8s ease; -moz-animation: appear 1.8s ease; animation: appear 1.8s ease;	}
@@ -287,7 +289,7 @@
 	font-family: "Open Sans Condensed";
 	font-weight: 800;
 	padding-left: 20px;
-	background-color: rgba(0,0,0,.3);
+	background-color: rgba(0,0,0,.4);
 }
 .level-3 ul {
 	list-style: none;
@@ -303,7 +305,7 @@
 	font-weight: 800;
 }
 .level-3 {
-	background-color: rgba(0,0,0,.2);
+	background-color: rgba(0,0,0,.3);
 	padding-bottom: 10px;
 	height: 125px;
 }
