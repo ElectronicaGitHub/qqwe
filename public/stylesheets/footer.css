@@ -29,8 +29,14 @@
 	font-size: 20px;
 }
 .long {
-	width: 120px;
+	width: 180px;
+	text-align: center;
+	color: white;
 	letter-spacing: -0.05ex;
+}
+.long a {
+	text-decoration: none;
+	color: white;
 }
 .text:hover {
 	background-color: #3675FF;
